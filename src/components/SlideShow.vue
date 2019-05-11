@@ -13,7 +13,14 @@
 
 <script>
   export default {
-    name: "SlideShow"
+    name: "SlideShow",
+    data() {
+      return {
+        imageArr: [
+
+        ]
+      }
+    }
   }
 </script>
 
@@ -46,31 +53,31 @@
     }
 
     .cb-slideshow li:nth-child(1) span {
-      background-image: url('../assets/1.jpg')
+      background-image: url('../assets/image/1.jpg')
     }
 
     .cb-slideshow li:nth-child(2) span {
-      background-image: url('../assets/2.jpg');
+      background-image: url('../assets/image/2.jpg');
       animation-delay: 6s;
     }
 
     .cb-slideshow li:nth-child(3) span {
-      background-image: url('../assets/3.jpg');
+      background-image: url('../assets/image/3.jpg');
       animation-delay: 12s;
     }
 
     .cb-slideshow li:nth-child(4) span {
-      background-image: url('../assets/4.jpg');
+      background-image: url('../assets/image/4.jpg');
       animation-delay: 18s;
     }
 
     .cb-slideshow li:nth-child(5) span {
-      background-image: url('../assets/5.jpg');
+      background-image: url('../assets/image/5.jpg');
       animation-delay: 24s;
     }
 
     .cb-slideshow li:nth-child(6) span {
-      background-image: url('../assets/6.jpg');
+      background-image: url('../assets/image/6.jpg');
       animation-delay: 30s;
     }
 

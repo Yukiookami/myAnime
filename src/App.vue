@@ -1,11 +1,11 @@
 <template>
   <div id="app">
-    <SlideShow></SlideShow>
+<!--    <SlideShow></SlideShow>-->
     <Header id="header"></Header>
-    <main id="main">
-      <router-view/>
-    </main>
-    <Footer id="footer"></Footer>
+<!--    <main id="main">-->
+<!--      <router-view/>-->
+<!--    </main>-->
+<!--    <Footer id="footer"></Footer>-->
   </div>
 </template>
 
@@ -23,6 +23,6 @@
   }
 </script>
 
-<style scoped lang="less">
-
+<style lang="less">
+  @import './assets/common.less';
 </style>
