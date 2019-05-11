@@ -5,7 +5,7 @@
 <!--    <main id="main">-->
 <!--      <router-view/>-->
 <!--    </main>-->
-<!--    <Footer id="footer"></Footer>-->
+    <Footer id="footer"></Footer>
   </div>
 </template>
 
@@ -25,4 +25,10 @@
 
 <style lang="less">
   @import './assets/common.less';
+
+  #app {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
 </style>
