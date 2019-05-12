@@ -34,6 +34,7 @@ export default {
       flex: 0 0 170px;
       padding: 0 15px;
       align-self: center;
+      text-align: center;
       p {
         font-size: 12px;
       }
@@ -53,6 +54,7 @@ export default {
           align-items: center;
           padding: 0 2em;
           min-height: 54px;
+          transition: all .2s ease-in-out;
           &:hover {
             background-color: @headerHoverColor;
           }

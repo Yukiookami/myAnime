@@ -10,7 +10,7 @@
       </div>
       <div class="posts-wrapper">
         <ul>
-          <li>
+          <li data-aos="flip-up">
             <div class="post-item">
               <h1 class="title">1/2 summer</h1>
               <ul class="tags">
@@ -22,14 +22,16 @@
                 <figure class="poster">
                   <img src="../../assets/image/2.jpg">
                   <figcaption>
-                    游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介
+                    <div class="content">
+                      游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介
+                    </div>
                   </figcaption>
                 </figure>
               </div>
               <div class="date">5月<b>29</b></div>
             </div>
           </li>
-          <li>
+          <li data-aos="flip-up">
             <div class="post-item">
               <h1 class="title">1/2 summer</h1>
               <ul class="tags">
@@ -41,7 +43,135 @@
                 <figure class="poster">
                   <img src="../../assets/image/2.jpg">
                   <figcaption>
-                    游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介
+                    <div class="content">
+                      一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十
+                    </div>
+                  </figcaption>
+                </figure>
+              </div>
+              <div class="date">5月<b>29</b></div>
+            </div>
+          </li>
+          <li data-aos="flip-up">
+            <div class="post-item">
+              <h1 class="title">1/2 summer</h1>
+              <ul class="tags">
+                <li class="tag"><i class="el-icon-collection-tag"></i>ALcotHoneyCome,纯爱</li>
+                <li class="tag"><i class="el-icon-view"></i>47,466℃</li>
+                <li class="tag"><i class="el-icon-s-comment"></i>36</li>
+              </ul>
+              <div class="poster-wrapper">
+                <figure class="poster">
+                  <img src="../../assets/image/2.jpg">
+                  <figcaption>
+                    <div class="content">
+                      游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介
+                    </div>
+                  </figcaption>
+                </figure>
+              </div>
+              <div class="date">5月<b>29</b></div>
+            </div>
+          </li>
+          <li data-aos="flip-up">
+            <div class="post-item">
+              <h1 class="title">1/2 summer</h1>
+              <ul class="tags">
+                <li class="tag"><i class="el-icon-collection-tag"></i>ALcotHoneyCome,纯爱</li>
+                <li class="tag"><i class="el-icon-view"></i>47,466℃</li>
+                <li class="tag"><i class="el-icon-s-comment"></i>36</li>
+              </ul>
+              <div class="poster-wrapper">
+                <figure class="poster">
+                  <img src="../../assets/image/2.jpg">
+                  <figcaption>
+                    <div class="content">
+                      游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介
+                    </div>
+                  </figcaption>
+                </figure>
+              </div>
+              <div class="date">5月<b>29</b></div>
+            </div>
+          </li>
+          <li data-aos="flip-up">
+            <div class="post-item">
+              <h1 class="title">1/2 summer</h1>
+              <ul class="tags">
+                <li class="tag"><i class="el-icon-collection-tag"></i>ALcotHoneyCome,纯爱</li>
+                <li class="tag"><i class="el-icon-view"></i>47,466℃</li>
+                <li class="tag"><i class="el-icon-s-comment"></i>36</li>
+              </ul>
+              <div class="poster-wrapper">
+                <figure class="poster">
+                  <img src="../../assets/image/2.jpg">
+                  <figcaption>
+                    <div class="content">
+                      游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介
+                    </div>
+                  </figcaption>
+                </figure>
+              </div>
+              <div class="date">5月<b>29</b></div>
+            </div>
+          </li>
+          <li data-aos="flip-up">
+            <div class="post-item">
+              <h1 class="title">1/2 summer</h1>
+              <ul class="tags">
+                <li class="tag"><i class="el-icon-collection-tag"></i>ALcotHoneyCome,纯爱</li>
+                <li class="tag"><i class="el-icon-view"></i>47,466℃</li>
+                <li class="tag"><i class="el-icon-s-comment"></i>36</li>
+              </ul>
+              <div class="poster-wrapper">
+                <figure class="poster">
+                  <img src="../../assets/image/2.jpg">
+                  <figcaption>
+                    <div class="content">
+                      游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介
+                    </div>
+                  </figcaption>
+                </figure>
+              </div>
+              <div class="date">5月<b>29</b></div>
+            </div>
+          </li>
+          <li data-aos="flip-up">
+            <div class="post-item">
+              <h1 class="title">1/2 summer</h1>
+              <ul class="tags">
+                <li class="tag"><i class="el-icon-collection-tag"></i>ALcotHoneyCome,纯爱</li>
+                <li class="tag"><i class="el-icon-view"></i>47,466℃</li>
+                <li class="tag"><i class="el-icon-s-comment"></i>36</li>
+              </ul>
+              <div class="poster-wrapper">
+                <figure class="poster">
+                  <img src="../../assets/image/2.jpg">
+                  <figcaption>
+                    <div class="content">
+                      游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介
+                    </div>
+                  </figcaption>
+                </figure>
+              </div>
+              <div class="date">5月<b>29</b></div>
+            </div>
+          </li>
+          <li data-aos="flip-up">
+            <div class="post-item">
+              <h1 class="title">1/2 summer</h1>
+              <ul class="tags">
+                <li class="tag"><i class="el-icon-collection-tag"></i>ALcotHoneyCome,纯爱</li>
+                <li class="tag"><i class="el-icon-view"></i>47,466℃</li>
+                <li class="tag"><i class="el-icon-s-comment"></i>36</li>
+              </ul>
+              <div class="poster-wrapper">
+                <figure class="poster">
+                  <img src="../../assets/image/2.jpg">
+                  <figcaption>
+                    <div class="content">
+                      游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介
+                    </div>
                   </figcaption>
                 </figure>
               </div>
@@ -51,13 +181,129 @@
         </ul>
       </div>
     </section>
-    <section class="sub-wrapper"></section>
+    <section class="sub-wrapper">
+      <aside>
+        <div class="input-wrapper" data-aos="flip-up" data-aos-mirror="true" data-aos-delay="100">
+          <el-input class="searchInput" v-model="searchText" placeholder="输入关键词搜索"></el-input>
+          <el-button class="searchConfirm"><i class="el-icon-search"></i></el-button>
+        </div>
+      </aside>
+      <aside>
+        <div class="commentList" data-aos="fade-up" data-aos-mirror="true" data-aos-delay="200" data-aos-duration="2000">
+          <div class="panelHeading">
+            <i class="el-icon-s-comment"></i>
+            <span>最新评论</span>
+            <i class="el-icon-arrow-down"></i>
+            <i class="el-icon-error"></i>
+          </div>
+          <ul class="listGroup">
+            <li class="listGroupItem">
+              <img src="../../assets/image/avatar.jpg">
+              <span class="commentLog"> 第一句话 </span>
+            </li>
+            <li class="listGroupItem">
+              <span class="avatar">
+                <img src="../../assets/image/avatar.jpg">
+              </span>
+              <span class="commentLog"> 第二句话 </span>
+            </li>
+            <li class="listGroupItem">
+              <img src="../../assets/image/avatar.jpg">
+              <span class="commentLog"> 第三句话 </span>
+            </li>
+            <li class="listGroupItem">
+              <span class="avatar">
+                <img src="../../assets/image/avatar.jpg">
+              </span>
+              <span class="commentLog"> 第四句话 </span>
+            </li>
+            <li class="listGroupItem">
+              <img src="../../assets/image/avatar.jpg">
+              <span class="commentLog"> 第五句话 </span>
+            </li>
+            <li class="listGroupItem">
+              <span class="avatar">
+                <img src="../../assets/image/avatar.jpg">
+              </span>
+              <span class="commentLog"> 第六句话 </span>
+            </li>
+            <li class="listGroupItem">
+              <img src="../../assets/image/avatar.jpg">
+              <span class="commentLog"> 第七句话 </span>
+            </li>
+            <li class="listGroupItem">
+              <span class="avatar">
+                <img src="../../assets/image/avatar.jpg">
+              </span>
+              <span class="commentLog"> 第八句话 </span>
+            </li>
+          </ul>
+        </div>
+      </aside>
+      <aside>
+        <div class="randomList" data-aos="fade-up" data-aos-mirror="true" data-aos-duration="2000">
+          <div class="panelHeading">
+            <i class="el-icon-menu"></i>
+            <span>随机文章</span>
+            <i class="el-icon-arrow-down"></i>
+            <i class="el-icon-error"></i>
+          </div>
+          <ul class="listGroup">
+            <li class="listGroupItem">
+              <img src="../../assets/image/avatar.jpg">
+              <span class="commentLog"> 第一句话 </span>
+            </li>
+            <li class="listGroupItem">
+              <span class="avatar">
+                <img src="../../assets/image/avatar.jpg">
+              </span>
+              <span class="commentLog"> 第二句话 </span>
+            </li>
+            <li class="listGroupItem">
+              <img src="../../assets/image/avatar.jpg">
+              <span class="commentLog"> 第三句话 </span>
+            </li>
+            <li class="listGroupItem">
+              <span class="avatar">
+                <img src="../../assets/image/avatar.jpg">
+              </span>
+              <span class="commentLog"> 第四句话 </span>
+            </li>
+            <li class="listGroupItem">
+              <img src="../../assets/image/avatar.jpg">
+              <span class="commentLog"> 第五句话 </span>
+            </li>
+            <li class="listGroupItem">
+              <span class="avatar">
+                <img src="../../assets/image/avatar.jpg">
+              </span>
+              <span class="commentLog"> 第六句话 </span>
+            </li>
+            <li class="listGroupItem">
+              <img src="../../assets/image/avatar.jpg">
+              <span class="commentLog"> 第七句话 </span>
+            </li>
+            <li class="listGroupItem">
+              <span class="avatar">
+                <img src="../../assets/image/avatar.jpg">
+              </span>
+              <span class="commentLog"> 第八句话 </span>
+            </li>
+          </ul>
+        </div>
+      </aside>
+    </section>
   </div>
 </template>
 
 <script>
   export default {
-    name: "Index"
+    name: 'Index',
+    data() {
+      return {
+        searchText: ''
+      }
+    }
   }
 </script>
 
@@ -104,11 +350,11 @@
             background-color: rgba(230, 238, 232, .5);
             box-shadow: 0px 0px 8px #000;
             text-align: center;
-            transition: all .4s;
-            transition-timing-function: cubic-bezier(.175, .885, .32, .1.275);
+            transition-timing-function: cubic-bezier(.175, .885, .32, .1 .275);
             border-radius: 10px;
 
             &:hover {
+              transition: all .35s ease-in-out;
               box-shadow: 0px 0px 50px #000;
             }
 
@@ -129,7 +375,7 @@
               .tag {
                 display: inline-block;
                 margin: 0 .15em;
-                padding: .2em .6em.3em;
+                padding: .2em .6em .3em;
                 border-radius: .25em;
                 line-height: 1;
                 color: #fff;
@@ -158,6 +404,7 @@
               position: relative;
               width: 680px;
               height: 382px;
+              overflow: hidden;
 
               img {
                 width: 100%;
@@ -169,7 +416,35 @@
                 position: absolute;
                 left: 0;
                 top: 0;
-                opacity: .1;
+                width: 100%;
+                height: 100%;
+                padding: 20px;
+                font-style: italic;
+                font-size: 25px;
+                color: #bbb;
+                text-align: center;
+                overflow: hidden;
+                background-color: rgba(0, 0, 0, .6);
+                transition: all .35s linear .3s;
+                opacity: 0;
+                transform: scale(4);
+
+                .content {
+                  display: -webkit-box;
+                  -webkit-line-clamp: 10;
+                  -webkit-box-orient: vertical;
+                  overflow: hidden;
+                }
+              }
+
+              &:hover img {
+                transform: scale(1.2);
+                transition: all .4s linear;
+              }
+
+              &:hover figcaption {
+                opacity: 1;
+                transform: scale(1);
               }
             }
 
@@ -201,6 +476,110 @@
     section.sub-wrapper {
       flex: 1;
       padding: 0 15px;
+
+      .input-wrapper {
+        display: flex;
+        align-items: center;
+
+        .searchInput {
+          height: 35px;
+          line-height: 35px;
+          box-shadow: inset 0px 1px 1px rgba(0, 0, 0, .075);
+        }
+
+        .searchConfirm {
+          background-color: #d9534f;
+          border: none;
+          color: #fff;
+          padding: 8px 13px;
+          margin-left: 1em;
+        }
+      }
+
+      aside {
+        margin-bottom: 50px;
+      }
+
+      .commentList, .randomList {
+        border-radius: 4px;
+        background-color: rgba(230, 238, 232, .5);
+        box-shadow: 0 0 5px #c2c2c2;
+
+        &:hover {
+          box-shadow: 0 0 50px #000;
+          transition: all .5s ease-in-out;
+        }
+
+        .panelHeading {
+          color: #fff;
+          background-color: rgba(10, 10, 0, .7);
+          border-color: #000;
+          border-bottom: none;
+          font-size: 14px;
+          line-height: 14px;
+          padding: 10px 15px;
+          border-top-left-radius: 3px;
+          border-top-right-radius: 3px;
+          display: flex;
+
+          i {
+            margin-right: .5em;
+          }
+
+          i:nth-child(3) {
+            margin-left: auto;
+          }
+        }
+
+        .listGroup {
+          .listGroupItem {
+            padding: 10px 15px;
+            border-top: 1px solid #fff;
+
+            &:first-child {
+              border-top-width: 0;
+            }
+
+            &:hover {
+              transition: all .3s ease-in-out;
+              background-color: rgba(255, 255, 255, .7);
+              box-shadow: 0 0 50px #000;
+            }
+
+            img {
+              width: 40px;
+              height: 40px;
+              border-radius: 50%;
+              border: 1px solid #fff;
+              vertical-align: top;
+              transition: all .3s ease-in-out;
+
+              &:hover {
+                transform: scale(1.25);
+              }
+            }
+
+            .commentLog {
+              line-height: 20px;
+              background-color: #eee;
+              border-color: #eee;
+              border-radius: 4px;
+              display: inline-block;
+              padding: 8px;
+              margin-left: 10px;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              overflow: hidden;
+              width: 80%;
+              color: #666;
+              font-size: 12px;
+            }
+          }
+        }
+      }
+
+      .randomList {
+      }
     }
   }
 </style>

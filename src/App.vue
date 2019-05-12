@@ -17,6 +17,10 @@
   import Header from './components/Header'
   import Footer from './components/Footer'
   import SlideShow from './components/SlideShow'
+  import AOS from 'aos'
+  import 'aos/dist/aos.css'
+
+  AOS.init()
 
   export default {
     name: 'App',
@@ -35,7 +39,7 @@
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    background: #000;
+    background-color: #000;
 
     #main {
       .page {
