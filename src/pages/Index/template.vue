@@ -4,8 +4,8 @@
       <div class="breadcrumb-wrapper">
         <i class="el-icon-s-home"></i>
         <el-breadcrumb separator-class="el-icon-arrow-right">
-          <el-breadcrumb-item id="all">所有动漫</el-breadcrumb-item>
-          <el-breadcrumb-item>拼音首字母1~9</el-breadcrumb-item>
+          <el-breadcrumb-item>所有动漫</el-breadcrumb-item>
+          <el-breadcrumb-item id="current">拼音首字母1~9</el-breadcrumb-item>
         </el-breadcrumb>
       </div>
       <div class="posts-wrapper">
@@ -328,10 +328,10 @@
         .el-breadcrumb {
           padding: 8px 15px;
           font-size: 12px;
-          color: rgb(61, 68, 80);
+          color: rgb(210, 50, 45);
 
-          #all {
-            color: rgb(210, 50, 45);
+          #current {
+            color: rgb(61, 68, 80);
           }
         }
       }
@@ -494,8 +494,7 @@
         .input {
           display: flex;
           align-items: center;
-          padding: 5px;
-          padding-bottom: 6px;
+          padding: 5px 5px 6px;
           background-color: rgba(0, 0, 10, .7);
 
           .searchInput {
@@ -628,9 +627,6 @@
         .listGroupItem {
           background-color: rgba(230, 238, 232, .3);
         }
-      }
-
-      .randomList {
       }
     }
   }

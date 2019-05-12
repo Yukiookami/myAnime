@@ -8,6 +8,10 @@ export default new Router({
     {
       path: '/',
       component: () => import('@/pages/Index/template.vue')
+    },
+    {
+      path: '/detail/:blogId',
+      component: () => import('@/pages/Detail/template.vue')
     }
   ]
 })

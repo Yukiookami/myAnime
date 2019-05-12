@@ -56,7 +56,7 @@ export default {
           display: flex;
           justify-content: center;
           align-items: center;
-          padding: 0 2em;
+          padding: 0 1.2em;
           min-height: 54px;
           transition: all .2s ease-in-out;
           &:hover {
