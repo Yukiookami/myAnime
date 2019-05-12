@@ -6,11 +6,11 @@
     </div>
     <div class="nav-wrapper">
       <ul class="nav">
-        <li><i class="el-icon-s-home">首页</i></li>
-        <li><i class="el-icon-notebook-2">动漫目录</i></li>
-        <li><i class="el-icon-document">新人导读</i></li>
-        <li><i class="el-icon-document">解压必读</i></li>
-        <li><i class="el-icon-s-comment">留言板</i></li>
+        <li><router-link to="/"><i class="el-icon-s-home">首页</i></router-link></li>
+        <li><router-link to="/"><i class="el-icon-notebook-2">动漫目录</i></router-link></li>
+        <li><router-link to="/"><i class="el-icon-document">新人导读</i></router-link></li>
+        <li><router-link to="/"><i class="el-icon-document">解压必读</i></router-link></li>
+        <li><router-link to="/"><i class="el-icon-s-comment">留言板</i></router-link></li>
       </ul>
     </div>
   </div>
@@ -55,12 +55,15 @@ export default {
           height: 100%;
           display: flex;
           justify-content: center;
-          align-items: center;
           padding: 0 1.2em;
           min-height: 54px;
           transition: all .2s ease-in-out;
           &:hover {
             background-color: @headerHoverColor;
+          }
+          a {
+            display: flex;
+            align-items: center;
           }
         }
       }

@@ -12,7 +12,9 @@
         <ul>
           <li data-aos="flip-up">
             <div class="post-item">
-              <h1 class="title">1/2 summer</h1>
+              <div class="title-wrapper">
+                <router-link to="/detail/1234"><h1 class="title">1/2 summer</h1></router-link>
+              </div>
               <ul class="tags">
                 <li class="tag"><i class="el-icon-collection-tag"></i>ALcotHoneyCome,纯爱</li>
                 <li class="tag"><i class="el-icon-view"></i>47,466℃</li>
@@ -20,7 +22,7 @@
               </ul>
               <div class="poster-wrapper">
                 <figure class="poster">
-                  <img src="../../assets/image/2.jpg">
+                  <img src="../../assets/image/s2.jpg">
                   <figcaption>
                     <div class="content">
                       游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介
@@ -41,7 +43,7 @@
               </ul>
               <div class="poster-wrapper">
                 <figure class="poster">
-                  <img src="../../assets/image/2.jpg">
+                  <img src="../../assets/image/s2.jpg">
                   <figcaption>
                     <div class="content">
                       一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十
@@ -62,7 +64,7 @@
               </ul>
               <div class="poster-wrapper">
                 <figure class="poster">
-                  <img src="../../assets/image/2.jpg">
+                  <img src="../../assets/image/s2.jpg">
                   <figcaption>
                     <div class="content">
                       游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介
@@ -83,7 +85,7 @@
               </ul>
               <div class="poster-wrapper">
                 <figure class="poster">
-                  <img src="../../assets/image/2.jpg">
+                  <img src="../../assets/image/s2.jpg">
                   <figcaption>
                     <div class="content">
                       游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介
@@ -104,7 +106,7 @@
               </ul>
               <div class="poster-wrapper">
                 <figure class="poster">
-                  <img src="../../assets/image/2.jpg">
+                  <img src="../../assets/image/s2.jpg">
                   <figcaption>
                     <div class="content">
                       游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介
@@ -125,7 +127,7 @@
               </ul>
               <div class="poster-wrapper">
                 <figure class="poster">
-                  <img src="../../assets/image/2.jpg">
+                  <img src="../../assets/image/s2.jpg">
                   <figcaption>
                     <div class="content">
                       游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介
@@ -146,7 +148,7 @@
               </ul>
               <div class="poster-wrapper">
                 <figure class="poster">
-                  <img src="../../assets/image/2.jpg">
+                  <img src="../../assets/image/s2.jpg">
                   <figcaption>
                     <div class="content">
                       游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介
@@ -167,7 +169,7 @@
               </ul>
               <div class="poster-wrapper">
                 <figure class="poster">
-                  <img src="../../assets/image/2.jpg">
+                  <img src="../../assets/image/s2.jpg">
                   <figcaption>
                     <div class="content">
                       游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介
@@ -353,35 +355,39 @@
               box-shadow: 0px 0px 50px #000;
             }
 
-            .title {
-              color: #fff;
-              background: #1ec7e6;
-              display: inline-block;
-              font: 28px '微软雅黑', Verdana, Arial, Helvetica, sans-serif;
-              padding: 2px;
-              margin: 2px auto;
-              opacity: .8;
-              line-height: 1.5;
-              border-radius: 5px;
+            .title-wrapper {
+              text-align: center;
+              .title {
+                color: #fff;
+                background: #1ec7e6;
+                display: inline-block;
+                font: 28px '微软雅黑', Verdana, Arial, Helvetica, sans-serif;
+                padding: 2px;
+                margin: 2px auto;
+                opacity: .8;
+                line-height: 1.5;
+                border-radius: 5px;
 
-              &:hover {
-                opacity: 1;
-                background-color: rgba(0, 0, 0, 0);
-                animation: neno 1.5s ease-in-out infinite alternate;
-              }
-
-              @keyframes neno {
-                0% {
-                  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #228DFF, 0 0 70px #228DFF, 0 0 80px #228DFF, 0 0 100px #228DFF, 0 0 150px #228DFF;
+                &:hover {
+                  opacity: 1;
+                  background-color: rgba(0, 0, 0, 0);
+                  animation: neno 1.5s ease-in-out infinite alternate;
                 }
-                100% {
-                  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228DFF, 0 0 35px #228DFF, 0 0 40px #228DFF, 0 0 50px #228DFF, 0 0 75px #228DFF;
+
+                @keyframes neno {
+                  0% {
+                    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #228DFF, 0 0 70px #228DFF, 0 0 80px #228DFF, 0 0 100px #228DFF, 0 0 150px #228DFF;
+                  }
+                  100% {
+                    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228DFF, 0 0 35px #228DFF, 0 0 40px #228DFF, 0 0 50px #228DFF, 0 0 75px #228DFF;
+                  }
                 }
               }
             }
 
             .tags {
               margin: 20px 0;
+              text-align: center;
 
               .tag {
                 display: inline-block;
