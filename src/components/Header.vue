@@ -35,6 +35,10 @@ export default {
       padding: 0 15px;
       align-self: center;
       text-align: center;
+      h2 {
+        font-weight: 100;
+        text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #fff, 0 0 4px #228DFF, 0 0 5px #228DFF, 0 0 6px #228DFF, 0 0 7px #228DFF;
+      }
       p {
         font-size: 12px;
       }

@@ -184,16 +184,19 @@
     <section class="sub-wrapper">
       <aside>
         <div class="input-wrapper" data-aos="flip-up" data-aos-mirror="true" data-aos-delay="100">
-          <el-input class="searchInput" v-model="searchText" placeholder="输入关键词搜索"></el-input>
-          <el-button class="searchConfirm"><i class="el-icon-search"></i></el-button>
+          <div class="input">
+            <el-input class="searchInput" v-model="searchText" placeholder="输入关键词搜索"></el-input>
+            <el-button class="searchConfirm"><i class="el-icon-search"></i></el-button>
+          </div>
         </div>
       </aside>
       <aside>
-        <div class="commentList" data-aos="fade-up" data-aos-mirror="true" data-aos-delay="200" data-aos-duration="2000">
+        <div class="commentList" data-aos="fade-up" data-aos-mirror="true" data-aos-delay="200"
+             data-aos-duration="2000">
           <div class="panelHeading">
             <i class="el-icon-s-comment"></i>
             <span>最新评论</span>
-            <i class="el-icon-arrow-down"></i>
+            <i class="el-icon-arrow-up"></i>
             <i class="el-icon-error"></i>
           </div>
           <ul class="listGroup">
@@ -245,49 +248,41 @@
           <div class="panelHeading">
             <i class="el-icon-menu"></i>
             <span>随机文章</span>
-            <i class="el-icon-arrow-down"></i>
+            <i class="el-icon-arrow-up"></i>
             <i class="el-icon-error"></i>
           </div>
           <ul class="listGroup">
             <li class="listGroupItem">
-              <img src="../../assets/image/avatar.jpg">
-              <span class="commentLog"> 第一句话 </span>
+              <span class="title">Flowers 春篇</span>
+              <span class="tag"> 59941 ℃ </span>
             </li>
             <li class="listGroupItem">
-              <span class="avatar">
-                <img src="../../assets/image/avatar.jpg">
-              </span>
-              <span class="commentLog"> 第二句话 </span>
+              <span class="title">黄雷的伽克苏恩~何等闪耀的勇气~</span>
+              <span class="tag"> 17426 ℃ </span>
             </li>
             <li class="listGroupItem">
-              <img src="../../assets/image/avatar.jpg">
-              <span class="commentLog"> 第三句话 </span>
+              <span class="title">千金逼我嫁</span>
+              <span class="tag"> 24226 ℃ </span>
             </li>
             <li class="listGroupItem">
-              <span class="avatar">
-                <img src="../../assets/image/avatar.jpg">
-              </span>
-              <span class="commentLog"> 第四句话 </span>
+              <span class="title">关于唯一能让笨蛋妹妹变聪明的方法只有我去</span>
+              <span class="tag"> 228416 ℃ </span>
             </li>
             <li class="listGroupItem">
-              <img src="../../assets/image/avatar.jpg">
-              <span class="commentLog"> 第五句话 </span>
+              <span class="title">CARNIVAL</span>
+              <span class="tag"> 14371 ℃ </span>
             </li>
             <li class="listGroupItem">
-              <span class="avatar">
-                <img src="../../assets/image/avatar.jpg">
-              </span>
-              <span class="commentLog"> 第六句话 </span>
+              <span class="title">航迹云的彼方</span>
+              <span class="tag"> 29505 ℃ </span>
             </li>
             <li class="listGroupItem">
-              <img src="../../assets/image/avatar.jpg">
-              <span class="commentLog"> 第七句话 </span>
+              <span class="title">兄妹秘哀~口嫌体正直~</span>
+              <span class="tag"> 59413 ℃ </span>
             </li>
             <li class="listGroupItem">
-              <span class="avatar">
-                <img src="../../assets/image/avatar.jpg">
-              </span>
-              <span class="commentLog"> 第八句话 </span>
+              <span class="title">D.C.II~featurning Yun2~(初音岛2 featurning Yun2)</span>
+              <span class="tag"> 8118 ℃ </span>
             </li>
           </ul>
         </div>
@@ -367,6 +362,22 @@
               margin: 2px auto;
               opacity: .8;
               line-height: 1.5;
+              border-radius: 5px;
+
+              &:hover {
+                opacity: 1;
+                background-color: rgba(0, 0, 0, 0);
+                animation: neno 1.5s ease-in-out infinite alternate;
+              }
+
+              @keyframes neno {
+                0% {
+                  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #228DFF, 0 0 70px #228DFF, 0 0 80px #228DFF, 0 0 100px #228DFF, 0 0 150px #228DFF;
+                }
+                100% {
+                  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228DFF, 0 0 35px #228DFF, 0 0 40px #228DFF, 0 0 50px #228DFF, 0 0 75px #228DFF;
+                }
+              }
             }
 
             .tags {
@@ -478,21 +489,28 @@
       padding: 0 15px;
 
       .input-wrapper {
-        display: flex;
-        align-items: center;
+        border-radius: 4px;
 
-        .searchInput {
-          height: 35px;
-          line-height: 35px;
-          box-shadow: inset 0px 1px 1px rgba(0, 0, 0, .075);
-        }
+        .input {
+          display: flex;
+          align-items: center;
+          padding: 5px;
+          padding-bottom: 6px;
+          background-color: rgba(0, 0, 10, .7);
 
-        .searchConfirm {
-          background-color: #d9534f;
-          border: none;
-          color: #fff;
-          padding: 8px 13px;
-          margin-left: 1em;
+          .searchInput {
+            height: 35px;
+            line-height: 35px;
+            box-shadow: inset 0px 1px 1px rgba(0, 0, 0, .075);
+          }
+
+          .searchConfirm {
+            background-color: #d9534f;
+            border: none;
+            color: #fff;
+            padding: 8px 13px;
+            margin-left: 1em;
+          }
         }
       }
 
@@ -574,7 +592,41 @@
               color: #666;
               font-size: 12px;
             }
+
+            .title {
+              display: inline-block;
+              width: 75%;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              overflow: hidden;
+              font-size: 12px;
+              color: #666;
+              line-height: 1.4;
+            }
+
+            .tag {
+              background-color: #d9534f;
+              display: inline-block;
+              float: right;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              overflow: hidden;
+              min-width: 10px;
+              padding: 2px 5px;
+              font-size: 12px;
+              font-weight: bold;
+              line-height: 1;
+              color: #fff;
+              text-align: center;
+              border-radius: 10px;
+            }
           }
+        }
+      }
+
+      .randomList {
+        .listGroupItem {
+          background-color: rgba(230, 238, 232, .3);
         }
       }
 

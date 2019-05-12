@@ -15,7 +15,6 @@
     padding: 50px;
     text-align: center;
     margin-top: auto;
-    background-color: #000;
     color: #eee;
     font-size: 12px;
   }

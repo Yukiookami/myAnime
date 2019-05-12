@@ -6,7 +6,7 @@
         <router-view/>
       </section>
       <section class="backgound">
-<!--        <SlideShow></SlideShow>-->
+        <SlideShow></SlideShow>
       </section>
     </main>
     <Footer id="footer"></Footer>
@@ -39,7 +39,6 @@
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    background-color: #000;
 
     #main {
       .page {
