@@ -2,7 +2,7 @@
   <div class="Message">
     <section class="content-wrapper">
       <div class="posts-wrapper">
-        <div class="post-item" data-aos="fade-up" data-aos-duration="1500">
+        <div class="post-item" data-aos="zoom-in-up" data-aos-duration="500">
           这是留言板
         </div>
       </div>
@@ -10,7 +10,7 @@
         <h3 class="commentTitle"><i class="el-icon-s-comment"></i> 80 条评论</h3>
         <div class="commentsLoading" v-if="false"><i class="el-icon-loading"></i></div>
         <ul class="commentList">
-          <li class="comment-item">
+          <li class="comment-item" data-aos="zoom-out-right">
             <article class="commentBody">
               <footer class="commentMeta">
                 <div class="commentAuthor">
@@ -25,7 +25,7 @@
               <div class="commentContent"><p>城彩出修正补丁了</p></div><!-- .comment-content -->
             </article><!-- .comment-body -->
           </li>
-          <li class="comment-item">
+          <li class="comment-item" data-aos="zoom-out-right">
             <article class="commentBody">
               <footer class="commentMeta">
                 <div class="commentAuthor">
@@ -40,7 +40,7 @@
               <div class="commentContent"><p>城彩出修正补丁了</p></div><!-- .comment-content -->
             </article><!-- .comment-body -->
           </li>
-          <li class="comment-item">
+          <li class="comment-item" data-aos="zoom-out-right">
             <article class="commentBody">
               <footer class="commentMeta">
                 <div class="commentAuthor">
@@ -55,7 +55,7 @@
               <div class="commentContent"><p>城彩出修正补丁了</p></div><!-- .comment-content -->
             </article><!-- .comment-body -->
           </li>
-          <li class="comment-item">
+          <li class="comment-item" data-aos="zoom-out-right">
             <article class="commentBody">
               <footer class="commentMeta">
                 <div class="commentAuthor">
@@ -70,7 +70,7 @@
               <div class="commentContent"><p>城彩出修正补丁了</p></div><!-- .comment-content -->
             </article><!-- .comment-body -->
           </li>
-          <li class="comment-item">
+          <li class="comment-item" data-aos="zoom-out-right">
             <article class="commentBody">
               <footer class="commentMeta">
                 <div class="commentAuthor">
@@ -85,7 +85,7 @@
               <div class="commentContent"><p>城彩出修正补丁了</p></div><!-- .comment-content -->
             </article><!-- .comment-body -->
           </li>
-          <li class="comment-item">
+          <li class="comment-item" data-aos="zoom-out-right">
             <article class="commentBody">
               <footer class="commentMeta">
                 <div class="commentAuthor">
@@ -100,7 +100,7 @@
               <div class="commentContent"><p>城彩出修正补丁了</p></div><!-- .comment-content -->
             </article><!-- .comment-body -->
           </li>
-          <li class="comment-item">
+          <li class="comment-item" data-aos="zoom-out-right">
             <article class="commentBody">
               <footer class="commentMeta">
                 <div class="commentAuthor">
@@ -115,7 +115,7 @@
               <div class="commentContent"><p>城彩出修正补丁了</p></div><!-- .comment-content -->
             </article><!-- .comment-body -->
           </li>
-          <li class="comment-item">
+          <li class="comment-item" data-aos="zoom-out-right">
             <article class="commentBody">
               <footer class="commentMeta">
                 <div class="commentAuthor">

@@ -1,9 +1,9 @@
 <template>
   <div class="Header">
-    <div class="logo">
+    <router-link tag="div" to="/" class="logo">
       <h2>MyAnime</h2>
       <p>By dantecsm</p>
-    </div>
+    </router-link>
     <div class="nav-wrapper">
       <ul class="nav">
         <router-link to="/" tag='li'><i class="el-icon-document">首页</i></router-link>
@@ -90,6 +90,7 @@ export default {
       padding: 0 15px;
       align-self: center;
       text-align: center;
+      cursor: pointer;
       h2 {
         font-weight: 100;
         text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #fff, 0 0 4px #228DFF, 0 0 5px #228DFF, 0 0 6px #228DFF, 0 0 7px #228DFF;
@@ -174,7 +175,6 @@ export default {
           .subMenu.deep2 {
             top: 0;
             left: 100%;
-            margin-top: -15px;
           }
         }
       }

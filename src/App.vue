@@ -22,6 +22,10 @@
 
   AOS.init()
 
+  window.addEventListener('load', function() {
+    AOS.refresh();
+  })
+
   export default {
     name: 'App',
     components: {
