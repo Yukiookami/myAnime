@@ -3,7 +3,7 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
@@ -34,4 +34,10 @@ export default new Router({
       component: () => import('@/pages/Message/template.vue')
     }
   ]
+})
+
+export default router
+
+router.afterEach((to, from, next) => {
+  window.scrollTo(0, 0)
 })

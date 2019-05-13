@@ -6,24 +6,24 @@
     </div>
     <div class="nav-wrapper">
       <ul class="nav">
-        <li><router-link to="/"><i class="el-icon-document">首页</i></router-link></li>
+        <router-link to="/" tag='li'><i class="el-icon-document">首页</i></router-link>
         <li class='willExpend'>
           <div class="hasChildren deep1">
             <i class="el-icon-star-on">动漫目录</i>
             <ul class="subMenu deep1">
-              <li>拼音首字母1-9</li>
+              <router-link tag='li' to="/category/1234">拼音首字母1-9</router-link>
               <li class="willExpend">
                 <div class="hasChildren deep2">
                   拼音首字母A-H
                   <ul class="subMenu deep2">
-                    <li>A</li>
-                    <li>B</li>
-                    <li>C</li>
-                    <li>D</li>
-                    <li>E</li>
-                    <li>F</li>
-                    <li>G</li>
-                    <li>H</li>
+                    <router-link tag='li' to="/category/1234">A</router-link>
+                    <router-link tag='li' to="/category/1234">B</router-link>
+                    <router-link tag='li' to="/category/1234">C</router-link>
+                    <router-link tag='li' to="/category/1234">D</router-link>
+                    <router-link tag='li' to="/category/1234">E</router-link>
+                    <router-link tag='li' to="/category/1234">F</router-link>
+                    <router-link tag='li' to="/category/1234">G</router-link>
+                    <router-link tag='li' to="/category/1234">H</router-link>
                   </ul>
                 </div>
               </li>
@@ -31,14 +31,14 @@
                 <div class="hasChildren deep2">
                   拼音首字母I-P
                   <ul class="subMenu deep2">
-                    <li>I</li>
-                    <li>J</li>
-                    <li>K</li>
-                    <li>L</li>
-                    <li>M</li>
-                    <li>N</li>
-                    <li>O</li>
-                    <li>P</li>
+                    <router-link tag='li' to="/category/1234">I</router-link>
+                    <router-link tag='li' to="/category/1234">J</router-link>
+                    <router-link tag='li' to="/category/1234">K</router-link>
+                    <router-link tag='li' to="/category/1234">L</router-link>
+                    <router-link tag='li' to="/category/1234">M</router-link>
+                    <router-link tag='li' to="/category/1234">N</router-link>
+                    <router-link tag='li' to="/category/1234">O</router-link>
+                    <router-link tag='li' to="/category/1234">P</router-link>
                   </ul>
                 </div>
               </li>
@@ -46,26 +46,26 @@
                 <div class="hasChildren deep2">
                   拼音首字母Q-Z
                   <ul class="subMenu deep2">
-                    <li>Q</li>
-                    <li>R</li>
-                    <li>S</li>
-                    <li>T</li>
-                    <li>U</li>
-                    <li>V</li>
-                    <li>W</li>
-                    <li>X</li>
-                    <li>Y</li>
-                    <li>Z</li>
+                    <router-link tag='li' to="/category/1234">Q</router-link>
+                    <router-link tag='li' to="/category/1234">R</router-link>
+                    <router-link tag='li' to="/category/1234">S</router-link>
+                    <router-link tag='li' to="/category/1234">T</router-link>
+                    <router-link tag='li' to="/category/1234">U</router-link>
+                    <router-link tag='li' to="/category/1234">V</router-link>
+                    <router-link tag='li' to="/category/1234">W</router-link>
+                    <router-link tag='li' to="/category/1234">X</router-link>
+                    <router-link tag='li' to="/category/1234">Y</router-link>
+                    <router-link tag='li' to="/category/1234">Z</router-link>
                   </ul>
                 </div>
               </li>
-              <li>其他</li>
+              <router-link tag='li' to="/category/1234">其他</router-link>
             </ul>
           </div>
         </li>
-        <li><router-link to="/guide"><i class="el-icon-document">新人导读</i></router-link></li>
-        <li><router-link to="/unzip"><i class="el-icon-document">解压必读</i></router-link></li>
-        <li><router-link to="/message"><i class="el-icon-s-comment">留言板</i></router-link></li>
+        <router-link tag='li' to="/guide"><i class="el-icon-document">新人导读</i></router-link>
+        <router-link tag='li' to="/unzip"><i class="el-icon-document">解压必读</i></router-link>
+        <router-link tag='li' to="/message"><i class="el-icon-s-comment">留言板</i></router-link>
       </ul>
     </div>
   </div>
@@ -110,15 +110,12 @@ export default {
           display: flex;
           justify-content: center;
           align-items: center;
+          min-height: 54px;
           padding: 0 1.2em;
           transition: all .2s ease-in-out;
+          cursor: pointer;
           &:hover {
             background-color: @headerHoverColor;
-          }
-          a {
-            display: flex;
-            align-items: center;
-            min-height: 54px;
           }
         }
         li.willExpend {
