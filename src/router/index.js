@@ -32,6 +32,14 @@ const router = new Router({
     {
       path: '/message',
       component: () => import('@/pages/Message/template.vue')
+    },
+    {
+      path: '/register',
+      component: () => import('@/pages/Register/template.vue')
+    },
+    {
+      path: '/login',
+      component: () => import('@/pages/Login/template.vue')
     }
   ]
 })
