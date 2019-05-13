@@ -48,7 +48,10 @@
       position: relative;
       background-color: rgba(230, 238, 232, .5);
       box-shadow: 0 0 5px #c2c2c2;
-
+      &:hover {
+        transition: all .7s ease-in-out;
+        background: rgba(255, 255, 255, .9);
+      }
       .el-form-item {
         font-weight: bold;
         color: rgb(61, 68, 80);

@@ -172,8 +172,8 @@
           <div class="panelContent">
             <h3>请登录</h3>
             <div class="btnGroup">
-              <router-link tag="el-button" to="/register">登录</router-link>
-              <router-link tag="el-button" to="/login">注册</router-link>
+              <router-link tag="el-button" to="/login">登录</router-link>
+              <router-link tag="el-button" to="/register">注册</router-link>
             </div>
           </div>
         </div>
