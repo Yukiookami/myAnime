@@ -12,6 +12,26 @@ export default new Router({
     {
       path: '/detail/:blogId',
       component: () => import('@/pages/Detail/template.vue')
+    },
+    {
+      path: '/tag/:tagId',
+      component: () => import('@/pages/Tag/template.vue')
+    },
+    {
+      path: '/category/:categoryId',
+      component: () => import('@/pages/Category/template.vue')
+    },
+    {
+      path: '/guide',
+      component: () => import('@/pages/Guide/template.vue')
+    },
+    {
+      path: '/unzip',
+      component: () => import('@/pages/Unzip/template.vue')
+    },
+    {
+      path: '/message',
+      component: () => import('@/pages/Message/template.vue')
     }
   ]
 })

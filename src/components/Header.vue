@@ -8,9 +8,9 @@
       <ul class="nav">
         <li><router-link to="/"><i class="el-icon-s-home">首页</i></router-link></li>
         <li><router-link to="/"><i class="el-icon-notebook-2">动漫目录</i></router-link></li>
-        <li><router-link to="/"><i class="el-icon-document">新人导读</i></router-link></li>
-        <li><router-link to="/"><i class="el-icon-document">解压必读</i></router-link></li>
-        <li><router-link to="/"><i class="el-icon-s-comment">留言板</i></router-link></li>
+        <li><router-link to="/guide"><i class="el-icon-document">新人导读</i></router-link></li>
+        <li><router-link to="/unzip"><i class="el-icon-document">解压必读</i></router-link></li>
+        <li><router-link to="/message"><i class="el-icon-s-comment">留言板</i></router-link></li>
       </ul>
     </div>
   </div>

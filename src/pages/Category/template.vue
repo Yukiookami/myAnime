@@ -1,6 +1,13 @@
 <template>
-  <div class="Index">
+  <div class="Category">
     <section class="content-wrapper">
+      <div class="breadcrumb-wrapper">
+        <i class="el-icon-s-home"></i>
+        <el-breadcrumb separator-class="el-icon-arrow-right">
+          <el-breadcrumb-item>所有动漫</el-breadcrumb-item>
+          <el-breadcrumb-item id="current">拼音首字母1~9</el-breadcrumb-item>
+        </el-breadcrumb>
+      </div>
       <div class="posts-wrapper">
         <ul>
           <li data-aos="flip-up">
@@ -302,7 +309,7 @@
 
 <script>
   export default {
-    name: 'Index',
+    name: 'Category',
     data() {
       return {
         searchText: ''
@@ -314,12 +321,36 @@
 <style scoped lang="less">
   @import '../../assets/base.less';
 
-  .Index {
+  .Category {
     display: flex;
 
     section.content-wrapper {
       flex: 2;
       padding: 0 15px;
+
+      .breadcrumb-wrapper {
+        display: flex;
+        align-items: center;
+        background-color: @paneColor;
+        box-shadow: 0 0 5px #c2c2c2;
+        margin-bottom: 40px;
+        border-radius: 4px;
+
+        i {
+          font-size: 12px;
+          padding: 1em .5em;
+        }
+
+        .el-breadcrumb {
+          padding: 8px 15px;
+          font-size: 12px;
+          color: rgb(210, 50, 45);
+
+          #current {
+            color: rgb(61, 68, 80);
+          }
+        }
+      }
 
       .posts-wrapper {
         li {
