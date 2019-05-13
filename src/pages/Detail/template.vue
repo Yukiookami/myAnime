@@ -237,6 +237,15 @@
         <nav class="commentNav">
           <el-pagination background layout="pager" :total="100"></el-pagination>
         </nav>
+        <div class="commentCommit">
+          <div class="commentBody">
+            <div class="commentMeta"></div>
+            <form class="commentContent">
+              <textarea class="commentText" name="comment">说点什么吧！</textarea>
+              <input class="commentConfirm" type="submit" value="发表">
+            </form>
+          </div>
+        </div>
       </div>
     </section>
     <section class="sub-wrapper">
@@ -661,6 +670,62 @@
 
         .commentNav {
           text-align: right;
+          margin-top: 30px;
+        }
+
+        .commentCommit {
+          border-radius: 8px;
+          opacity: .8;
+          overflow: hidden;
+          margin-top: 70px;
+
+          &:hover {
+            transition: all .3s ease-in-out;
+            opacity: 1;
+            box-shadow: 0 0 50px #000;
+          }
+          .commentBody {
+            position: relative;
+            height: 150px;
+
+            .commentMeta {
+              height: 40px;
+              background: rgb(217, 237, 247);
+              color: rgb(61, 68, 80);
+            }
+
+            .commentContent {
+              color: #3d4450;
+              background-color: #fff;
+
+              .commentText {
+                position: absolute;
+                padding: 20px 55px 40px 45px;
+                line-height: 20px;
+                color: rgb(61, 68, 80);
+                width: 100%;
+                height: 120px;
+                left: 0;
+                top: 37px;
+                outline: none;
+                font-family: -webkit-body;
+                font-size: 12px;
+              }
+
+              .commentConfirm {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                outline: none;
+                background: rgb(217, 237, 247);
+                padding: 10px;
+                font-weight: bold;
+                border-radius: 8px;
+                border: none;
+                font-family: -webkit-body;
+              }
+            }
+          }
         }
       }
     }
