@@ -40,6 +40,10 @@ const router = new Router({
     {
       path: '/login',
       component: () => import('@/pages/Login/template.vue')
+    },
+    {
+      path: '/search/:keyword',
+      component: () => import('@/pages/Search/template.vue')
     }
   ]
 })
