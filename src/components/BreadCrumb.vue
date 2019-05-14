@@ -56,7 +56,7 @@
 <style scoped lang="less">
   @import '../assets/base.less';
 
-  .BreadCrumb {
+   .BreadCrumb {
     display: flex;
     align-items: center;
     background-color: @paneColor;
