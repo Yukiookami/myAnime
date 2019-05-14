@@ -2,12 +2,7 @@
   <div class="Detail">
     <section class="content-wrapper">
       <div class="breadcrumb-wrapper">
-        <i class="el-icon-s-home"></i>
-        <el-breadcrumb separator-class="el-icon-arrow-right">
-          <el-breadcrumb-item>所有动漫</el-breadcrumb-item>
-          <el-breadcrumb-item>拼音首字母1~9</el-breadcrumb-item>
-          <el-breadcrumb-item id="current">1/2 summer</el-breadcrumb-item>
-        </el-breadcrumb>
+        <BreadCrumb></BreadCrumb>
       </div>
       <div class="posts-wrapper">
         <div class="post-item" data-aos="fade-up" data-aos-duration="1500">
@@ -256,10 +251,11 @@
 
 <script>
   import Besider from '../../components/Besider'
+  import BreadCrumb from '../../components/BreadCrumb'
 
   export default {
     name: 'Detail',
-    components: {Besider}
+    components: {Besider, BreadCrumb}
   }
 </script>
 
@@ -272,30 +268,6 @@
     section.content-wrapper {
       flex: 2;
       padding: 0 15px;
-
-      .breadcrumb-wrapper {
-        display: flex;
-        align-items: center;
-        background-color: @paneColor;
-        box-shadow: 0 0 5px #c2c2c2;
-        margin-bottom: 40px;
-        border-radius: 4px;
-
-        i {
-          font-size: 12px;
-          padding: 1em .5em;
-        }
-
-        .el-breadcrumb {
-          padding: 8px 15px;
-          font-size: 12px;
-          color: rgb(210, 50, 45);
-
-          #current {
-            color: rgb(61, 68, 80);
-          }
-        }
-      }
 
       .posts-wrapper {
         .post-item {
