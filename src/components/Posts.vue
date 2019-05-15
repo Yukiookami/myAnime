@@ -11,14 +11,14 @@
           <li class="tag"><i class="el-icon-s-comment"></i>36</li>
         </ul>
         <div class="poster-wrapper">
-          <figure class="poster">
+          <router-link tag="figure" to="/detail/1234" class="poster">
             <img src="../assets/image/s2.jpg">
             <figcaption>
               <div class="content">
                 游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介
               </div>
             </figcaption>
-          </figure>
+          </router-link>
         </div>
         <div class="date">5月<b>29</b></div>
       </div>
@@ -34,14 +34,14 @@
           <li class="tag"><i class="el-icon-s-comment"></i>36</li>
         </ul>
         <div class="poster-wrapper">
-          <figure class="poster">
+          <router-link tag="figure" to="/detail/1234" class="poster">
             <img src="../assets/image/s2.jpg">
             <figcaption>
               <div class="content">
                 游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介
               </div>
             </figcaption>
-          </figure>
+          </router-link>
         </div>
         <div class="date">5月<b>29</b></div>
       </div>
@@ -57,14 +57,14 @@
           <li class="tag"><i class="el-icon-s-comment"></i>36</li>
         </ul>
         <div class="poster-wrapper">
-          <figure class="poster">
+          <router-link tag="figure" to="/detail/1234" class="poster">
             <img src="../assets/image/s2.jpg">
             <figcaption>
               <div class="content">
                 游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介
               </div>
             </figcaption>
-          </figure>
+          </router-link>
         </div>
         <div class="date">5月<b>29</b></div>
       </div>
@@ -80,14 +80,14 @@
           <li class="tag"><i class="el-icon-s-comment"></i>36</li>
         </ul>
         <div class="poster-wrapper">
-          <figure class="poster">
+          <router-link tag="figure" to="/detail/1234" class="poster">
             <img src="../assets/image/s2.jpg">
             <figcaption>
               <div class="content">
                 游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介
               </div>
             </figcaption>
-          </figure>
+          </router-link>
         </div>
         <div class="date">5月<b>29</b></div>
       </div>
@@ -103,14 +103,14 @@
           <li class="tag"><i class="el-icon-s-comment"></i>36</li>
         </ul>
         <div class="poster-wrapper">
-          <figure class="poster">
+          <router-link tag="figure" to="/detail/1234" class="poster">
             <img src="../assets/image/s2.jpg">
             <figcaption>
               <div class="content">
                 游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介
               </div>
             </figcaption>
-          </figure>
+          </router-link>
         </div>
         <div class="date">5月<b>29</b></div>
       </div>
@@ -126,14 +126,14 @@
           <li class="tag"><i class="el-icon-s-comment"></i>36</li>
         </ul>
         <div class="poster-wrapper">
-          <figure class="poster">
+          <router-link tag="figure" to="/detail/1234" class="poster">
             <img src="../assets/image/s2.jpg">
             <figcaption>
               <div class="content">
                 游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介
               </div>
             </figcaption>
-          </figure>
+          </router-link>
         </div>
         <div class="date">5月<b>29</b></div>
       </div>
@@ -149,14 +149,14 @@
           <li class="tag"><i class="el-icon-s-comment"></i>36</li>
         </ul>
         <div class="poster-wrapper">
-          <figure class="poster">
+          <router-link tag="figure" to="/detail/1234" class="poster">
             <img src="../assets/image/s2.jpg">
             <figcaption>
               <div class="content">
                 游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介
               </div>
             </figcaption>
-          </figure>
+          </router-link>
         </div>
         <div class="date">5月<b>29</b></div>
       </div>
@@ -172,14 +172,14 @@
           <li class="tag"><i class="el-icon-s-comment"></i>36</li>
         </ul>
         <div class="poster-wrapper">
-          <figure class="poster">
+          <router-link tag="figure" to="/detail/1234" class="poster">
             <img src="../assets/image/s2.jpg">
             <figcaption>
               <div class="content">
                 游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介
               </div>
             </figcaption>
-          </figure>
+          </router-link>
         </div>
         <div class="date">5月<b>29</b></div>
       </div>
@@ -217,6 +217,7 @@
           .title {
             color: #fff;
             background: #1ec7e6;
+            user-select: none;
             display: inline-block;
             font: 28px '微软雅黑', Verdana, Arial, Helvetica, sans-serif;
             padding: 2px;
@@ -279,6 +280,7 @@
           width: 680px;
           height: 382px;
           overflow: hidden;
+          cursor: pointer;
 
           img {
             width: 100%;

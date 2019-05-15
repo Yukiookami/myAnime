@@ -17,14 +17,13 @@
     name: "SlideShow",
     data() {
       return {
-        imageArr: [],
-        imageArrLocal: [
-          "https://i.loli.net/2019/05/15/5cdb649d6252723515.jpg",
-          "https://i.loli.net/2019/05/15/5cdb64a14851015306.jpg",
-          "https://i.loli.net/2019/05/15/5cdb64abda9df63268.jpg",
-          "https://i.loli.net/2019/05/15/5cdbe00009bca32854.jpg",
-          "https://i.loli.net/2019/05/15/5cdbe015d5b5217526.png",
-          "https://i.loli.net/2019/05/15/5cdbe018802b578069.jpg"
+        imageArr: [
+          '../assets/image/1.jpg',
+          '../assets/image/2.jpg',
+          '../assets/image/3.jpg',
+          '../assets/image/4.jpg',
+          '../assets/image/5.jpg',
+          '../assets/image/6.jpg'
         ]
       }
     },
@@ -32,15 +31,13 @@
       slides.fetchImage().then(urlArr => {
         this.imageArr = urlArr
       }).catch(err => {
-        this.imageArr = [].concat(this.imageArrLocal)
       })
     },
     watch: {
-      '$route' (to, from) {
+      '$route'(to, from) {
         slides.fetchImage().then(urlArr => {
           this.imageArr = urlArr
         }).catch(err => {
-          this.imageArr = [].concat(this.imageArrLocal)
         })
       }
     }
