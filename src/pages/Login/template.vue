@@ -18,6 +18,8 @@
 </template>
 
 <script>
+  import auth from '@/api/auth.js'
+
   export default {
     name: "Login",
     data() {
@@ -30,7 +32,10 @@
     },
     methods: {
       onSubmit() {
-        alert('submit!')
+        let {username, password} = this.form
+        auth.login({username, password}).then(res => {
+          this.$router.push({path: this.$route.query.redirect || '/'})
+        })
       }
     }
   }

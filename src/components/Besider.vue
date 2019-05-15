@@ -17,11 +17,20 @@
           <i class="el-icon-error"></i>
         </div>
         <div class="panelContent">
-          <h3>请登录</h3>
-          <div class="btnGroup">
-            <router-link tag="el-button" to="/login">登录</router-link>
-            <router-link tag="el-button" to="/register">注册</router-link>
-          </div>
+          <template v-if="!isLogin">
+            <h3>请登录</h3>
+            <div class="btnGroup">
+              <router-link tag="el-button" to="/login">登录</router-link>
+              <router-link tag="el-button" to="/register">注册</router-link>
+            </div>
+          </template>
+          <template v-else>
+            <h3>你好, {{user}}</h3>
+            <div class="btnGroup">
+              <router-link tag="el-button" to="/my">个人</router-link>
+              <el-button @click="logout">登出</el-button>
+            </div>
+          </template>
         </div>
       </div>
     </aside>
@@ -130,12 +139,26 @@
 </template>
 
 <script>
+  import {mapGetters, mapActions} from 'vuex'
+
   export default {
     name: "Besider",
     data() {
       return {
         searchText: ''
       }
+    },
+    computed: {
+      ...mapGetters(['isLogin', 'user'])
+    },
+    created() {
+      this.checkLogin()
+    },
+    methods: {
+      ...mapActions([
+        'checkLogin',
+        'logout'
+      ]),
     }
   }
 </script>
