@@ -4,11 +4,15 @@ import {Message} from 'element-ui'
 export default {
   // todo: 这里应该改为随机选择 6 张图片
   fetchImage() {
-    var query = new AV.Query('slideShow')
+    return new Promise((resolve, reject) => {
+      var query = new AV.Query('slideShow')
 
-    return query.find().then(pictures => {
-      let urlArr = pictures.map(p => p.attributes.url)
-      return urlArr
+      query.find().then(pictures => {
+        resolve(pictures.map(p => p.get('url')))
+      }).catch(err => {
+        Message.error('背景图似乎出了点问题')
+        reject(err)
+      })
     })
   }
 }

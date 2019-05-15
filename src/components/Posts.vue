@@ -1,166 +1,28 @@
 <template>
   <ul class="Posts">
-    <li data-aos="flip-up">
-      <div class="post-item">
-        <div class="title-wrapper">
-          <router-link to="/detail/1234"><h1 class="title">1/2 summer</h1></router-link>
+    <template>
+      <li v-for="post in posts" data-aos="flip-up">
+        <div class="post-item">
+          <div class="title-wrapper">
+            <router-link :to="`/detail/${post.id}`"><h1 class="title">{{post.title}}</h1></router-link>
+          </div>
+          <ul class="tags">
+            <li class="tag"><i class="el-icon-collection-tag"></i>{{post.tags.toString()}}</li>
+            <li class="tag"><i class="el-icon-view"></i>{{post.views}}</li>
+            <li class="tag"><i class="el-icon-s-comment"></i>{{post.comments}}</li>
+          </ul>
+          <div class="poster-wrapper">
+            <router-link tag="figure" to="/detail/1234" class="poster">
+              <img :src="post.cover">
+              <figcaption>
+                <div class="content">{{post.intro}}</div>
+              </figcaption>
+            </router-link>
+          </div>
+          <div class="date">{{post.createdAt.getMonth()+1}}月<b>{{post.createdAt.getDate()}}</b></div>
         </div>
-        <ul class="tags">
-          <li class="tag"><i class="el-icon-collection-tag"></i>ALcotHoneyCome,纯爱</li>
-          <li class="tag"><i class="el-icon-view"></i>47,466℃</li>
-          <li class="tag"><i class="el-icon-s-comment"></i>36</li>
-        </ul>
-        <div class="poster-wrapper">
-          <router-link tag="figure" to="/detail/1234" class="poster">
-            <img src="../assets/image/s2.jpg">
-            <figcaption>
-              <div class="content">
-                游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介
-              </div>
-            </figcaption>
-          </router-link>
-        </div>
-        <div class="date">5月<b>29</b></div>
-      </div>
-    </li>
-    <li data-aos="flip-up">
-      <div class="post-item">
-        <div class="title-wrapper">
-          <router-link to="/detail/1234"><h1 class="title">1/2 summer</h1></router-link>
-        </div>
-        <ul class="tags">
-          <li class="tag"><i class="el-icon-collection-tag"></i>ALcotHoneyCome,纯爱</li>
-          <li class="tag"><i class="el-icon-view"></i>47,466℃</li>
-          <li class="tag"><i class="el-icon-s-comment"></i>36</li>
-        </ul>
-        <div class="poster-wrapper">
-          <router-link tag="figure" to="/detail/1234" class="poster">
-            <img src="../assets/image/s2.jpg">
-            <figcaption>
-              <div class="content">
-                游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介
-              </div>
-            </figcaption>
-          </router-link>
-        </div>
-        <div class="date">5月<b>29</b></div>
-      </div>
-    </li>
-    <li data-aos="flip-up">
-      <div class="post-item">
-        <div class="title-wrapper">
-          <router-link to="/detail/1234"><h1 class="title">1/2 summer</h1></router-link>
-        </div>
-        <ul class="tags">
-          <li class="tag"><i class="el-icon-collection-tag"></i>ALcotHoneyCome,纯爱</li>
-          <li class="tag"><i class="el-icon-view"></i>47,466℃</li>
-          <li class="tag"><i class="el-icon-s-comment"></i>36</li>
-        </ul>
-        <div class="poster-wrapper">
-          <router-link tag="figure" to="/detail/1234" class="poster">
-            <img src="../assets/image/s2.jpg">
-            <figcaption>
-              <div class="content">
-                游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介
-              </div>
-            </figcaption>
-          </router-link>
-        </div>
-        <div class="date">5月<b>29</b></div>
-      </div>
-    </li>
-    <li data-aos="flip-up">
-      <div class="post-item">
-        <div class="title-wrapper">
-          <router-link to="/detail/1234"><h1 class="title">1/2 summer</h1></router-link>
-        </div>
-        <ul class="tags">
-          <li class="tag"><i class="el-icon-collection-tag"></i>ALcotHoneyCome,纯爱</li>
-          <li class="tag"><i class="el-icon-view"></i>47,466℃</li>
-          <li class="tag"><i class="el-icon-s-comment"></i>36</li>
-        </ul>
-        <div class="poster-wrapper">
-          <router-link tag="figure" to="/detail/1234" class="poster">
-            <img src="../assets/image/s2.jpg">
-            <figcaption>
-              <div class="content">
-                游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介
-              </div>
-            </figcaption>
-          </router-link>
-        </div>
-        <div class="date">5月<b>29</b></div>
-      </div>
-    </li>
-    <li data-aos="flip-up">
-      <div class="post-item">
-        <div class="title-wrapper">
-          <router-link to="/detail/1234"><h1 class="title">1/2 summer</h1></router-link>
-        </div>
-        <ul class="tags">
-          <li class="tag"><i class="el-icon-collection-tag"></i>ALcotHoneyCome,纯爱</li>
-          <li class="tag"><i class="el-icon-view"></i>47,466℃</li>
-          <li class="tag"><i class="el-icon-s-comment"></i>36</li>
-        </ul>
-        <div class="poster-wrapper">
-          <router-link tag="figure" to="/detail/1234" class="poster">
-            <img src="../assets/image/s2.jpg">
-            <figcaption>
-              <div class="content">
-                游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介
-              </div>
-            </figcaption>
-          </router-link>
-        </div>
-        <div class="date">5月<b>29</b></div>
-      </div>
-    </li>
-    <li data-aos="flip-up">
-      <div class="post-item">
-        <div class="title-wrapper">
-          <router-link to="/detail/1234"><h1 class="title">1/2 summer</h1></router-link>
-        </div>
-        <ul class="tags">
-          <li class="tag"><i class="el-icon-collection-tag"></i>ALcotHoneyCome,纯爱</li>
-          <li class="tag"><i class="el-icon-view"></i>47,466℃</li>
-          <li class="tag"><i class="el-icon-s-comment"></i>36</li>
-        </ul>
-        <div class="poster-wrapper">
-          <router-link tag="figure" to="/detail/1234" class="poster">
-            <img src="../assets/image/s2.jpg">
-            <figcaption>
-              <div class="content">
-                游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介
-              </div>
-            </figcaption>
-          </router-link>
-        </div>
-        <div class="date">5月<b>29</b></div>
-      </div>
-    </li>
-    <li data-aos="flip-up">
-      <div class="post-item">
-        <div class="title-wrapper">
-          <router-link to="/detail/1234"><h1 class="title">1/2 summer</h1></router-link>
-        </div>
-        <ul class="tags">
-          <li class="tag"><i class="el-icon-collection-tag"></i>ALcotHoneyCome,纯爱</li>
-          <li class="tag"><i class="el-icon-view"></i>47,466℃</li>
-          <li class="tag"><i class="el-icon-s-comment"></i>36</li>
-        </ul>
-        <div class="poster-wrapper">
-          <router-link tag="figure" to="/detail/1234" class="poster">
-            <img src="../assets/image/s2.jpg">
-            <figcaption>
-              <div class="content">
-                游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介
-              </div>
-            </figcaption>
-          </router-link>
-        </div>
-        <div class="date">5月<b>29</b></div>
-      </div>
-    </li>
+      </li>
+    </template>
     <li data-aos="flip-up">
       <div class="post-item">
         <div class="title-wrapper">
@@ -188,8 +50,21 @@
 </template>
 
 <script>
+  import article from '@/api/article'
+
   export default {
-    name: "Posts"
+    name: "Posts",
+    data() {
+      return {
+        page: 1,
+        posts: []
+      }
+    },
+    created() {
+      article.getArticles({page: this.page}).then(posts => {
+        this.posts = posts
+      })
+    }
   }
 </script>
 
