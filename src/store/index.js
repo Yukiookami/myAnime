@@ -1,14 +1,14 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import auth from './modules/auth'
-import blog from './modules/blog'
+import article from './modules/article'
 
 Vue.use(Vuex)
 
 const store =  new Vuex.Store({
   modules: {
     auth,
-    blog
+    article
   }
 })
 

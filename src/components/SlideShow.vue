@@ -12,32 +12,29 @@
 
 <script>
   import slides from '@/api/slides.js'
+  import p1 from '@/assets/image/1.jpg'
+  import p2 from '@/assets/image/2.jpg'
+  import p3 from '@/assets/image/3.jpg'
+  import p4 from '@/assets/image/4.jpg'
+  import p5 from '@/assets/image/5.jpg'
+  import p6 from '@/assets/image/6.jpg'
 
   export default {
     name: "SlideShow",
     data() {
       return {
-        imageArr: [
-          '../assets/image/1.jpg',
-          '../assets/image/2.jpg',
-          '../assets/image/3.jpg',
-          '../assets/image/4.jpg',
-          '../assets/image/5.jpg',
-          '../assets/image/6.jpg'
-        ]
+        imageArr: [p1, p2, p3, p4, p5, p6]
       }
     },
     created() {
       slides.fetchImage().then(urlArr => {
         this.imageArr = urlArr
-      }).catch(err => {
       })
     },
     watch: {
       '$route'(to, from) {
         slides.fetchImage().then(urlArr => {
           this.imageArr = urlArr
-        }).catch(err => {
         })
       }
     }
