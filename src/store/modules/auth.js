@@ -24,14 +24,14 @@ const actions = {
   login({ commit }, { username, password }) {
     return auth.login({ username, password })
       .then(res => {
-        commit('setUser', { user: res.attributes.username })
+        commit('setUser', { user: res.get('username') })
         commit('setLogin', { isLogin: true})
       })
   },
 
   async register({ commit }, { username, password }) {
     let res = await auth.register({ username, password })
-    commit('setUser', { user: res.attributes.username })
+    commit('setUser', { user: res.get('username') })
     commit('setLogin', {isLogin: true})
     return res.data
   },
