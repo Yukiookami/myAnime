@@ -35,7 +35,7 @@
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    background-color: #000;
+    /*background-color: #000;*/
 
     #main {
       .page {

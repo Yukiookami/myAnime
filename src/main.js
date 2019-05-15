@@ -9,10 +9,12 @@ import 'element-ui/lib/theme-chalk/index.css'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import auth from './api/auth'
+import AV from './helpers/av'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 window.auth = auth
+window.AV = AV
 
 /* 第三方库初始化 */
 
