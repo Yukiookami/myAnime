@@ -23,29 +23,30 @@
         </div>
       </li>
     </template>
-    <li data-aos="flip-up">
-      <div class="post-item">
-        <div class="title-wrapper">
-          <router-link to="/detail/1234"><h1 class="title">1/2 summer</h1></router-link>
-        </div>
-        <ul class="tags">
-          <li class="tag"><i class="el-icon-collection-tag"></i>ALcotHoneyCome,纯爱</li>
-          <li class="tag"><i class="el-icon-view"></i>47,466℃</li>
-          <li class="tag"><i class="el-icon-s-comment"></i>36</li>
-        </ul>
-        <div class="poster-wrapper">
-          <router-link tag="figure" to="/detail/1234" class="poster">
-            <img src="../assets/image/s2.jpg">
-            <figcaption>
-              <div class="content">
-                游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介游戏简介
-              </div>
-            </figcaption>
-          </router-link>
-        </div>
-        <div class="date">5月<b>29</b></div>
-      </div>
-    </li>
+<!--    sample -->
+<!--    <li data-aos="flip-up">-->
+<!--      <div class="post-item">-->
+<!--        <div class="title-wrapper">-->
+<!--          <router-link to="/detail/1234"><h1 class="title">1/2 summer</h1></router-link>-->
+<!--        </div>-->
+<!--        <ul class="tags">-->
+<!--          <li class="tag"><i class="el-icon-collection-tag"></i>ALcotHoneyCome,纯爱</li>-->
+<!--          <li class="tag"><i class="el-icon-view"></i>47,466℃</li>-->
+<!--          <li class="tag"><i class="el-icon-s-comment"></i>36</li>-->
+<!--        </ul>-->
+<!--        <div class="poster-wrapper">-->
+<!--          <router-link tag="figure" to="/detail/1234" class="poster">-->
+<!--            <img src="../assets/image/s2.jpg">-->
+<!--            <figcaption>-->
+<!--              <div class="content">-->
+<!--                游戏简介-->
+<!--              </div>-->
+<!--            </figcaption>-->
+<!--          </router-link>-->
+<!--        </div>-->
+<!--        <div class="date">5月<b>29</b></div>-->
+<!--      </div>-->
+<!--    </li>-->
   </ul>
 </template>
 
