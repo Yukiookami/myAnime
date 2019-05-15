@@ -6,11 +6,9 @@ export default {
   fetchImage() {
     var query = new AV.Query('slideShow')
 
-    return query.find().then(function (pictures) {
+    return query.find().then(pictures => {
       let urlArr = pictures.map(p => p.attributes.url)
       return urlArr
-    }).catch(err => {
-      Message.error('网络错误')
     })
   }
 }
