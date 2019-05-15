@@ -1,10 +1,15 @@
 import AV from '@/helpers/av.js'
 import {Message} from 'element-ui'
 
+// 这里 tags 默认为 %% 是为了在无 tags 时匹配全部
 export default {
-  getArticles({page = 1} = {page: 1}) {
+  getArticles({tag='%%', category='', search='', page=1} = {tags: '%%', category: '', search: '', page: 1}) {
     return new Promise((resolve, reject) => {
-      let cql = `select title, views, cover, intro, tags, comments from ArticleDb limit ${page - 1}, 8`
+      let cql = `select title, views, cover, intro, tags, comments from ArticleDb
+      where tags like '${tag}'
+      and category like '%${category}%'
+      and title like '%${search}%'
+      limit ${page - 1}, 8`
 
       AV.Query.doCloudQuery(cql)
         .then(res => {
