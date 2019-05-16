@@ -8,20 +8,18 @@
       <li class="tag"><i class="el-icon-view"></i>47,466℃</li>
     </ul>
     <div class="screenshot">
-      <blockquote>游戏截图</blockquote>
-      <ul>
-        <li><img src="../assets/image/s1.jpg" alt=""></li>
-        <li><img src="../assets/image/s2.jpg" alt=""></li>
-        <li><img src="../assets/image/s3.jpg" alt=""></li>
-        <li><img src="../assets/image/s4.jpg" alt=""></li>
-        <li><img src="../assets/image/s5.jpg" alt=""></li>
-      </ul>
+      <h2>游戏截图</h2>
+        <img src="../assets/image/s1.jpg" alt="">
+        <img src="../assets/image/s2.jpg" alt="">
+        <img src="../assets/image/s3.jpg" alt="">
+        <img src="../assets/image/s4.jpg" alt="">
+        <img src="../assets/image/s5.jpg" alt="">
       <p>
         <br><br><br><br>
       </p>
     </div>
     <div class="introduce">
-      <blockquote>游戏简介</blockquote>
+      <h2>游戏简介</h2>
       <div class="article">
         春日烂漫。于相遇和恋爱中悄然躁动的这个世间。<br>
         对于世间那玫瑰色氛围完全不在意呢。<br>
@@ -46,7 +44,7 @@
       <p><br><br></p>
     </div>
     <div class="staff">
-      <blockquote>汉化STAFF</blockquote>
+      <h2>汉化STAFF</h2>
       <div class="article">
         组长: 邓格拉斯<br>
         副组长: 乾纱凪<br>
@@ -71,7 +69,7 @@
     <div class="share">
       <header>百度网盘链接</header>
       <main>
-        <el-button>链接</el-button>
+        <a href="https://pan.baidu.com">链接</a>
       </main>
       <footer>
         <p><span>提取密码：</span>A562</p>
@@ -174,7 +172,7 @@
       }
     }
 
-    blockquote {
+    h2 {
       border-color: rgb(0, 191, 255);
       background-color: rgba(255, 255, 255, .51);
       padding: 10px 20px;
@@ -197,6 +195,7 @@
     .screenshot {
       img {
         width: 650px;
+        display: block;
 
         &:hover {
           transition: all .3s ease-in-out;
@@ -227,7 +226,7 @@
       main {
         padding: 15px;
 
-        .el-button {
+        a {
           background-color: #d9534f;
           border: none;
           transition: all .25s ease-in-out;

@@ -27,7 +27,7 @@
 </template>
 
 <script>
-  import article from '@/api/article'
+  import posts from '@/api/posts'
 
   export default {
     name: "Posts",
@@ -54,7 +54,7 @@
         params['category'] = categoryName === undefined? '': decodeURIComponent(categoryName)
         params['search'] = keyword === undefined? '': decodeURIComponent(keyword)
 
-        article.getArticles(params).then(posts => {
+        posts.getArticles(params).then(posts => {
           this.posts = posts
         })
       }
