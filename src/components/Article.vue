@@ -10,9 +10,9 @@
     <section class="markdown-wrapper" v-html="markdown"></section>
     <section class="blogTags-wrapper">
       <i class="el-icon-price-tag"></i>
-      <router-link to="/tag/1234">
-        <el-tag color="#5cb85c">纯爱</el-tag>
-      </router-link>
+      <template v-for="tag in tags">
+        <router-link :to="`/tag/${tag}`" class="tag">{{tag}}</router-link>
+      </template>
     </section>
   </div>
 </template>
@@ -35,7 +35,8 @@
         createdAt: '',
         views: '',
         category: '',
-        rawContent: ''
+        rawContent: '',
+        tags: []
       }
     },
 
@@ -46,6 +47,7 @@
         this.views = res.views
         this.category = res.category
         this.rawContent = res.rawContent
+        this.tags = res.tags
       })
     },
 
@@ -146,15 +148,26 @@
     }
 
     .blogTags-wrapper {
-      i {
-        margin-right: .5em;
-      }
-
-      a {
+      .tag {
         opacity: .7;
+        cursor: pointer;
+        color: #fff;
+        font-size: 14px;
+        padding: 2px 6px;
+        margin: 0 .5em;
 
         &:hover {
           opacity: 1;
+        }
+
+        &:nth-child(3n+0) {
+          background-color: #b85c5c;
+        }
+        &:nth-child(3n+1) {
+          background-color: #5c5cb8;
+        }
+        &:nth-child(3n+2) {
+          background-color: #5cb85c;
         }
       }
     }
