@@ -16,7 +16,6 @@ import Filter from './helpers/filter'
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 window.AV = AV
-window.AOS = AOS
 
 /* 第三方库初始化 */
 

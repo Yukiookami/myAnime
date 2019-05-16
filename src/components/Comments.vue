@@ -4,7 +4,7 @@
     <div class="commentsLoading" v-if="false"><i class="el-icon-loading"></i></div>
     <ul class="commentList">
       <li v-for="comment in comments"
-          id="comment.id" class="comment-item" data-aos="zoom-out-right">
+          :id="comment.id" class="comment-item" data-aos="zoom-out-right">
         <article class="commentBody">
           <footer class="commentMeta">
             <div class="commentAuthor">
@@ -27,7 +27,7 @@
     <div class="commentCommit">
       <div class="commentBody">
         <div class="commentMeta"></div>
-        <form class="commentContent">
+        <form class="commentContent" @submit.prevent="onSubmit">
           <textarea class="commentText" name="comment">说点什么吧！</textarea>
           <input class="commentConfirm" type="submit" value="发表">
         </form>
@@ -39,6 +39,7 @@
 <script>
   import comments from '@/api/comments.js'
   import defaultAvatar from '@/assets/image/avatar.jpg'
+  import {Message} from 'element-ui'
 
   const specialArticle = {
     Guide: '5cdd5c106e9ba10068ea7b90',
@@ -62,15 +63,42 @@
           id = specialArticle[this.$route.name]
         }
         return id
+      },
+      isLogin() {
+        return !!AV.User.current()
+      },
+      userId() {
+        return AV.User.current().id
       }
     },
     created() {
       comments.getComments({articleId: this.id, page: this.page}).then(res => {
-        this.comments = res
+        this.comments = res.results.map(r => {
+          return {id: r.id, createdAt: r.createdAt, ...r.attributes}
+        })
 
         // 这句话应该在发评论的时候调用，在数组 push 之后
         comments.setCommentsNum({articleId: this.id, commentsNum: this.comments.length})
       })
+    },
+    methods: {
+      onSubmit(e) {
+        if(!this.isLogin) {
+          Message.error('请登录后再发表评论')
+          return
+        }
+
+        let authorId = this.userId
+        let content = e.currentTarget.querySelector("[name='comment']").value
+        comments.addComment({articleId: this.id, authorId, content}).then(res => {
+          this.comments.push({
+            author: AV.User.current(),
+            content,
+            createdAt: new Date()
+          })
+          comments.setCommentsNum({articleId: this.id, commentsNum: this.comments.length})
+        })
+      }
     }
   }
 </script>
