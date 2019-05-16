@@ -1,11 +1,11 @@
 <template>
   <div class="Article" data-aos="fade-up" data-aos-duration="1500">
     <section class="title-wrapper">
-      <h1 class="title">1/2 summer</h1>
+      <h1 class="title">{{title}}</h1>
     </section>
     <section class="tags-wrapper">
-      <li class="tag"><i class="el-icon-date"></i>2019-05-12</li>
-      <li class="tag"><i class="el-icon-view"></i>47,466℃</li>
+      <li class="tag"><i class="el-icon-date"></i>{{ymd}}</li>
+      <li class="tag"><i class="el-icon-view"></i>{{views}}℃</li>
     </section>
     <section class="markdown-wrapper" v-html="markdown"></section>
 <!--    <section class="markdown-wrapper">-->
@@ -95,12 +95,20 @@
     name: "Article",
     data() {
       return {
+        title: '',
+        createdAt: '',
+        views: '',
+        category: '',
         rawContent: ''
       }
     },
     created() {
       let id = this.$route.params.blogId
       article.getArticleDetail({id}).then(res => {
+        this.title = res.title
+        this.createdAt = res.createdAt
+        this.views = res.views
+        this.category = res.category
         this.rawContent = res.rawContent
       })
     },
@@ -112,6 +120,14 @@
           .replaceAll('-lightgreen-<br>', '<div class="article lightgreen">')
           .replaceAll('-lightblue-<br>', '<div class="article lightblue">')
           .replaceAll('<br>-end-', '</div>')
+      },
+      ymd() {
+        let d = this.createdAt
+        if(!d) {
+          return '2019-05-12'
+        } else {
+          return `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`
+        }
       }
     }
   }

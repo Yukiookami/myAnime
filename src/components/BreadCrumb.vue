@@ -10,44 +10,54 @@
 </template>
 
 <script>
+  import article from '@/api/article'
+
   export default {
     name: "BreadCrumb",
     data() {
       return {
         name: this.$route.name,
-        params: this.$route.params
-      }
-    },
-    watch: {
-      '$route' (to, from) {
-        this.name = this.$route.name
-        this.params = this.$route.params
+        params: this.$route.params,
+        crumbs: []
       }
     },
     created() {
+      this.getCrumb()
     },
-    computed: {
-      crumbs() {
-        console.log(this.params)
-        if(this.name === 'Guide') {
-          return ['未分类', '关于若干注意事项（新人必读）']
+    watch: {
+      '$route' (to, from) {
+        this.getCrumb()
+      }
+    },
+    methods: {
+      getCrumb() {
+        this.name = this.$route.name
+        this.params = this.$route.params
+
+        switch(this.name) {
+          case 'Guide':
+            this.crumbs = ['未分类', '关于若干注意事项（新人必读）']
+            break
+          case 'Unzip':
+            this.crumbs = ['未分类', '关于解压的相关说明（解压必读）']
+            break
+          case 'Tag':
+            this.crumbs = [this.params.tagName || '']
+            break
+          case 'Category':
+            this.crumbs = this.params.categoryName.split('_')
+            break
+          case 'Search':
+            this.crumbs = [`搜索 ${this.params.keyword} 的结果` ]
+            break
+          case 'Detail':
+            article.getArticleDetail({id: this.params.blogId}).then(res => {
+              this.crumbs = res.category.split('_')
+            })
+            break
+          default:
+            this.crumbs = []
         }
-        if(this.name === 'Unzip') {
-          return ['未分类', '关于解压的相关说明（解压必读）']
-        }
-        if(this.name === 'Tag') {
-          return [this.params.tagName || '']
-        }
-        if(this.name === 'Category') {
-          return this.params.categoryName.split('_')
-        }
-        if(this.name === 'Detail') {
-          return ['Category', '当前文章标题']
-        }
-        if(this.name === 'Search') {
-          return [`搜索 ${this.params.keyword} 的结果` ]
-        }
-        return []
       }
     }
   }

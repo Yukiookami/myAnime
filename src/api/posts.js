@@ -9,7 +9,8 @@ export default {
       where tags like '${tag}'
       and category like '%${category}%'
       and title like '%${search}%'
-      limit ${page - 1}, 8`
+      limit ${page - 1}, 8
+      order by createdAt`
 
       AV.Query.doCloudQuery(cql)
         .then(res => {
