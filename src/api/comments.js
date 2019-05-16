@@ -8,9 +8,9 @@ export default {
       where owner=pointer('ArticleDb','${articleId}')`
 
       AV.Query.doCloudQuery(cql).then(res => {
-          let commentsArr = res.results.map(r => {
-            return {id: r.id, createdAt: r.createdAt, ...r.attributes}
-          })
+        let commentsArr = res.results.map(r => {
+          return {id: r.id, createdAt: r.createdAt, ...r.attributes}
+        })
         resolve(commentsArr)
       }).catch(err => {
         Message.error('获取评论列表失败')
@@ -18,19 +18,16 @@ export default {
       })
     })
   },
-  setArticleCommentsVal(articleId) {
-    let cql = `select count(*) from CommentsDb 
-    where owner=pointer('ArticleDb', '${articleId}')`
+  setCommentsNum({articleId, commentsNum}) {
+    return new Promise((resolve, reject) => {
+      let cql = `update ArticleDb set comments = ${commentsNum} where objectId = '${articleId}'`
 
-    AV.Query.doCloudQuery(cql).then(res => {
-      let comments = res.count
-
-      let cql2 = `update ArticleDb set comments = ${comments} where objectId = '${articleId}'`
-      AV.Query.doCloudQuery(cql2).then(res => {
-        console.log(`${articleId} 的评论数更新为 ${comments}`)
+      AV.Query.doCloudQuery(cql).then(res => {
+        resolve(res)
+      }).catch(err => {
+        Message.error('评论数更新失败')
+        reject(err)
       })
-    }).catch(err => {
-      Message.error('获取评论数失败')
     })
   }
 }

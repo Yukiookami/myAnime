@@ -13,28 +13,12 @@
             <!-- .comment-author -->
             <div class="comment-metadata"><a
               href="https://www.mygalgame.com/huaworkspring.html/comment-page-4/Comments.vue#comment-25696">
-              <time>{{datetime(comment.createdAt)}}</time>
+              <time>{{comment.createdAt | formatDate}}</time>
             </a></div><!-- .comment-metadata -->
           </footer><!-- .comment-meta -->
           <div class="commentContent"><p>{{comment.content}}</p></div><!-- .comment-content -->
         </article><!-- .comment-body -->
       </li>
-<!--      sample-->
-<!--      <li class="comment-item" data-aos="zoom-out-right">-->
-<!--        <article class="commentBody">-->
-<!--          <footer class="commentMeta">-->
-<!--            <div class="commentAuthor">-->
-<!--              <img src="../assets/image/avatar.jpg" class="avatar">-->
-<!--              <b class="fn">673258814</b><span class="says">说道：</span></div>-->
-<!--            &lt;!&ndash; .comment-author &ndash;&gt;-->
-<!--            <div class="comment-metadata"><a-->
-<!--              href="https://www.mygalgame.com/huaworkspring.html/comment-page-4/Comments.vue#comment-25696">-->
-<!--              <time datetime="2017-09-20T22:08:03+00:00"> 2017年9月20日 下午10:08</time>-->
-<!--            </a></div>&lt;!&ndash; .comment-metadata &ndash;&gt;-->
-<!--          </footer>&lt;!&ndash; .comment-meta &ndash;&gt;-->
-<!--          <div class="commentContent"><p>城彩出修正补丁了</p></div>&lt;!&ndash; .comment-content &ndash;&gt;-->
-<!--        </article>&lt;!&ndash; .comment-body &ndash;&gt;-->
-<!--      </li>-->
     </ul>
     <nav class="commentNav">
       <el-pagination background layout="pager" :total="35"></el-pagination>
@@ -56,6 +40,12 @@
   import comments from '@/api/comments.js'
   import defaultAvatar from '@/assets/image/avatar.jpg'
 
+  const specialArticle = {
+    Guide: '5cdd5c106e9ba10068ea7b90',
+    Unzip: '5cdd5d537b968a0073db86d8',
+    Message: '5cdd5fa830863b0069889f2a'
+  }
+
   export default {
     name: "Comments",
     data() {
@@ -65,25 +55,22 @@
         defaultAvatar
       }
     },
-    created() {
-      let articleId = this.$route.params.blogId
-      comments.getComments({articleId, page: this.page}).then(res => {
-        this.comments = res
-      })
-    },
-    methods: {
-      datetime(date) {
-        date = new Date(date)
-        let y = date.getFullYear()
-        let m = date.getMonth() + 1
-        let d = date.getDate()
-        let h = date.getHours()
-        let min = date.getMinutes()
-        let noon = h <= 11? '上午': '下午'
-        h = h >= 12? h - 12: h
-        min = min < 10? '0' + min: min
-        return `${y}年${m}月${d} ${noon}${h}:${min}`
+    computed: {
+      id() {
+        let id = this.$route.params.blogId
+        if (specialArticle[this.$route.name]) {
+          id = specialArticle[this.$route.name]
+        }
+        return id
       }
+    },
+    created() {
+      comments.getComments({articleId: this.id, page: this.page}).then(res => {
+        this.comments = res
+
+        // 这句话应该在发评论的时候调用，在数组 push 之后
+        comments.setCommentsNum({articleId: this.id, commentsNum: this.comments.length})
+      })
     }
   }
 </script>

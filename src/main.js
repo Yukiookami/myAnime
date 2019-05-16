@@ -11,18 +11,19 @@ import 'aos/dist/aos.css'
 import auth from './api/auth'
 import AV from './helpers/av'
 import Util from './helpers/util'
+import Filter from './helpers/filter'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)
-window.auth = auth
 window.AV = AV
+window.AOS = AOS
 
 /* 第三方库初始化 */
 
 AOS.init()
 
-window.addEventListener('load', function() {
-  AOS.refresh();
+window.onElementHeightChange(document.body, function(){
+  AOS.refresh()
 })
 
 /* eslint-disable no-new */
