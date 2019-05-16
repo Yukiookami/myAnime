@@ -1,128 +1,40 @@
 <template>
   <div class="Comments">
-    <h3 class="commentTitle"><i class="el-icon-s-comment"></i> 80 条评论</h3>
+    <h3 class="commentTitle"><i class="el-icon-s-comment"></i> {{comments.length}} 条评论</h3>
     <div class="commentsLoading" v-if="false"><i class="el-icon-loading"></i></div>
     <ul class="commentList">
-      <li class="comment-item" data-aos="zoom-out-right">
+      <li v-for="comment in comments"
+          id="comment.id" class="comment-item" data-aos="zoom-out-right">
         <article class="commentBody">
           <footer class="commentMeta">
             <div class="commentAuthor">
-              <img src="../assets/image/avatar.jpg" class="avatar">
-              <b class="fn">673258814</b><span class="says">说道：</span></div>
+              <img :src="defaultAvatar" class="avatar">
+              <b class="fn">{{comment.author.attributes.username}}</b><span class="says">说道：</span></div>
             <!-- .comment-author -->
             <div class="comment-metadata"><a
               href="https://www.mygalgame.com/huaworkspring.html/comment-page-4/Comments.vue#comment-25696">
-              <time datetime="2017-09-20T22:08:03+00:00"> 2017年9月20日 下午10:08</time>
+              <time>{{datetime(comment.createdAt)}}</time>
             </a></div><!-- .comment-metadata -->
           </footer><!-- .comment-meta -->
-          <div class="commentContent"><p>城彩出修正补丁了</p></div><!-- .comment-content -->
+          <div class="commentContent"><p>{{comment.content}}</p></div><!-- .comment-content -->
         </article><!-- .comment-body -->
       </li>
-      <li class="comment-item" data-aos="zoom-out-right">
-        <article class="commentBody">
-          <footer class="commentMeta">
-            <div class="commentAuthor">
-              <img src="../assets/image/avatar.jpg" class="avatar">
-              <b class="fn">673258814</b><span class="says">说道：</span></div>
-            <!-- .comment-author -->
-            <div class="comment-metadata"><a
-              href="https://www.mygalgame.com/huaworkspring.html/comment-page-4/Comments.vue#comment-25696">
-              <time datetime="2017-09-20T22:08:03+00:00"> 2017年9月20日 下午10:08</time>
-            </a></div><!-- .comment-metadata -->
-          </footer><!-- .comment-meta -->
-          <div class="commentContent"><p>城彩出修正补丁了</p></div><!-- .comment-content -->
-        </article><!-- .comment-body -->
-      </li>
-      <li class="comment-item" data-aos="zoom-out-right">
-        <article class="commentBody">
-          <footer class="commentMeta">
-            <div class="commentAuthor">
-              <img src="../assets/image/avatar.jpg" class="avatar">
-              <b class="fn">673258814</b><span class="says">说道：</span></div>
-            <!-- .comment-author -->
-            <div class="comment-metadata"><a
-              href="https://www.mygalgame.com/huaworkspring.html/comment-page-4/Comments.vue#comment-25696">
-              <time datetime="2017-09-20T22:08:03+00:00"> 2017年9月20日 下午10:08</time>
-            </a></div><!-- .comment-metadata -->
-          </footer><!-- .comment-meta -->
-          <div class="commentContent"><p>城彩出修正补丁了</p></div><!-- .comment-content -->
-        </article><!-- .comment-body -->
-      </li>
-      <li class="comment-item" data-aos="zoom-out-right">
-        <article class="commentBody">
-          <footer class="commentMeta">
-            <div class="commentAuthor">
-              <img src="../assets/image/avatar.jpg" class="avatar">
-              <b class="fn">673258814</b><span class="says">说道：</span></div>
-            <!-- .comment-author -->
-            <div class="comment-metadata"><a
-              href="https://www.mygalgame.com/huaworkspring.html/comment-page-4/Comments.vue#comment-25696">
-              <time datetime="2017-09-20T22:08:03+00:00"> 2017年9月20日 下午10:08</time>
-            </a></div><!-- .comment-metadata -->
-          </footer><!-- .comment-meta -->
-          <div class="commentContent"><p>城彩出修正补丁了</p></div><!-- .comment-content -->
-        </article><!-- .comment-body -->
-      </li>
-      <li class="comment-item" data-aos="zoom-out-right">
-        <article class="commentBody">
-          <footer class="commentMeta">
-            <div class="commentAuthor">
-              <img src="../assets/image/avatar.jpg" class="avatar">
-              <b class="fn">673258814</b><span class="says">说道：</span></div>
-            <!-- .comment-author -->
-            <div class="comment-metadata"><a
-              href="https://www.mygalgame.com/huaworkspring.html/comment-page-4/Comments.vue#comment-25696">
-              <time datetime="2017-09-20T22:08:03+00:00"> 2017年9月20日 下午10:08</time>
-            </a></div><!-- .comment-metadata -->
-          </footer><!-- .comment-meta -->
-          <div class="commentContent"><p>城彩出修正补丁了</p></div><!-- .comment-content -->
-        </article><!-- .comment-body -->
-      </li>
-      <li class="comment-item" data-aos="zoom-out-right">
-        <article class="commentBody">
-          <footer class="commentMeta">
-            <div class="commentAuthor">
-              <img src="../assets/image/avatar.jpg" class="avatar">
-              <b class="fn">673258814</b><span class="says">说道：</span></div>
-            <!-- .comment-author -->
-            <div class="comment-metadata"><a
-              href="https://www.mygalgame.com/huaworkspring.html/comment-page-4/Comments.vue#comment-25696">
-              <time datetime="2017-09-20T22:08:03+00:00"> 2017年9月20日 下午10:08</time>
-            </a></div><!-- .comment-metadata -->
-          </footer><!-- .comment-meta -->
-          <div class="commentContent"><p>城彩出修正补丁了</p></div><!-- .comment-content -->
-        </article><!-- .comment-body -->
-      </li>
-      <li class="comment-item" data-aos="zoom-out-right">
-        <article class="commentBody">
-          <footer class="commentMeta">
-            <div class="commentAuthor">
-              <img src="../assets/image/avatar.jpg" class="avatar">
-              <b class="fn">673258814</b><span class="says">说道：</span></div>
-            <!-- .comment-author -->
-            <div class="comment-metadata"><a
-              href="https://www.mygalgame.com/huaworkspring.html/comment-page-4/Comments.vue#comment-25696">
-              <time datetime="2017-09-20T22:08:03+00:00"> 2017年9月20日 下午10:08</time>
-            </a></div><!-- .comment-metadata -->
-          </footer><!-- .comment-meta -->
-          <div class="commentContent"><p>城彩出修正补丁了</p></div><!-- .comment-content -->
-        </article><!-- .comment-body -->
-      </li>
-      <li class="comment-item" data-aos="zoom-out-right">
-        <article class="commentBody">
-          <footer class="commentMeta">
-            <div class="commentAuthor">
-              <img src="../assets/image/avatar.jpg" class="avatar">
-              <b class="fn">673258814</b><span class="says">说道：</span></div>
-            <!-- .comment-author -->
-            <div class="comment-metadata"><a
-              href="https://www.mygalgame.com/huaworkspring.html/comment-page-4/Comments.vue#comment-25696">
-              <time datetime="2017-09-20T22:08:03+00:00"> 2017年9月20日 下午10:08</time>
-            </a></div><!-- .comment-metadata -->
-          </footer><!-- .comment-meta -->
-          <div class="commentContent"><p>城彩出修正补丁了</p></div><!-- .comment-content -->
-        </article><!-- .comment-body -->
-      </li>
+<!--      sample-->
+<!--      <li class="comment-item" data-aos="zoom-out-right">-->
+<!--        <article class="commentBody">-->
+<!--          <footer class="commentMeta">-->
+<!--            <div class="commentAuthor">-->
+<!--              <img src="../assets/image/avatar.jpg" class="avatar">-->
+<!--              <b class="fn">673258814</b><span class="says">说道：</span></div>-->
+<!--            &lt;!&ndash; .comment-author &ndash;&gt;-->
+<!--            <div class="comment-metadata"><a-->
+<!--              href="https://www.mygalgame.com/huaworkspring.html/comment-page-4/Comments.vue#comment-25696">-->
+<!--              <time datetime="2017-09-20T22:08:03+00:00"> 2017年9月20日 下午10:08</time>-->
+<!--            </a></div>&lt;!&ndash; .comment-metadata &ndash;&gt;-->
+<!--          </footer>&lt;!&ndash; .comment-meta &ndash;&gt;-->
+<!--          <div class="commentContent"><p>城彩出修正补丁了</p></div>&lt;!&ndash; .comment-content &ndash;&gt;-->
+<!--        </article>&lt;!&ndash; .comment-body &ndash;&gt;-->
+<!--      </li>-->
     </ul>
     <nav class="commentNav">
       <el-pagination background layout="pager" :total="35"></el-pagination>
@@ -141,8 +53,38 @@
 </template>
 
 <script>
+  import comments from '@/api/comments.js'
+  import defaultAvatar from '@/assets/image/avatar.jpg'
+
   export default {
-    name: "Comments"
+    name: "Comments",
+    data() {
+      return {
+        page: 1,
+        comments: [],
+        defaultAvatar
+      }
+    },
+    created() {
+      let articleId = this.$route.params.blogId
+      comments.getComments({articleId, page: this.page}).then(res => {
+        this.comments = res
+      })
+    },
+    methods: {
+      datetime(date) {
+        date = new Date(date)
+        let y = date.getFullYear()
+        let m = date.getMonth() + 1
+        let d = date.getDate()
+        let h = date.getHours()
+        let min = date.getMinutes()
+        let noon = h <= 11? '上午': '下午'
+        h = h >= 12? h - 12: h
+        min = min < 10? '0' + min: min
+        return `${y}年${m}月${d} ${noon}${h}:${min}`
+      }
+    }
   }
 </script>
 

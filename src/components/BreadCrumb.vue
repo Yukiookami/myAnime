@@ -25,8 +25,12 @@
       this.getCrumb()
     },
     watch: {
-      '$route' (to, from) {
-        this.getCrumb()
+      '$route': {
+        handler: function() {
+          this.getCrumb()
+        },
+        deep: true,
+        immediate: true
       }
     },
     methods: {
