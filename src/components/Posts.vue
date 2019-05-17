@@ -23,6 +23,14 @@
         </div>
       </li>
     </template>
+    <li class="pagination-wrapper">
+      <el-pagination
+        background layout="pager"
+        :page-size="8" :total="total"
+        :current-page="page" @current-change="onPageChange"
+      >
+      </el-pagination>
+    </li>
   </ul>
 </template>
 
@@ -34,7 +42,8 @@
     data() {
       return {
         page: 1,
-        posts: []
+        posts: [],
+        total: 0
       }
     },
     watch: {
@@ -43,6 +52,7 @@
       }
     },
     created() {
+      this.page = parseInt(this.$route.query.page) || 1
       this.getPosts()
     },
     methods: {
@@ -55,14 +65,45 @@
         params['search'] = keyword === undefined? '': decodeURIComponent(keyword)
 
         posts.getArticles(params).then(res => {
+          console.log(res.results.map(r => {return {...r.attributes}}))
           this.posts = res.results.map(r => {
             return {id: r.id, createdAt: r.createdAt, ...r.attributes}
           })
         })
+
+        this.getPostsTotal()
+      },
+      getPostsTotal() {
+        posts.getArticlesTotal().then(res => {
+          this.total = res.count
+        })
+      },
+      onPageChange(page) {
+        this.page = page
+        this.getPosts()
+        this.$router.push({path: '/', query: {page}})
       }
     }
   }
 </script>
+
+<style lang="less">
+  .Posts .pagination-wrapper {
+    .el-pagination.is-background .el-pager li:not(.disabled).active,
+    .el-pagination.is-background .el-pager li:not(.disabled):hover {
+      color: #fff;
+      background-color: rgb(217, 83, 79);
+    }
+
+    .el-pagination.is-background .el-pager li {
+      height: 30px;
+      background-color: transparent;
+      color: rgb(217, 83, 79);
+      font-weight: normal;
+      border: 1px solid rgb(217, 83, 79);
+    }
+  }
+</style>
 
 <style scoped lang="less">
   .Posts {
@@ -216,6 +257,9 @@
           }
         }
       }
+    }
+    .pagination-wrapper {
+      text-align: right;
     }
   }
 </style>

@@ -21,7 +21,7 @@
       </li>
     </ul>
     <nav class="commentNav">
-      <el-pagination background layout="pager" :total="35"></el-pagination>
+      <el-pagination background layout="pager" :page-size="8" :total="35"></el-pagination>
     </nav>
     <!-- 这里最好改一下样式，改善多行文本输入 -->
     <div class="commentCommit">
