@@ -109,12 +109,17 @@
   }
 </script>
 
-<style>
+<style lang="less">
   .Besider aside .input-wrapper .el-input__inner {
     height: 35px;
     line-height: 35px;
     background: transparent;
     box-shadow: inset 0px 1px 1px rgba(0, 0, 0, .075);
+    border-color: inherit;
+    &:focus {
+      background: #fff;
+      border-color: inherit;
+    }
   }
 </style>
 
