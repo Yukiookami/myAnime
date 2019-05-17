@@ -55,7 +55,9 @@ const router = new Router({
       path: '/search/:keyword',
       component: () => import('@/pages/Search/template.vue')
     }
-  ]
+  ],
+  mode: 'history',
+  base: '/'
 })
 
 export default router
