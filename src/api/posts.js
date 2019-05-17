@@ -1,28 +1,18 @@
-import AV from '@/helpers/av.js'
-import {Message} from 'element-ui'
+import request from '@/helpers/request.js'
+
+const CQL = {
+  GET_ARTICLE: `select title, views, cover, intro, tags, comments from ArticleDb
+      where tags like '{{tag}}' and category like '%{{category}}%' and title like '%{{search}}%'
+      limit {{page}}, 8 order by createdAt`,
+  GET_ARTICLE_NEWEST: "select title, views from ArticleDb limit 8 order by updatedAt desc"
+}
 
 // 这里 tags 默认为 %% 是为了在无 tags 时匹配全部
 export default {
   getArticles({tag='%%', category='', search='', page=1} = {tags: '%%', category: '', search: '', page: 1}) {
-    return new Promise((resolve, reject) => {
-      let cql = `select title, views, cover, intro, tags, comments from ArticleDb
-      where tags like '${tag}'
-      and category like '%${category}%'
-      and title like '%${search}%'
-      limit ${page - 1}, 8
-      order by createdAt`
-
-      AV.Query.doCloudQuery(cql)
-        .then(res => {
-          let posts = res.results.map(r => {
-            return {id: r.id, createdAt: r.createdAt, ...r.attributes}
-          })
-          resolve(posts)
-        })
-        .catch(err => {
-          Message.error('获取文章列表失败')
-          reject(err)
-        })
-    })
+    return request(CQL.GET_ARTICLE, {tag, category, search, page: page-1}, '获取文章列表失败')
+  },
+  getNewestArticles() {
+    return request(CQL.GET_ARTICLE_NEWEST)
   }
 }

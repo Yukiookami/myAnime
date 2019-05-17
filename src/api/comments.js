@@ -4,7 +4,7 @@ const CQL = {
   GET_COMMENTS: "select content, include author from CommentsDb where owner=pointer('ArticleDb','{{articleId}}')",
   SET_COMMENTS_NUM: "update ArticleDb set comments = {{commentsNum}} where objectId = '{{articleId}}'",
   ADD_COMMENT: "insert into CommentsDb(owner, author, content) values(pointer('ArticleDb', '{{articleId}}'), pointer('_User', '{{authorId}}'), '{{content}}')",
-  GET_COMMENT_NEWEST: "select content, include author from CommentsDb order by CreatedAt limit 0, 8"
+  GET_COMMENT_NEWEST: "select content, include author from CommentsDb limit 8 order by createdAt desc"
 }
 
 export default {

@@ -54,8 +54,10 @@
         params['category'] = categoryName === undefined? '': decodeURIComponent(categoryName)
         params['search'] = keyword === undefined? '': decodeURIComponent(keyword)
 
-        posts.getArticles(params).then(posts => {
-          this.posts = posts
+        posts.getArticles(params).then(res => {
+          this.posts = res.results.map(r => {
+            return {id: r.id, createdAt: r.createdAt, ...r.attributes}
+          })
         })
       }
     }

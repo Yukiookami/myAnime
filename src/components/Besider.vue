@@ -57,43 +57,15 @@
       <div class="floatPanel randomList" data-aos="fade-up" data-aos-mirror="true" data-aos-duration="2000">
         <div class="panelHeading">
           <i class="el-icon-menu"></i>
-          <span>随机文章</span>
+          <span>最新文章</span>
           <i class="el-icon-arrow-up"></i>
           <i class="el-icon-error"></i>
         </div>
         <div class="panelContent">
           <ul class="listGroup">
-            <li class="listGroupItem">
-              <span class="title">Flowers 春篇</span>
-              <span class="tag"> 59941 ℃ </span>
-            </li>
-            <li class="listGroupItem">
-              <span class="title">黄雷的伽克苏恩~何等闪耀的勇气~</span>
-              <span class="tag"> 17426 ℃ </span>
-            </li>
-            <li class="listGroupItem">
-              <span class="title">千金逼我嫁</span>
-              <span class="tag"> 24226 ℃ </span>
-            </li>
-            <li class="listGroupItem">
-              <span class="title">关于唯一能让笨蛋妹妹变聪明的方法只有我去</span>
-              <span class="tag"> 228416 ℃ </span>
-            </li>
-            <li class="listGroupItem">
-              <span class="title">CARNIVAL</span>
-              <span class="tag"> 14371 ℃ </span>
-            </li>
-            <li class="listGroupItem">
-              <span class="title">航迹云的彼方</span>
-              <span class="tag"> 29505 ℃ </span>
-            </li>
-            <li class="listGroupItem">
-              <span class="title">兄妹秘哀~口嫌体正直~</span>
-              <span class="tag"> 59413 ℃ </span>
-            </li>
-            <li class="listGroupItem">
-              <span class="title">D.C.II~featurning Yun2~(初音岛2 featurning Yun2)</span>
-              <span class="tag"> 8118 ℃ </span>
+            <li v-for="post in posts" class="listGroupItem">
+              <span class="title">{{post.title}}</span>
+              <span class="tag"> {{post.views}} ℃ </span>
             </li>
           </ul>
         </div>
@@ -105,13 +77,15 @@
 <script>
   import {mapGetters, mapActions} from 'vuex'
   import comments from '@/api/comments.js'
+  import posts from '@/api/posts.js'
 
   export default {
     name: "Besider",
     data() {
       return {
         searchText: '',
-        comments: []
+        comments: [],
+        posts: []
       }
     },
     computed: {
@@ -121,6 +95,9 @@
       this.checkLogin()
       comments.getNewestComments().then(res => {
         this.comments = res.results.map(r => r.attributes)
+      })
+      posts.getNewestArticles().then(res => {
+        this.posts = res.results.map(r => r.attributes)
       })
     },
     methods: {
