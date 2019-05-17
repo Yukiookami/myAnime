@@ -99,6 +99,24 @@
   }
 </script>
 
+<style lang="less">
+  .Comments .commentNav {
+    .el-pagination.is-background .el-pager li:not(.disabled).active,
+    .el-pagination.is-background .el-pager li:not(.disabled):hover {
+      color: #fff;
+      background-color: rgb(217, 83, 79);
+    }
+
+    .el-pagination.is-background .el-pager li {
+      height: 30px;
+      background-color: transparent;
+      color: rgb(217, 83, 79);
+      font-weight: normal;
+      border: 1px solid rgb(217, 83, 79);
+    }
+  }
+</style>
+
 <style scoped lang="less">
 
   .Comments {

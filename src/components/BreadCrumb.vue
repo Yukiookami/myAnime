@@ -67,6 +67,23 @@
   }
 </script>
 
+<style lang="less">
+  .BreadCrumb .el-breadcrumb {
+    padding: 8px 15px;
+    font-size: 12px;
+    .el-breadcrumb__item {
+      .el-breadcrumb__inner {
+        color: rgb(210, 50, 45);
+      }
+    }
+    .el-breadcrumb__item.current {
+      .el-breadcrumb__inner {
+        color: rgb(61, 68, 80);
+      }
+    }
+  }
+</style>
+
 <style scoped lang="less">
   @import '../assets/base.less';
 
@@ -81,16 +98,6 @@
     i {
       font-size: 12px;
       padding: 1em .5em;
-    }
-
-    .el-breadcrumb {
-      padding: 8px 15px;
-      font-size: 12px;
-      color: rgb(210, 50, 45);
-
-      .current {
-        color: rgb(61, 68, 80);
-      }
     }
   }
 </style>

@@ -41,6 +41,21 @@
   }
 </script>
 
+<style lang="less">
+  .Register .form-wrapper .el-form-item {
+    font-weight: bold;
+    color: rgb(61, 68, 80);
+    .submit {
+      margin-left: 40px;
+      background-color: rgba(10, 10, 0, .7);
+      border: none;
+      &:hover {
+        background-color: #d9534f;
+      }
+    }
+  }
+</style>
+
 <style scoped lang="less">
   .Register {
     .form-wrapper {
@@ -56,18 +71,6 @@
       &:hover {
         transition: all .7s ease-in-out;
         background: rgba(255, 255, 255, .9);
-      }
-      .el-form-item {
-        font-weight: bold;
-        color: rgb(61, 68, 80);
-        .submit {
-          margin-left: 40px;
-          background-color: rgba(10, 10, 0, .7);
-          border: none;
-          &:hover {
-            background-color: #d9534f;
-          }
-        }
       }
       .hint {
         position: absolute;
