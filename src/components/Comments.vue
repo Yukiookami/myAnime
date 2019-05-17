@@ -39,6 +39,7 @@
 <script>
   import comments from '@/api/comments.js'
   import defaultAvatar from '@/assets/image/avatar.jpg'
+  import {mapGetters} from 'vuex'
   import {Message} from 'element-ui'
 
   const specialArticle = {
@@ -57,18 +58,13 @@
       }
     },
     computed: {
+      ...mapGetters(['isLogin', 'userId']),
       id() {
         let id = this.$route.params.blogId
         if (specialArticle[this.$route.name]) {
           id = specialArticle[this.$route.name]
         }
         return id
-      },
-      isLogin() {
-        return !!AV.User.current()
-      },
-      userId() {
-        return AV.User.current().id
       }
     },
     created() {

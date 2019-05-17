@@ -147,6 +147,7 @@
         &:hover {
           box-shadow: 0 0 50px #000;
           transition: all .5s ease-in-out;
+          background-color: rgba(255, 255, 255, .6);
         }
 
         .panelHeading {

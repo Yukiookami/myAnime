@@ -27,13 +27,13 @@ const ERRINFO = {
 
 export default {
   register({username, password, email=''} = {email: ''}) {
-    const user = new AV.User()
-
-    user.setUsername(username)
-    user.setPassword(password)
-    email && user.setEmail(email)
-
     return new Promise((resolve, reject) => {
+      const user = new AV.User()
+
+      user.setUsername(username)
+      user.setPassword(password)
+      email && user.setEmail(email)
+
       user.signUp().then(res => {
         Message.success('注册成功')
         resolve(res)
@@ -65,9 +65,9 @@ export default {
   getInfo() {
     let currentUser = AV.User.current()
     if(!currentUser) {
-      return {user: null, isLogin: false}
+      return {user: null, userId: null, isLogin: false}
     } else {
-      return {user: currentUser.attributes.username, isLogin: true}
+      return {user: currentUser.get('username'), id: currentUser.id, isLogin: true}
     }
   }
 }
