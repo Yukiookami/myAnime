@@ -45,45 +45,9 @@
         </div>
         <div class="panelContent">
           <ul class="listGroup">
-            <li class="listGroupItem">
+            <li v-for="comment in comments" class="listGroupItem">
               <img src="../assets/image/avatar.jpg">
-              <span class="commentLog"> 第一句话 </span>
-            </li>
-            <li class="listGroupItem">
-              <span class="avatar">
-                <img src="../assets/image/avatar.jpg">
-              </span>
-              <span class="commentLog"> 第二句话 </span>
-            </li>
-            <li class="listGroupItem">
-              <img src="../assets/image/avatar.jpg">
-              <span class="commentLog"> 第三句话 </span>
-            </li>
-            <li class="listGroupItem">
-              <span class="avatar">
-                <img src="../assets/image/avatar.jpg">
-              </span>
-              <span class="commentLog"> 第四句话 </span>
-            </li>
-            <li class="listGroupItem">
-              <img src="../assets/image/avatar.jpg">
-              <span class="commentLog"> 第五句话 </span>
-            </li>
-            <li class="listGroupItem">
-              <span class="avatar">
-                <img src="../assets/image/avatar.jpg">
-              </span>
-              <span class="commentLog"> 第六句话 </span>
-            </li>
-            <li class="listGroupItem">
-              <img src="../assets/image/avatar.jpg">
-              <span class="commentLog"> 第七句话 </span>
-            </li>
-            <li class="listGroupItem">
-              <span class="avatar">
-                <img src="../assets/image/avatar.jpg">
-              </span>
-              <span class="commentLog"> 第八句话 </span>
+              <span class="commentLog"> {{comment.content}} </span>
             </li>
           </ul>
         </div>
@@ -140,12 +104,14 @@
 
 <script>
   import {mapGetters, mapActions} from 'vuex'
+  import comments from '@/api/comments.js'
 
   export default {
     name: "Besider",
     data() {
       return {
-        searchText: ''
+        searchText: '',
+        comments: []
       }
     },
     computed: {
@@ -153,6 +119,9 @@
     },
     created() {
       this.checkLogin()
+      comments.getNewestComments().then(res => {
+        this.comments = res.results.map(r => r.attributes)
+      })
     },
     methods: {
       ...mapActions([

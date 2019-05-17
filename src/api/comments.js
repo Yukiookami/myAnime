@@ -3,7 +3,8 @@ import request from '@/helpers/request.js'
 const CQL = {
   GET_COMMENTS: "select content, include author from CommentsDb where owner=pointer('ArticleDb','{{articleId}}')",
   SET_COMMENTS_NUM: "update ArticleDb set comments = {{commentsNum}} where objectId = '{{articleId}}'",
-  ADD_COMMENT: "insert into CommentsDb(owner, author, content) values(pointer('ArticleDb', '{{articleId}}'), pointer('_User', '{{authorId}}'), '{{content}}')"
+  ADD_COMMENT: "insert into CommentsDb(owner, author, content) values(pointer('ArticleDb', '{{articleId}}'), pointer('_User', '{{authorId}}'), '{{content}}')",
+  GET_COMMENT_NEWEST: "select content, include author from CommentsDb order by CreatedAt limit 0, 8"
 }
 
 export default {
@@ -15,5 +16,8 @@ export default {
   },
   addComment({articleId, authorId, content}) {
     return request(CQL.ADD_COMMENT, {articleId, authorId, content}, '添加评论失败')
+  },
+  getNewestComments() {
+    return request(CQL.GET_COMMENT_NEWEST)
   }
 }
