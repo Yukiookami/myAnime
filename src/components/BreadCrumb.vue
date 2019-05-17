@@ -3,7 +3,7 @@
     <i class="el-icon-s-home"></i>
     <el-breadcrumb separator-class="el-icon-arrow-right">
       <template v-for="(crumb, idx) in crumbs">
-        <el-breadcrumb-item :class="{current: idx === crumbs.length - 1}">{{crumb}}</el-breadcrumb-item>
+        <el-breadcrumb-item :class="{current: idx===crumbs.length-1}">{{crumb}}</el-breadcrumb-item>
       </template>
     </el-breadcrumb>
   </div>
@@ -20,9 +20,6 @@
         params: this.$route.params,
         crumbs: []
       }
-    },
-    created() {
-      this.getCrumb()
     },
     watch: {
       '$route': {

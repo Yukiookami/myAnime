@@ -16,9 +16,9 @@ export default {
     return request(CQL.GET_ARTICLE, {tag, category, search, page}, '获取文章列表失败')
   },
   getNewestArticles() {
-    return request(CQL.GET_ARTICLE_NEWEST)
+    return request(CQL.GET_ARTICLE_NEWEST, {}, '获取最新文章失败')
   },
   getArticlesTotal({tag='%%', category='', search=''} = {tag: '%%', category: '', search: ''}) {
-    return request(CQL.GET_ARTICLE_TOTAL, {tag, category, search})
+    return request(CQL.GET_ARTICLE_TOTAL, {tag, category, search}, '获取文章数失败')
   }
 }

@@ -45,10 +45,12 @@
         </div>
         <div class="panelContent">
           <ul class="listGroup">
-            <li v-for="comment in comments" class="listGroupItem">
-              <img src="../assets/image/avatar.jpg">
-              <span class="commentLog"> {{comment.content}} </span>
-            </li>
+            <template v-for="comment in comments">
+              <router-link tag="li" :to="`/detail/${comment.articleId}#${comment.id}`" :id="comment.id" class="listGroupItem">
+                <img src="../assets/image/avatar.jpg">
+                <span class="commentLog"> {{comment.content}} </span>
+              </router-link>
+            </template>
           </ul>
         </div>
       </div>
@@ -63,10 +65,12 @@
         </div>
         <div class="panelContent">
           <ul class="listGroup">
-            <li v-for="post in posts" class="listGroupItem">
-              <span class="title">{{post.title}}</span>
-              <span class="tag"> {{post.views}} ℃ </span>
-            </li>
+            <template v-for="post in posts">
+              <router-link tag='li' :to="`/detail/${post.id}`" class="listGroupItem">
+                <span class="title">{{post.title}}</span>
+                <span class="tag"> {{post.views}} ℃ </span>
+              </router-link>
+            </template>
           </ul>
         </div>
       </div>
@@ -94,10 +98,14 @@
     created() {
       this.checkLogin()
       comments.getNewestComments().then(res => {
-        this.comments = res.results.map(r => r.attributes)
+        this.comments = res.results.map(r => {
+          return {id: r.id, articleId: r.attributes.owner.id, ...r.attributes}
+        })
       })
       posts.getNewestArticles().then(res => {
-        this.posts = res.results.map(r => r.attributes)
+        this.posts = res.results.map(r => {
+          return {id: r.id, ...r.attributes}
+        })
       })
     },
     methods: {

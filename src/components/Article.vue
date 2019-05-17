@@ -36,21 +36,19 @@
         views: '',
         category: '',
         rawContent: '',
-        tags: []
+        tags: [],
+        markdown: '',
       }
     },
-
-    created() {
-      article.getArticleDetail({id: this.id}).then(res => {
-        this.title = res.title
-        this.createdAt = res.createdAt
-        this.views = res.views
-        this.category = res.category
-        this.rawContent = res.rawContent
-        this.tags = res.tags
-      })
+    watch: {
+      '$route': {
+        handler: function () {
+          this.getDetail()
+        },
+        deep: true,
+        immediate: true
+      }
     },
-
     computed: {
       id() {
         let id = this.$route.params.blogId
@@ -59,18 +57,31 @@
         }
         return id
       },
-      markdown() {
-        return marked(this.rawContent, {breaks: true})
+      ymd() {
+        let d = this.createdAt
+        if (!d) return '2019-05-12'
+        return `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`
+      }
+    },
+    methods: {
+      getDetail() {
+        article.getArticleDetail({id: this.id}).then(res => {
+          this.title = res.title
+          this.createdAt = res.createdAt
+          this.views = res.views
+          this.category = res.category
+          this.rawContent = res.rawContent
+          this.tags = res.tags
+          this.updateMarkdown()
+        })
+      },
+      updateMarkdown() {
+        this.markdown = marked(this.rawContent, {breaks: true})
           .replaceAll('<p>', '')
           .replaceAll('</p>', '')
           .replaceAll('-lightgreen-<br>', '<div class="article lightgreen">')
           .replaceAll('-lightblue-<br>', '<div class="article lightblue">')
           .replaceAll('<br>-end-', '</div>')
-      },
-      ymd() {
-        let d = this.createdAt
-        if (!d) return '2019-05-12'
-        return `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`
       }
     }
   }
@@ -163,9 +174,11 @@
         &:nth-child(3n+0) {
           background-color: #b85c5c;
         }
+
         &:nth-child(3n+1) {
           background-color: #5c5cb8;
         }
+
         &:nth-child(3n+2) {
           background-color: #5cb85c;
         }

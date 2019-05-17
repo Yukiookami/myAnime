@@ -64,6 +64,16 @@
         defaultAvatar
       }
     },
+    watch: {
+      '$route': {
+        handler: function() {
+          this.getComments()
+          this.setTotal()
+        },
+        deep: true,
+        immediate: true
+      }
+    },
     computed: {
       ...mapGetters(['isLogin', 'userId']),
       id() {
@@ -74,16 +84,13 @@
         }
       }
     },
-    created() {
-      this.getComments()
-      this.setTotal()
-    },
     methods: {
       getComments() {
         comments.getComments({articleId: this.id, page: this.page}).then(res => {
           this.comments = res.results.map(r => {
             return {id: r.id, createdAt: r.createdAt, ...r.attributes}
           })
+          this.scrollToComment()
         })
       },
       setTotal() {
@@ -112,6 +119,15 @@
         this.page = page
         this.getComments()
         this.$router.push({query: {page}})
+      },
+      scrollToComment() {
+        let hash = this.$route.hash
+        setTimeout(() => {
+          let el = document.getElementById(hash.substr(1))
+          el && el.scrollIntoView({
+            behavior: "smooth"
+          })
+        }, 200)
       }
     }
   }
