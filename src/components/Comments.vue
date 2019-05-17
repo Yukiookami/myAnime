@@ -1,6 +1,6 @@
 <template>
   <div class="Comments">
-    <h3 class="commentTitle"><i class="el-icon-s-comment"></i> {{comments.length}} 条评论</h3>
+    <h3 class="commentTitle"><i class="el-icon-s-comment"></i> {{total}} 条评论</h3>
     <div class="commentsLoading" v-if="false"><i class="el-icon-loading"></i></div>
     <ul class="commentList">
       <li v-for="comment in comments"
@@ -21,7 +21,13 @@
       </li>
     </ul>
     <nav class="commentNav">
-      <el-pagination background layout="pager" :page-size="8" :total="35"></el-pagination>
+      <el-pagination
+        background layout="pager"
+        :page-size="8" :total="total"
+        :current-page="page" @current-change="onPageChange"
+        :hide-on-single-page="true"
+      >
+      </el-pagination>
     </nav>
     <!-- 这里最好改一下样式，改善多行文本输入 -->
     <div class="commentCommit">
@@ -53,6 +59,7 @@
     data() {
       return {
         page: 1,
+        total: 0,
         comments: [],
         defaultAvatar
       }
@@ -60,24 +67,30 @@
     computed: {
       ...mapGetters(['isLogin', 'userId']),
       id() {
-        let id = this.$route.params.blogId
-        if (specialArticle[this.$route.name]) {
-          id = specialArticle[this.$route.name]
+        if (this.$route.params.blogId) {
+          return this.$route.params.blogId
+        } else {
+          return specialArticle[this.$route.name]
         }
-        return id
       }
     },
     created() {
-      comments.getComments({articleId: this.id, page: this.page}).then(res => {
-        this.comments = res.results.map(r => {
-          return {id: r.id, createdAt: r.createdAt, ...r.attributes}
-        })
-
-        // 这句话应该在发评论的时候调用，在数组 push 之后
-        comments.setCommentsNum({articleId: this.id, commentsNum: this.comments.length})
-      })
+      this.getComments()
+      this.setTotal()
     },
     methods: {
+      getComments() {
+        comments.getComments({articleId: this.id, page: this.page}).then(res => {
+          this.comments = res.results.map(r => {
+            return {id: r.id, createdAt: r.createdAt, ...r.attributes}
+          })
+        })
+      },
+      setTotal() {
+        comments.getCommentsTotal({articleId: this.id}).then(res => {
+          this.total = res.count
+        })
+      },
       onSubmit(e) {
         if(!this.isLogin) {
           Message.error('请登录后再发表评论')
@@ -92,8 +105,13 @@
             content,
             createdAt: new Date()
           })
-          comments.setCommentsNum({articleId: this.id, commentsNum: this.comments.length})
+          comments.setCommentsNum({articleId: this.id})
         })
+      },
+      onPageChange(page) {
+        this.page = page
+        this.getComments()
+        this.$router.push({query: {page}})
       }
     }
   }

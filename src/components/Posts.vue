@@ -28,6 +28,7 @@
         background layout="pager"
         :page-size="8" :total="total"
         :current-page="page" @current-change="onPageChange"
+        :hide-on-single-page="true"
       >
       </el-pagination>
     </li>
@@ -42,8 +43,8 @@
     data() {
       return {
         page: 1,
-        posts: [],
-        total: 0
+        total: 0,
+        posts: []
       }
     },
     watch: {
@@ -65,23 +66,22 @@
         params['search'] = keyword === undefined? '': decodeURIComponent(keyword)
 
         posts.getArticles(params).then(res => {
-          console.log(res.results.map(r => {return {...r.attributes}}))
           this.posts = res.results.map(r => {
             return {id: r.id, createdAt: r.createdAt, ...r.attributes}
           })
         })
 
-        this.getPostsTotal()
+        this.getPostsTotal(params)
       },
-      getPostsTotal() {
-        posts.getArticlesTotal().then(res => {
+      getPostsTotal(params) {
+        posts.getArticlesTotal(params).then(res => {
           this.total = res.count
         })
       },
       onPageChange(page) {
         this.page = page
         this.getPosts()
-        this.$router.push({path: '/', query: {page}})
+        this.$router.push({query: {page}})
       }
     }
   }
