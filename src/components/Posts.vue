@@ -1,6 +1,13 @@
 <template>
   <ul class="Posts">
-    <template>
+    <template v-if="loading">
+      <div class="loading-wrapper">
+        <div class="loading">
+          加载中
+        </div>
+      </div>
+    </template>
+    <template v-if="!loading">
       <li v-for="post in posts" data-aos="flip-up">
         <div class="post-item">
           <div class="title-wrapper">
@@ -28,7 +35,7 @@
         background layout="pager"
         :page-size="8" :total="total"
         :current-page="page" @current-change="onPageChange"
-        :hide-on-single-page="true"
+        :hide-on-single-page="true" v-if="!loading"
       >
       </el-pagination>
     </li>
@@ -44,7 +51,8 @@
       return {
         page: 1,
         total: 0,
-        posts: []
+        posts: [],
+        loading: true
       }
     },
     watch: {
@@ -58,6 +66,7 @@
     },
     methods: {
       getPosts() {
+        this.loading = true
         let params = {page: this.page}
         let {tagName, categoryName, keyword} = this.$route.params
 
@@ -69,6 +78,7 @@
           this.posts = res.results.map(r => {
             return {id: r.id, createdAt: r.createdAt, ...r.attributes}
           })
+          this.loading = false
         })
 
         this.getPostsTotal(params)
@@ -260,6 +270,66 @@
     }
     .pagination-wrapper {
       text-align: right;
+    }
+    .loading-wrapper {
+      height: 250px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .loading {
+        width: 100px;
+        height: 100px;
+        color: #333;
+        font-size: 12px;
+        user-select: none;
+        line-height: 100px;
+        margin: 100px auto;
+        position: relative;
+        box-sizing: border-box;
+        text-align: center;
+        z-index: 0;
+        text-transform: uppercase;
+      }
+
+      .loading:before,
+      .loading:after {
+        opacity: 0;
+        box-sizing: border-box;
+        content: "\0020";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 100px;
+        border: 5px solid #fff;
+        box-shadow: 0 0 50px #fff, inset 0 0 50px #fff;
+      }
+
+      .loading:after {
+        z-index: 1;
+        -webkit-animation: gogoloader 2s infinite 1s;
+      }
+
+      .loading:before {
+        z-index: 2;
+        -webkit-animation: gogoloader 2s infinite;
+      }
+
+      @-webkit-keyframes gogoloader {
+        0% {
+          -webkit-transform: scale(0);
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          -webkit-transform: scale(1);
+          opacity: 0;
+        }
+      }
     }
   }
 </style>
