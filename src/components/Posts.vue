@@ -272,7 +272,7 @@
       text-align: right;
     }
     .loading-wrapper {
-      height: 250px;
+      height: 500px;
       display: flex;
       justify-content: center;
       align-items: center;

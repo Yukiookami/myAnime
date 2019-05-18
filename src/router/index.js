@@ -66,5 +66,8 @@ router.afterEach((to, from, next) => {
   if(to.query.cpage) {
     return
   }
+  if(to.hash) {
+    return
+  }
   window.scrollTo(0, 0)
 })

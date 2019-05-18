@@ -1,25 +1,33 @@
 <template>
   <div class="Article" data-aos="fade-up" data-aos-duration="1500">
-    <section class="title-wrapper">
-      <h1 class="title">{{title}}</h1>
-    </section>
-    <section class="tags-wrapper">
-      <li class="tag"><i class="el-icon-date"></i>{{ymd}}</li>
-      <li class="tag"><i class="el-icon-view"></i>{{views}}℃</li>
-    </section>
-    <section class="markdown-wrapper" v-html="markdown"></section>
-    <section class="blogTags-wrapper">
-      <i class="el-icon-price-tag"></i>
-      <template v-for="tag in tags">
-        <router-link :to="`/tag/${tag}`" class="tag">{{tag}}</router-link>
-      </template>
-    </section>
+    <template v-if="loading">
+      <div class="loading-wrapper">
+        <div class="loading">读取中</div>
+      </div>
+    </template>
+    <template v-if="!loading">
+      <section class="title-wrapper">
+        <h1 class="title">{{title}}</h1>
+      </section>
+      <section class="tags-wrapper">
+        <li class="tag"><i class="el-icon-date"></i>{{ymd}}</li>
+        <li class="tag"><i class="el-icon-view"></i>{{views}}℃</li>
+      </section>
+      <section class="markdown-wrapper" v-html="markdown"></section>
+      <section class="blogTags-wrapper">
+        <i class="el-icon-price-tag"></i>
+        <template v-for="tag in tags">
+          <router-link :to="`/tag/${tag}`" class="tag">{{tag}}</router-link>
+        </template>
+      </section>
+    </template>
   </div>
 </template>
 
 <script>
   import article from '@/api/article'
   import marked from 'marked'
+  import {mapMutations} from 'vuex'
 
   const specialArticle = {
     Guide: '5cdd5c106e9ba10068ea7b90',
@@ -38,6 +46,7 @@
         rawContent: '',
         tags: [],
         markdown: '',
+        loading: true
       }
     },
     watch: {
@@ -64,7 +73,10 @@
       }
     },
     methods: {
+      ...mapMutations(['setArticleReady']),
       getDetail() {
+        this.loading = true
+        this.setArticleReady({articleReady: false})
         article.getArticleDetail({id: this.id}).then(res => {
           this.title = res.title
           this.createdAt = res.createdAt
@@ -73,6 +85,10 @@
           this.rawContent = res.rawContent
           this.tags = res.tags
           this.updateMarkdown()
+          this.$nextTick(() => {
+            this.loading = false
+            this.setArticleReady({articleReady: true})
+          })
         })
       },
       updateMarkdown() {
@@ -104,6 +120,67 @@
     &:hover {
       transition: all .35s ease-in-out;
       box-shadow: 0px 0px 50px #000;
+    }
+
+    .loading-wrapper {
+      height: 500px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .loading {
+        width: 100px;
+        height: 100px;
+        color: #333;
+        font-size: 12px;
+        user-select: none;
+        line-height: 100px;
+        margin: 100px auto;
+        position: relative;
+        box-sizing: border-box;
+        text-align: center;
+        z-index: 0;
+        text-transform: uppercase;
+      }
+
+      .loading:before,
+      .loading:after {
+        opacity: 0;
+        box-sizing: border-box;
+        content: "\0020";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 100px;
+        border: 5px solid rgba(10, 10, 0, .7);
+        box-shadow: 0 0 50px 5px #fff, inset 0 0 50px 5px #fff;
+      }
+
+      .loading:after {
+        z-index: 1;
+        -webkit-animation: gogoloader 2s infinite 1s;
+      }
+
+      .loading:before {
+        z-index: 2;
+        -webkit-animation: gogoloader 2s infinite;
+      }
+
+      @-webkit-keyframes gogoloader {
+        0% {
+          -webkit-transform: scale(0);
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          -webkit-transform: scale(1);
+          opacity: 0;
+        }
+      }
     }
 
     .title-wrapper {

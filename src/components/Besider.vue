@@ -46,7 +46,7 @@
         <div class="panelContent">
           <ul class="listGroup">
             <template v-for="comment in comments">
-              <router-link tag="li" :to="`/detail/${comment.articleId}#${comment.id}`" :id="comment.id" class="listGroupItem">
+              <router-link tag="li" :to="`/detail/${comment.articleId}#${comment.id}`" class="listGroupItem">
                 <img src="../assets/image/avatar.jpg">
                 <span class="commentLog"> {{comment.content}} </span>
               </router-link>

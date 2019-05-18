@@ -61,6 +61,7 @@
         page: 1,
         total: 0,
         comments: [],
+        loading: true,
         defaultAvatar
       }
     },
@@ -72,10 +73,13 @@
         },
         deep: true,
         immediate: true
+      },
+      'articleReady': function() {
+        this.scrollToComment()
       }
     },
     computed: {
-      ...mapGetters(['isLogin', 'userId']),
+      ...mapGetters(['isLogin', 'userId', 'articleReady']),
       id() {
         if (this.$route.params.blogId) {
           return this.$route.params.blogId
@@ -86,10 +90,12 @@
     },
     methods: {
       getComments() {
+        this.loading = false
         comments.getComments({articleId: this.id, page: this.page}).then(res => {
           this.comments = res.results.map(r => {
             return {id: r.id, createdAt: r.createdAt, ...r.attributes}
           })
+          this.loading = true
           this.scrollToComment()
         })
       },
@@ -122,12 +128,15 @@
       },
       scrollToComment() {
         let hash = this.$route.hash
-        setTimeout(() => {
+        if(!this.articleReady || this.loading || hash === '') {
+          return
+        }
+
+        (function run() {
           let el = document.getElementById(hash.substr(1))
-          el && el.scrollIntoView({
-            behavior: "smooth"
-          })
-        }, 200)
+          console.log(el)
+          el? el.scrollIntoView({behavior: "smooth"}): requestAnimationFrame(run)
+        })()
       }
     }
   }
@@ -155,6 +164,7 @@
 
   .Comments {
     color: #fff;
+    scroll-behavior: smooth;
 
     .commentTitle {
       margin: 20px 0;
