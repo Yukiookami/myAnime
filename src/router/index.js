@@ -63,5 +63,8 @@ const router = new Router({
 export default router
 
 router.afterEach((to, from, next) => {
+  if(to.query.cpage) {
+    return
+  }
   window.scrollTo(0, 0)
 })

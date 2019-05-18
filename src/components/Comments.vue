@@ -115,10 +115,10 @@
           comments.setCommentsNum({articleId: this.id})
         })
       },
-      onPageChange(page) {
-        this.page = page
+      onPageChange(cpage) {
+        this.page = cpage
         this.getComments()
-        this.$router.push({query: {page}})
+        this.$router.push({query: {cpage}})
       },
       scrollToComment() {
         let hash = this.$route.hash
