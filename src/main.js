@@ -10,7 +10,7 @@ import AOS from 'aos'
 import 'element-ui/lib/theme-chalk/index.css'
 import 'aos/dist/aos.css'
 import auth from './api/auth'
-import Util from './helpers/util'
+import {onElementHeightChange, scrollToComment} from './helpers/util'
 import Filter from './helpers/filter'
 
 Vue.config.productionTip = false
@@ -21,8 +21,9 @@ window.AV = AV
 
 AOS.init()
 
-window.onElementHeightChange(document.body, function(){
+onElementHeightChange(document.body, function(){
   AOS.refresh()
+  scrollToComment()
 })
 
 /* eslint-disable no-new */

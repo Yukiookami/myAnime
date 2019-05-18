@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import {scrollToComment} from '@/helpers/util.js'
 
 Vue.use(Router)
 
@@ -57,7 +58,6 @@ const router = new Router({
     }
   ],
   mode: 'history',
-  base: '/'
 })
 
 export default router
@@ -66,7 +66,8 @@ router.afterEach((to, from, next) => {
   if(to.query.cpage) {
     return
   }
-  if(to.hash) {
+  if(['Detail', 'Guide', 'Unzip', 'Message'].includes(to.name) && to.hash) {
+    scrollToComment()
     return
   }
   window.scrollTo(0, 0)

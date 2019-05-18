@@ -73,13 +73,10 @@
         },
         deep: true,
         immediate: true
-      },
-      'articleReady': function() {
-        this.scrollToComment()
       }
     },
     computed: {
-      ...mapGetters(['isLogin', 'userId', 'articleReady']),
+      ...mapGetters(['isLogin', 'userId']),
       id() {
         if (this.$route.params.blogId) {
           return this.$route.params.blogId
@@ -96,7 +93,6 @@
             return {id: r.id, createdAt: r.createdAt, ...r.attributes}
           })
           this.loading = true
-          this.scrollToComment()
         })
       },
       setTotal() {
@@ -125,18 +121,6 @@
         this.page = cpage
         this.getComments()
         this.$router.push({query: {cpage}})
-      },
-      scrollToComment() {
-        let hash = this.$route.hash
-        if(!this.articleReady || this.loading || hash === '') {
-          return
-        }
-
-        (function run() {
-          let el = document.getElementById(hash.substr(1))
-          console.log(el)
-          el? el.scrollIntoView({behavior: "smooth"}): requestAnimationFrame(run)
-        })()
       }
     }
   }
@@ -164,7 +148,6 @@
 
   .Comments {
     color: #fff;
-    scroll-behavior: smooth;
 
     .commentTitle {
       margin: 20px 0;

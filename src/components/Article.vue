@@ -27,7 +27,6 @@
 <script>
   import article from '@/api/article'
   import marked from 'marked'
-  import {mapMutations} from 'vuex'
 
   const specialArticle = {
     Guide: '5cdd5c106e9ba10068ea7b90',
@@ -50,9 +49,14 @@
       }
     },
     watch: {
+      // 按需加载，如果文章 id 相同不重新加载
       '$route': {
-        handler: function () {
-          this.getDetail()
+        handler: function (newRoute, oldRoute) {
+          let newId = this.getId(newRoute)
+          let oldId = this.getId(oldRoute)
+          if(newId !== oldId) {
+            this.getDetail()
+          }
         },
         deep: true,
         immediate: true
@@ -60,11 +64,7 @@
     },
     computed: {
       id() {
-        let id = this.$route.params.blogId
-        if (specialArticle[this.$route.name]) {
-          id = specialArticle[this.$route.name]
-        }
-        return id
+        return this.getId(this.$route)
       },
       ymd() {
         let d = this.createdAt
@@ -73,10 +73,17 @@
       }
     },
     methods: {
-      ...mapMutations(['setArticleReady']),
+      getId(route) {
+        if(!route) {
+          return ''
+        } else if(specialArticle[route.name]) {
+          return specialArticle[route.name]
+        } else {
+          return route.params.blogId
+        }
+      },
       getDetail() {
         this.loading = true
-        this.setArticleReady({articleReady: false})
         article.getArticleDetail({id: this.id}).then(res => {
           this.title = res.title
           this.createdAt = res.createdAt
@@ -85,10 +92,7 @@
           this.rawContent = res.rawContent
           this.tags = res.tags
           this.updateMarkdown()
-          this.$nextTick(() => {
-            this.loading = false
-            this.setArticleReady({articleReady: true})
-          })
+          this.loading = false
         })
       },
       updateMarkdown() {

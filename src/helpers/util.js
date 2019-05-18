@@ -3,7 +3,7 @@ String.prototype.replaceAll = function(search, replacement) {
   return target.split(search).join(replacement)
 }
 
-window.onElementHeightChange = function (elm, callback) {
+function onElementHeightChange (elm, callback) {
   var lastHeight = elm.clientHeight
   var newHeight;
 
@@ -19,3 +19,21 @@ window.onElementHeightChange = function (elm, callback) {
     elm.onElementHeightChangeTimer = setTimeout(run, 200);
   })();
 }
+
+function scrollToComment() {
+  let hasArticle = ['detail', 'guide', 'unzip', 'message'].some(path => window.location.pathname.indexOf(path) > -1)
+  let hasComment = window.location.hash
+  if(hasArticle && hasComment) {
+    let hash = window.location.hash.substr(1)
+    let el = document.getElementById(hash)
+
+    if(el) {
+      el.scrollIntoView({behavior: "smooth"})
+    } else {
+      requestAnimationFrame(scrollToComment)
+    }
+  }
+}
+
+export {onElementHeightChange}
+export {scrollToComment}
