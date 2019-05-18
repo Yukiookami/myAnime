@@ -19,7 +19,7 @@
             <li class="tag"><i class="el-icon-s-comment"></i>{{post.comments}}</li>
           </ul>
           <div class="poster-wrapper">
-            <router-link tag="figure" to="/detail/1234" class="poster">
+            <router-link tag="figure" :to="`/detail/${post.id}`" class="poster">
               <img :src="post.cover">
               <figcaption>
                 <div class="content">{{post.intro}}</div>

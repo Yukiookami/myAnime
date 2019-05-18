@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import store from '../store'
 import {scrollToComment} from '@/helpers/util.js'
 
 Vue.use(Router)
@@ -55,12 +56,41 @@ const router = new Router({
       name: 'Search',
       path: '/search/:keyword',
       component: () => import('@/pages/Search/template.vue')
+    },
+    {
+      name: 'My',
+      path: '/my',
+      component: () => import('@/pages/My/template.vue'),
+      meta: {requiresAuth: true}
     }
   ],
   mode: 'history',
 })
 
-export default router
+router.beforeEach((to, from, next) => {
+  if(to.matched.some(record => record.meta.requiresAuth)) {
+    store.dispatch('checkLogin').then(isLogin => {
+      if (!isLogin) {
+        next({
+          path: '/login',
+          query: { redirect: to.fullPath }
+        })
+      } else {
+        next()
+      }
+    })
+  } else {
+    next()
+  }
+
+  // 捕获登录注册之间的跳转
+  if((from.name === 'Login' && to.name === 'Register') || (from.name === 'Register' && to.name === 'Login')) {
+    next({
+      path: to.path,
+      query: from.query
+    })
+  }
+})
 
 router.afterEach((to, from, next) => {
   if(to.query.cpage) {
@@ -72,3 +102,5 @@ router.afterEach((to, from, next) => {
   }
   window.scrollTo(0, 0)
 })
+
+export default router
