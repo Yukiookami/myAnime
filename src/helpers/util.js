@@ -3,7 +3,7 @@ String.prototype.replaceAll = function(search, replacement) {
   return target.split(search).join(replacement)
 }
 
-function onElementHeightChange (elm, callback) {
+export function onElementHeightChange (elm, callback) {
   var lastHeight = elm.clientHeight
   var newHeight;
 
@@ -20,7 +20,7 @@ function onElementHeightChange (elm, callback) {
   })();
 }
 
-function scrollToComment() {
+export function scrollToComment() {
   let hasArticle = ['detail', 'guide', 'unzip', 'message'].some(path => window.location.pathname.indexOf(path) > -1)
   let hasComment = window.location.hash
   if(hasArticle && hasComment) {
@@ -35,5 +35,12 @@ function scrollToComment() {
   }
 }
 
-export {onElementHeightChange}
-export {scrollToComment}
+export function postProcessing(markedHTML) {
+  return markedHTML
+    .replaceAll('<p>', '')
+    .replaceAll('</p>', '')
+    .replaceAll('-lightgreen-<br>', '<div class="article lightgreen">')
+    .replaceAll('-lightblue-<br>', '<div class="article lightblue">')
+    .replaceAll('<br>-end-', '</div>')
+    .replace(/(<img src="(.+?)".*?>)/g, `<a href="$2" class="highslide" onclick="return hs.expand(this, hs.galleryOptions)">$1</a>`)
+}

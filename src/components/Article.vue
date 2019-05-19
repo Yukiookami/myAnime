@@ -27,7 +27,10 @@
 <script>
   import article from '@/api/article'
   import marked from 'marked'
+  import hs from '@/assets/highslide.js'
+  import {postProcessing} from "@/helpers/util"
 
+  window.hs = hs
   const specialArticle = {
     Guide: '5cdd5c106e9ba10068ea7b90',
     Unzip: '5cdd5d537b968a0073db86d8',
@@ -72,6 +75,9 @@
         return `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`
       }
     },
+    created() {
+      window.hs.graphicsDir = '/static/graphics/'
+    },
     methods: {
       getId(route) {
         if(!route) {
@@ -95,13 +101,9 @@
           this.loading = false
         })
       },
+      // todo: 改写 marked.js 的语法规则以自适应调整 html
       updateMarkdown() {
-        this.markdown = marked(this.rawContent, {breaks: true})
-          .replaceAll('<p>', '')
-          .replaceAll('</p>', '')
-          .replaceAll('-lightgreen-<br>', '<div class="article lightgreen">')
-          .replaceAll('-lightblue-<br>', '<div class="article lightblue">')
-          .replaceAll('<br>-end-', '</div>')
+        this.markdown = postProcessing(marked(this.rawContent, {breaks: true}))
       }
     }
   }
