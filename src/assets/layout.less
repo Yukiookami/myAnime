@@ -3,6 +3,10 @@ main#main {
     >div {
       display: flex;
 
+      @media screen and (max-width: 1280px) {
+        flex-direction: column;
+      }
+
       section.content-wrapper {
         flex: 2;
         padding: 0 15px;

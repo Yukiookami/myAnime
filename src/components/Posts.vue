@@ -135,6 +135,10 @@
         transition-timing-function: cubic-bezier(.175, .885, .32, .1 .275);
         border-radius: 10px;
 
+        @media screen and (max-width: 1280px) {
+          padding: 10px;
+        }
+
         &:hover {
           transition: all .35s ease-in-out;
           box-shadow: 0px 0px 50px #000;
@@ -154,6 +158,10 @@
             opacity: .8;
             line-height: 1.5;
             border-radius: 5px;
+
+            @media screen and (max-width: 1280px) {
+              font-size: 14px;
+            }
 
             &:hover {
               opacity: 1;
@@ -176,6 +184,10 @@
           margin: 20px 0;
           text-align: center;
 
+          @media screen and (max-width: 1280px) {
+            margin: 10px 0;
+          }
+
           .tag {
             display: inline-block;
             margin: 0 .15em;
@@ -186,6 +198,10 @@
             font-size: 13px;
             font-weight: bold;
             background-color: rgba(10, 10, 0, .7);
+
+            @media screen and (max-width: 1280px) {
+              font-size: 6.5px;
+            }
 
             i {
               margin-right: .15em;
@@ -198,6 +214,11 @@
           border: 1px solid transparent;
           border-radius: 10px;
           box-shadow: 0 0 8px #000;
+          @media screen and (max-width: 1280px) {
+            display: flex;
+            justify-content: center;
+            padding: 5vw;
+          }
 
           &:hover {
             box-shadow: 0 0 50px #000;
@@ -209,7 +230,12 @@
           width: 680px;
           height: 382px;
           overflow: hidden;
-          cursor: url("../assets/cursor/mouse2.png"), url("../assets/cursor/mouse2.png"), auto;;
+          cursor: url("../assets/cursor/mouse2.png"), url("../assets/cursor/mouse2.png"), auto;
+
+          @media screen and (max-width: 1280px) {
+            width: 75vw;
+            height: 50vw;
+          }
 
           img {
             width: 100%;
@@ -233,6 +259,10 @@
             transition: all .35s linear .3s;
             opacity: 0;
             transform: scale(4);
+
+            @media screen and (max-width: 1280px) {
+              display: none;
+            }
 
             .content {
               display: -webkit-box;
@@ -268,9 +298,21 @@
           align-items: center;
           font-size: 13px;
 
+          @media screen and (max-width: 1280px) {
+            width: 35px;
+            height: 35px;
+            left: -10px;
+            top: -10px;
+            font-size: 6.5px;
+          }
+
           b {
             display: block;
             font-size: 30px;
+
+            @media screen and (max-width: 1280px) {
+              font-size: 15px;
+            }
           }
         }
       }

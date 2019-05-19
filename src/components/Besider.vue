@@ -373,6 +373,10 @@
             font-weight: normal;
             font-size: 16px;
             padding: .5em 1.5em 1em;
+
+            @media screen and (max-width: 1280px) {
+              font-size: 12px;
+            }
           }
 
           .btnGroup {

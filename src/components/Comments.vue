@@ -239,6 +239,13 @@
                 height: 54px;
                 object-fit: cover;
                 transition: all .4s ease-out;
+
+                @media screen and (max-width: 1280px) {
+                  width: 40px;
+                  height: 40px;
+                  left: -10px;
+                  top: 0;
+                }
               }
             }
           }
@@ -266,6 +273,7 @@
       opacity: .8;
       overflow: hidden;
       margin-top: 70px;
+      margin-bottom: 40px;
       transition: all .3s ease-in-out;
 
       &:hover,&:focus {

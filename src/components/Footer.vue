@@ -35,7 +35,8 @@
   .scrollToTop {
     position: fixed;
     font-size: 20px;
-    display: none;
+    display: flex;
+    opacity: 0;
     justify-content: center;
     align-items: center;
     background: rgba(10, 10, 0, .4);
@@ -45,11 +46,18 @@
     right: 30px;
     bottom: 30px;
     transition: all .3s ease-in-out;
+
+    @media screen and (max-width: 1280px) {
+      transform: scale(.75);
+      right: 15px;
+      bottom: 15px;
+    }
+
     i {
       transition: all .3s ease-in-out;
     }
     &.active {
-      display: flex;
+      opacity: 1;
     }
     &:hover {
       background: rgba(10, 10, 0, .8);

@@ -94,6 +94,11 @@ export default {
     background-color: @themeColor;
     color: #fff;
     user-select: none;
+
+    @media screen and (max-width: 1280px) {
+      width: 100vw;
+    }
+
     .logo {
       flex: 0 0 170px;
       padding: 0 15px;
@@ -188,6 +193,10 @@ export default {
             left: 100%;
           }
         }
+      }
+
+      @media screen and (max-width: 1280px) {
+        display: none;
       }
     }
   }

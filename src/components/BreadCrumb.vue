@@ -3,7 +3,9 @@
     <i class="el-icon-s-home"></i>
     <el-breadcrumb separator-class="el-icon-arrow-right">
       <template v-for="(crumb, idx) in crumbs">
-        <el-breadcrumb-item :class="{current: idx===crumbs.length-1}">{{crumb}}</el-breadcrumb-item>
+        <el-breadcrumb-item :class="{current: idx===crumbs.length-1}">
+          <span @click="queryCategory(idx)">{{crumb}}</span>
+        </el-breadcrumb-item>
       </template>
     </el-breadcrumb>
   </div>
@@ -31,6 +33,12 @@
       }
     },
     methods: {
+      queryCategory(idx) {
+        var arr = this.crumbs
+        var categoryName = arr.splice(0, idx + 1).join('_')
+
+        this.$router.push({name: 'Category', params: {categoryName}})
+      },
       getCrumb() {
         this.name = this.$route.name
         this.params = this.$route.params
@@ -78,6 +86,12 @@
         color: rgb(210, 50, 45);
       }
     }
+
+    @media screen and (max-width: 1280px) {
+      font-size: 6px;
+      line-height: 1.2;
+    }
+
     .el-breadcrumb__item.current {
       .el-breadcrumb__inner {
         color: rgb(61, 68, 80);

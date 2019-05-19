@@ -19,7 +19,7 @@
             <h2>游戏截图</h2>
             <template v-for="screenshot in screenshots">
               <!-- min-height 占位，+ 2 防高度变动 -->
-              <a :style="{'min-height': `${screenshot.height + 2 || 366}px`}" :href="screenshot.src" class="highslide"
+              <a :style="{'min-height': `${deviceWidth < 1280? '50vw': ((screenshot.height || 366 + 2) + 'px')}`}" :href="screenshot.src" class="highslide"
                  onclick="return hs.expand(this, hs.galleryOptions)">
                 <img :src="screenshot.src" width="650" :height="`${screenshot.height || 364}px`">
               </a><br>
@@ -85,7 +85,8 @@
         appends: [],
         md5: '',
         rawContnet: '',
-        loading: true
+        loading: true,
+        deviceWidth: 1366
       }
     },
     watch: {
@@ -121,6 +122,7 @@
     },
     created() {
       window.hs.graphicsDir = '/static/graphics/'
+      this.deviceWidth = window.innerWidth
     },
     methods: {
       getId(route) {
@@ -205,6 +207,10 @@
     border-radius: 10px;
     z-index: 10;
 
+    @media screen and (max-width: 1280px) {
+      padding: 10px;
+    }
+
     &:hover {
       transition: all .2s ease-in-out;
       box-shadow: 0px 0px 50px #000;
@@ -285,6 +291,10 @@
         line-height: 1.5;
         border-radius: 5px;
 
+        @media screen and (max-width: 1280px) {
+          font-size: 14px;
+        }
+
         &:hover {
           opacity: 1;
           background-color: rgba(0, 0, 0, 0);
@@ -306,6 +316,10 @@
       margin: 20px 0;
       text-align: center;
 
+      @media screen and (max-width: 1280px) {
+        margin: 10px 0;
+      }
+
       .tag {
         display: inline-block;
         margin: 0 .15em;
@@ -316,6 +330,10 @@
         font-size: 13px;
         font-weight: bold;
         background-color: rgba(10, 10, 0, .7);
+
+        @media screen and (max-width: 1280px) {
+          font-size: 6.5px;
+        }
 
         i {
           margin-right: .15em;
@@ -334,6 +352,12 @@
         font-weight: 800;
         color: #6699FF;
         margin: 2em 0 .5em 0;
+
+        @media screen and (max-width: 1280px) {
+          padding: 5px 10px;
+          font-size: 6pt;
+          margin: 1em 0 .5em 0;
+        }
       }
 
       .screenshots {
@@ -341,9 +365,20 @@
           display: block;
           width: 650px;
 
+          @media screen and (max-width: 1280px) {
+            width: 100%;
+            min-height: 50vw;
+            display: flex;
+            justify-content: center;
+          }
+
           img {
             display: block;
             object-fit: cover;
+            @media screen and (max-width: 1280px) {
+              width: 75vw;
+              height: 50vw;
+            }
 
             &:hover {
               transition: all .3s ease-in-out;
@@ -363,6 +398,11 @@
         border-radius: 4px;
         margin: .5em 0em 1.5em 0;
         white-space: pre-wrap;
+
+        @media screen and (max-width: 1280px) {
+          font-size: 8px;
+          line-height: 1.2;
+        }
 
         &.lightgreen {
           background-color: #dff0d8;
@@ -392,6 +432,12 @@
           font-size: 14px;
           line-height: 14px;
           padding: 10px 15px;
+
+          @media screen and (max-width: 1280px) {
+            font-size: 7px;
+            line-height: 1.2;
+            padding: 5px 7px;
+          }
         }
 
         main {
@@ -420,6 +466,10 @@
           font-weight: bold;
           white-space: pre-line;
           color: #f00;
+
+          @media screen and (max-width: 1280px) {
+            font-size: 7pt;
+          }
 
           b {
             color: #3d4450;
