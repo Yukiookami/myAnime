@@ -8,7 +8,16 @@ export default {
       var query = new AV.Query('slideShow')
 
       query.find().then(pictures => {
-        resolve(pictures.map(p => p.get('url')))
+        let urlArr = pictures.map(p => p.get('url'))
+        let countDown = urlArr.length
+
+        for(let i=0; i<urlArr.length; i++) {
+          let image = new Image()
+          image.onload = () => {
+            countDown === 1? resolve(urlArr): countDown -= 1
+          }
+          image.src = urlArr[i]
+        }
       }).catch(err => {
         Message.error('背景图似乎出了点问题')
         reject(err)

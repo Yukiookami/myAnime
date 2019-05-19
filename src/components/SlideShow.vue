@@ -27,16 +27,16 @@
       }
     },
     created() {
+      let then = +new Date
       slides.fetchImage().then(urlArr => {
-        this.imageArr = urlArr
-      })
-    },
-    watch: {
-      '$route'(to, from) {
-        slides.fetchImage().then(urlArr => {
+        let now = +new Date
+        let timeout = (60000 - (now - then)) % 6000
+
+        setTimeout(() => {
+          console.log('网络壁纸加载完毕')
           this.imageArr = urlArr
-        })
-      }
+        }, timeout)
+      })
     }
   }
 </script>

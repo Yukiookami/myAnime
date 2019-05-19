@@ -122,7 +122,7 @@
     z-index: 10;
 
     &:hover {
-      transition: all .35s ease-in-out;
+      transition: all .2s ease-in-out;
       box-shadow: 0px 0px 50px #000;
     }
 
@@ -242,7 +242,7 @@
     .blogTags-wrapper {
       .tag {
         opacity: .7;
-        cursor: pointer;
+        cursor: url("../assets/cursor/mouse2.png"), url("../assets/cursor/mouse2.png"), auto;;
         color: #fff;
         font-size: 14px;
         padding: 2px 6px;

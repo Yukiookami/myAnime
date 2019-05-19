@@ -96,7 +96,7 @@ export default {
       padding: 0 15px;
       align-self: center;
       text-align: center;
-      cursor: pointer;
+      cursor: url("../assets/cursor/mouse2.png"), url("../assets/cursor/mouse2.png"), auto;;
       h2 {
         font-weight: 100;
         text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #fff, 0 0 4px #228DFF, 0 0 5px #228DFF, 0 0 6px #228DFF, 0 0 7px #228DFF;
@@ -122,7 +122,7 @@ export default {
           align-items: center;
           padding: 0 1.2em;
           transition: all .2s ease-in-out;
-          cursor: pointer;
+          cursor: url("../assets/cursor/mouse2.png"), url("../assets/cursor/mouse2.png"), auto;;
           &:hover {
             background-color: @headerHoverColor;
           }
@@ -136,7 +136,7 @@ export default {
         .hasChildren {
           position: relative;
           z-index: 100;
-          cursor: pointer;
+          cursor: url("../assets/cursor/mouse2.png"), url("../assets/cursor/mouse2.png"), auto;;
           display: flex;
           align-items: center;
           min-height: 54px;

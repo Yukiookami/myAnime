@@ -202,7 +202,7 @@
           width: 680px;
           height: 382px;
           overflow: hidden;
-          cursor: pointer;
+          cursor: url("../assets/cursor/mouse2.png"), url("../assets/cursor/mouse2.png"), auto;;
 
           img {
             width: 100%;
