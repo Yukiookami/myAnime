@@ -34,7 +34,7 @@
         </div>
       </div>
     </aside>
-    <aside class="commentList-wrapper" data-aos="fade-up" data-aos-mirror="true" data-aos-delay="200" data-aos-duration="2000">
+    <aside class="commentList-wrapper" data-aos="fade-up" data-aos-mirror="true" data-aos-delay="200" data-aos-duration="1000">
       <div class="floatPanel commentList" :class="{fold: this.isFoldCommentList, close: this.isCloseCommentList}">
         <div class="panelHeading">
           <i class="el-icon-s-comment"></i>
@@ -47,14 +47,14 @@
             <template v-for="comment in comments">
               <router-link tag="li" :to="`/detail/${comment.articleId}#${comment.id}`" class="listGroupItem">
                 <img src="../assets/image/avatar.jpg">
-                <span class="commentLog"> {{comment.content}} </span>
+                <span class="text commentLog"> {{comment.content}} </span>
               </router-link>
             </template>
           </ul>
         </div>
       </div>
     </aside>
-    <aside class="articleList-wrapper" data-aos="fade-up" data-aos-mirror="true" data-aos-duration="2000">
+    <aside class="articleList-wrapper" data-aos="fade-up" data-aos-mirror="true" data-aos-duration="1000">
       <div class="floatPanel articleList" :class="{fold: this.isFoldArticleList, close: this.isCloseArticleList}">
         <div class="panelHeading">
           <i class="el-icon-menu"></i>
@@ -66,7 +66,7 @@
           <ul class="listGroup">
             <template v-for="post in posts">
               <router-link tag='li' :to="`/detail/${post.id}`" class="listGroupItem">
-                <span class="title">{{post.title}}</span>
+                <span class="text title">{{post.title}}</span>
                 <span class="tag"> {{post.views}} ℃ </span>
               </router-link>
             </template>
@@ -155,16 +155,28 @@
 </script>
 
 <style lang="less">
-  .Besider aside .input-wrapper .el-input__inner {
-    height: 35px;
-    line-height: 35px;
-    padding-left: 1em;
-    background: transparent;
-    box-shadow: inset 0px 1px 1px rgba(0, 0, 0, .075);
-    border-color: inherit;
-    &:focus {
-      background: #fff;
+  .Besider aside {
+    .input-wrapper .el-input__inner {
+      height: 35px;
+      line-height: 35px;
+      padding-left: 1em;
+      background: transparent;
+      box-shadow: inset 0px 1px 1px rgba(0, 0, 0, .075);
       border-color: inherit;
+
+      &:focus {
+        background: #fff;
+        border-color: inherit;
+      }
+    }
+    .floatPanel .panelHeading {
+      .el-icon-arrow-up, .el-icon-arrow-down, .el-icon-close {
+        border-radius: 50%;
+        padding: 2px;
+        &:hover {
+          background: #d9534f;
+        }
+      }
     }
   }
 </style>
@@ -172,7 +184,7 @@
 <style scoped lang="less">
   .Besider {
     aside {
-      margin-bottom: 20px;
+      margin-bottom: 10px;
       &:first-child {
         margin-bottom: 50px;
       }
@@ -206,7 +218,6 @@
 
         &:hover {
           box-shadow: 0 0 50px #000;
-          background-color: rgba(255, 255, 255, .6);
         }
 
         &.fold {
@@ -254,6 +265,9 @@
               &:hover {
                 background-color: rgba(255, 255, 255, .7);
                 box-shadow: 0 0 50px #000;
+                .text {
+                  color: #d9534f;
+                }
               }
 
               img {

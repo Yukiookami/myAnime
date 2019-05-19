@@ -1,13 +1,23 @@
 <template>
   <div class="Footer">
     <a href="javascript:;">© 2019 dantecsm .powered by dantecsm. | 站点地图</a>
-    <a class="scrollToTop" href="#"><el-icon class="el-icon-arrow-up"></el-icon></a>
+    <a class="scrollToTop" :class="{active}" href="#"><el-icon class="el-icon-arrow-up"></el-icon></a>
   </div>
 </template>
 
 <script>
   export default {
-    name: "Footer"
+    name: "Footer",
+    data() {
+      return {
+        active: false
+      }
+    },
+    created() {
+      document.addEventListener('scroll', () => {
+        this.active = document.documentElement.scrollTop >= 1000
+      })
+    }
   }
 </script>
 
@@ -23,24 +33,26 @@
     font-size: 12px;
   }
   .scrollToTop {
-    position: absolute;
+    position: fixed;
     font-size: 20px;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
-    background: @themeColor;
-    width: 50px;
-    height: 50px;
+    background: rgba(10, 10, 0, .4);
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
-    right: 100px;
-    top: 50%;
-    transform: translateY(-50%);
+    right: 30px;
+    bottom: 30px;
     transition: all .3s ease-in-out;
     i {
       transition: all .3s ease-in-out;
     }
+    &.active {
+      display: flex;
+    }
     &:hover {
-      background: rgba(10, 10, 0, .9);
+      background: rgba(10, 10, 0, .8);
       i {
         transform: translateY(-5px);
       }
