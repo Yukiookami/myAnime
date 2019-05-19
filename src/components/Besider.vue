@@ -1,6 +1,6 @@
 <template>
   <div class="Besider">
-    <aside>
+    <aside class="search-wrapper">
       <div class="input-wrapper" data-aos="flip-up" data-aos-mirror="true" data-aos-delay="100">
         <div class="input">
           <el-input class="searchInput" v-model="searchText" placeholder="输入关键词搜索"></el-input>
@@ -8,13 +8,13 @@
         </div>
       </div>
     </aside>
-    <aside>
-      <div class="floatPanel userInfo" data-aos="flip-left" data-aos-mirror="true" data-aos-delay="200">
+    <aside class="userInfo-wrapper" data-aos="flip-left" data-aos-mirror="true" data-aos-delay="200">
+      <div class="floatPanel userInfo" :class="{fold: this.isFoldUserInfo, close: this.isCloseUserInfo}">
         <div class="panelHeading">
           <i class="el-icon-user"></i>
           <span>个人中心</span>
-          <i class="el-icon-arrow-up"></i>
-          <i class="el-icon-error"></i>
+          <i :class="isFoldUserInfo? 'el-icon-arrow-down':'el-icon-arrow-up'" @click="foldPane('userInfo')"></i>
+          <i class="el-icon-close" @click="closePane('userInfo')"></i>
         </div>
         <div class="panelContent">
           <template v-if="!isLogin">
@@ -34,14 +34,13 @@
         </div>
       </div>
     </aside>
-    <aside>
-      <div class="floatPanel commentList" data-aos="fade-up" data-aos-mirror="true" data-aos-delay="200"
-           data-aos-duration="2000">
+    <aside class="commentList-wrapper" data-aos="fade-up" data-aos-mirror="true" data-aos-delay="200" data-aos-duration="2000">
+      <div class="floatPanel commentList" :class="{fold: this.isFoldCommentList, close: this.isCloseCommentList}">
         <div class="panelHeading">
           <i class="el-icon-s-comment"></i>
           <span>最新评论</span>
-          <i class="el-icon-arrow-up"></i>
-          <i class="el-icon-error"></i>
+          <i :class="isFoldCommentList? 'el-icon-arrow-down':'el-icon-arrow-up'" @click="foldPane('commentList')"></i>
+          <i class="el-icon-close" @click="closePane('commentList')"></i>
         </div>
         <div class="panelContent">
           <ul class="listGroup">
@@ -55,13 +54,13 @@
         </div>
       </div>
     </aside>
-    <aside>
-      <div class="floatPanel randomList" data-aos="fade-up" data-aos-mirror="true" data-aos-duration="2000">
+    <aside class="articleList-wrapper" data-aos="fade-up" data-aos-mirror="true" data-aos-duration="2000">
+      <div class="floatPanel articleList" :class="{fold: this.isFoldArticleList, close: this.isCloseArticleList}">
         <div class="panelHeading">
           <i class="el-icon-menu"></i>
           <span>最新文章</span>
-          <i class="el-icon-arrow-up"></i>
-          <i class="el-icon-error"></i>
+          <i :class="isFoldArticleList? 'el-icon-arrow-down':'el-icon-arrow-up'" @click="foldPane('articleList')"></i>
+          <i class="el-icon-close" @click="closePane('articleList')"></i>
         </div>
         <div class="panelContent">
           <ul class="listGroup">
@@ -82,6 +81,7 @@
   import {mapGetters, mapActions} from 'vuex'
   import comments from '@/api/comments.js'
   import posts from '@/api/posts.js'
+  import {onElementHeightChange} from '@/helpers/util'
 
   export default {
     name: "Besider",
@@ -89,7 +89,13 @@
       return {
         searchText: '',
         comments: [],
-        posts: []
+        posts: [],
+        isFoldUserInfo: false,
+        isCloseUserInfo: false,
+        isFoldCommentList: false,
+        isCloseCommentList: false,
+        isFoldArticleList: false,
+        isCloseArticleList: false
       }
     },
     computed: {
@@ -108,11 +114,42 @@
         })
       })
     },
+    mounted() {
+      onElementHeightChange(document.querySelector('.Besider'), () => {
+        AOS.refresh()
+      })
+    },
     methods: {
       ...mapActions([
         'checkLogin',
         'logout'
       ]),
+      foldPane(panel) {
+        switch(panel) {
+          case "userInfo":
+            this.isFoldUserInfo = !this.isFoldUserInfo
+            break
+          case "commentList":
+            this.isFoldCommentList = !this.isFoldCommentList
+            break
+          case "articleList":
+            this.isFoldArticleList = !this.isFoldArticleList
+            break
+        }
+      },
+      closePane(panel) {
+        switch(panel) {
+          case "userInfo":
+            this.isCloseUserInfo = true
+            break
+          case "commentList":
+            this.isCloseCommentList = true
+            break
+          case "articleList":
+            this.isCloseArticleList = true
+            break
+        }
+      }
     }
   }
 </script>
@@ -135,7 +172,10 @@
 <style scoped lang="less">
   .Besider {
     aside {
-      margin-bottom: 50px;
+      margin-bottom: 20px;
+      &:first-child {
+        margin-bottom: 50px;
+      }
 
       .input-wrapper {
         border-radius: 4px;
@@ -160,11 +200,22 @@
         border-radius: 4px;
         background-color: rgba(230, 238, 232, .5);
         box-shadow: 0 0 5px #c2c2c2;
+        overflow: hidden;
+        transition: all .5s ease-in-out;
+        margin-bottom: 50px;
 
         &:hover {
           box-shadow: 0 0 50px #000;
-          transition: all .5s ease-in-out;
           background-color: rgba(255, 255, 255, .6);
+        }
+
+        &.fold {
+          height: 34px;
+          margin-bottom: 0;
+        }
+
+        &.close {
+          display: none;
         }
 
         .panelHeading {
@@ -173,11 +224,12 @@
           border-color: #000;
           border-bottom: none;
           font-size: 14px;
-          line-height: 14px;
+          height: 34px;
           padding: 10px 15px;
           border-top-left-radius: 3px;
           border-top-right-radius: 3px;
           display: flex;
+          align-items: center;
 
           i {
             margin-right: .5em;
@@ -193,13 +245,13 @@
             .listGroupItem {
               padding: 10px 15px;
               border-top: 1px solid #fff;
+              transition: all .3s ease-in-out;
 
               &:first-child {
                 border-top-width: 0;
               }
 
               &:hover {
-                transition: all .3s ease-in-out;
                 background-color: rgba(255, 255, 255, .7);
                 box-shadow: 0 0 50px #000;
               }
@@ -288,9 +340,9 @@
               font-size: 2px;
               color: #fff;
               border: none;
+              transition: all .3s ease-in-out;
 
               &:hover {
-                transition: all .3s ease-in-out;
                 background-color: #d9534f;
               }
             }
@@ -298,7 +350,7 @@
         }
       }
 
-      .floatPanel.randomList {
+      .floatPanel.articleList {
         .listGroupItem {
           background-color: rgba(230, 238, 232, .3);
         }
