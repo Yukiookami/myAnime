@@ -36,8 +36,6 @@ export default {
   },
   created() {
     slides.fetchImage().then(urlArr => {
-      console.log(urlArr)
-
       this.imageNextArr = urlArr || []
 
       let idx = -1

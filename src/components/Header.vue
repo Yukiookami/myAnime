@@ -5,7 +5,7 @@
         <h2>MyAnime</h2>
         <p>By dantecsm</p>
       </router-link>
-      <div class="nav-trigger" @click="isFold = !isFold"><i class="el-icon-s-unfold"></i></div>
+      <div class="nav-trigger" @click="isFold = !isFold"><i class="el-icon-ali-navi"></i></div>
     </div>
     <div class="nav-wrapper">
       <ul class="nav">
@@ -95,6 +95,7 @@ export default {
 
 <style scoped lang="less">
   @import '../assets/base.less';
+  @import '../assets/icon.less';
 
   .Header {
     display: flex;
@@ -166,9 +167,9 @@ export default {
       @media screen and (max-width: 1280px) {
         display: block;
         position: absolute;
-        padding: 18px 0;
+        padding: 15px 0;
         right: 1em;
-        font-size: 20px;
+        font-size: 20px !important;
       }
     }
 

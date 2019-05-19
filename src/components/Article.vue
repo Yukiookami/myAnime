@@ -327,10 +327,6 @@
         font-weight: bold;
         background-color: rgba(10, 10, 0, .7);
 
-        @media screen and (max-width: 1280px) {
-          font-size: 6.5px;
-        }
-
         i {
           margin-right: .15em;
         }
@@ -351,7 +347,7 @@
 
         @media screen and (max-width: 1280px) {
           padding: 5px 10px;
-          font-size: 6pt;
+          font-size: 15px;
           margin: 1em 0 .5em 0;
         }
       }
@@ -389,16 +385,11 @@
       .article {
         background-color: #dff0d8;
         color: #468847;
-        font-size: 12px;
+        font-size: 14px;
         padding: 1em 1.5em;
         border-radius: 4px;
         margin: .5em 0em 1.5em 0;
         white-space: pre-wrap;
-
-        @media screen and (max-width: 1280px) {
-          font-size: 8px;
-          line-height: 1.2;
-        }
 
         &.lightgreen {
           background-color: #dff0d8;
@@ -430,7 +421,7 @@
           padding: 10px 15px;
 
           @media screen and (max-width: 1280px) {
-            font-size: 7px;
+            font-size: 12px;
             line-height: 1.2;
             padding: 5px 7px;
           }
@@ -464,7 +455,7 @@
           color: #f00;
 
           @media screen and (max-width: 1280px) {
-            font-size: 7pt;
+            font-size: 12px;
           }
 
           b {

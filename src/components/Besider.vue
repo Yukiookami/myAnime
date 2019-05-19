@@ -111,6 +111,10 @@
     },
     created() {
       this.checkLogin()
+      this.isFoldUserInfo = window.innerWidth < 1280
+      this.isFoldCommentList = window.innerWidth < 1280
+      this.isFoldArticleList = window.innerWidth < 1280
+
       comments.getNewestComments().then(res => {
         this.comments = res.results.map(r => {
           let id = r.id

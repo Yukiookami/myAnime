@@ -160,7 +160,7 @@
             border-radius: 5px;
 
             @media screen and (max-width: 1280px) {
-              font-size: 14px;
+              font-size: 15px;
             }
 
             &:hover {
@@ -267,9 +267,9 @@
               position: relative;
               opacity: 1;
               transform: scale(1);
-              background-color: rgba(217, 237, 247, .8);
               color: #3a87ad;
-              font-size: 10px;
+              background-color: rgba(217, 237, 247, .8);
+              font-size: 12px;
               font-style: normal;
               max-height: 45vw;
               margin-top: 5vw;
@@ -292,6 +292,10 @@
           &:hover img {
             transform: scale(1.2);
             transition: all .4s linear;
+
+            @media screen and (max-width: 1280px) {
+              transform: scale(1);
+            }
           }
 
           &:hover figcaption {
