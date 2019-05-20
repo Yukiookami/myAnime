@@ -3,7 +3,8 @@ import {Message} from 'element-ui'
 
 function request(cql, params, errHint='') {
   for(let key in params) {
-    cql = cql.replaceAll('{{' + key + '}}', params[key])
+    var value = fixBracket(params[key])
+    cql = cql.replaceAll('{{' + key + '}}', value)
   }
 
   return new Promise((resolve, reject) => {
@@ -14,6 +15,13 @@ function request(cql, params, errHint='') {
       reject(err)
     })
   })
+}
+
+function fixBracket(word) {
+  if((typeof word).toLowerCase() === 'string') {
+    word = word.replace(/([\(\)])/g, '[$1]')
+  }
+  return word
 }
 
 export default request
