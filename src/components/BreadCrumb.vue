@@ -35,6 +35,9 @@
     methods: {
       queryCategory(idx) {
         var arr = this.crumbs
+
+        if(idx + 1 === arr.length) return
+
         var categoryName = arr.splice(0, idx + 1).join('_')
 
         this.$router.push({name: 'Category', params: {categoryName}})
@@ -85,6 +88,7 @@
       .el-breadcrumb__inner {
         color: rgb(210, 50, 45);
       }
+      cursor: url("../assets/cursor/mouse2.png"), url("../assets/cursor/mouse2.png"), auto;
     }
 
     @media screen and (max-width: 1280px) {
@@ -96,6 +100,7 @@
       .el-breadcrumb__inner {
         color: rgb(61, 68, 80);
       }
+      cursor: unset;
     }
   }
 </style>
