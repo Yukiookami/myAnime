@@ -42,5 +42,6 @@ export function postProcessing(markedHTML) {
     .replaceAll('-lightgreen-<br>', '<div class="article lightgreen">')
     .replaceAll('-lightblue-<br>', '<div class="article lightblue">')
     .replaceAll('<br>-end-', '</div>')
+    .replaceAll('<a href', '<a target="blank" href')
     .replace(/(<img src="(.+?)".*?>)/g, `<a href="$2" class="highslide" onclick="return hs.expand(this, hs.galleryOptions)">$1</a>`)
 }

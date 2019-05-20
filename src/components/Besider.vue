@@ -4,7 +4,7 @@
       <div class="input-wrapper" data-aos="flip-up" data-aos-mirror="true" data-aos-delay="100">
         <div class="input">
           <el-input class="searchInput" v-model="searchText" placeholder="输入关键词搜索"></el-input>
-          <router-link :disabled="searchText===''" tag="el-button" :to="`/search/${encodeURIComponent(searchText)}`" class="searchConfirm"><i class="el-icon-search"></i></router-link>
+          <router-link :disabled="searchText===''" tag="el-button" :to="`/search/${encodeURIComponent(searchText.trim())}`" class="searchConfirm"><i class="el-icon-search"></i></router-link>
         </div>
       </div>
     </aside>
@@ -46,7 +46,7 @@
           <ul class="listGroup">
             <template v-for="comment in comments">
               <router-link tag="li" :to="`/detail/${comment.articleId}#${comment.id}`" class="listGroupItem">
-                <img src="../assets/image/avatar.jpg">
+                <img :src="comment.author.attributes.xx || defaultAvatar">
                 <span class="text commentLog"> {{comment.content}} </span>
               </router-link>
             </template>
@@ -83,6 +83,8 @@
   import posts from '@/api/posts.js'
   import {onElementHeightChange} from '@/helpers/util'
 
+  const defaultAvatar = '../../static/avatar.jpg'
+
   export default {
     name: "Besider",
     data() {
@@ -95,7 +97,8 @@
         isFoldCommentList: false,
         isCloseCommentList: false,
         isFoldArticleList: false,
-        isCloseArticleList: false
+        isCloseArticleList: false,
+        defaultAvatar
       }
     },
     computed: {

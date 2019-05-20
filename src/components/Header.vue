@@ -91,6 +91,7 @@ export default {
     padding: 0 110px;
     background-color: @themeColor;
     color: #fff;
+    user-select: none;
     .logo {
       flex: 0 0 170px;
       padding: 0 15px;

@@ -8,7 +8,7 @@
         <article class="commentBody">
           <footer class="commentMeta">
             <div class="commentAuthor">
-              <img :src="defaultAvatar" class="avatar">
+              <img :src="comment.author.attributes.xx || defaultAvatar" class="avatar">
               <b class="fn">{{comment.author.attributes.username}}</b><span class="says">说道：</span></div>
             <!-- .comment-author -->
             <div class="comment-metadata"><a
@@ -44,10 +44,10 @@
 
 <script>
   import comments from '@/api/comments.js'
-  import defaultAvatar from '@/assets/image/avatar.jpg'
   import {mapGetters} from 'vuex'
   import {Message} from 'element-ui'
 
+  const defaultAvatar = '../../static/avatar.jpg'
   const specialArticle = {
     Guide: '5cdd5c106e9ba10068ea7b90',
     Unzip: '5cdd5d537b968a0073db86d8',

@@ -27,7 +27,7 @@
 <script>
   import article from '@/api/article'
   import marked from 'marked'
-  import hs from '@/assets/highslide.js'
+  import hs from '@/assets/highslide/highslide.js'
   import {postProcessing} from "@/helpers/util"
 
   window.hs = hs

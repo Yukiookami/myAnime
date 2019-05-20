@@ -8,10 +8,11 @@ import ElementUI from 'element-ui'
 import AV from './helpers/av'
 import AOS from 'aos'
 import 'element-ui/lib/theme-chalk/index.css'
-import '@/assets/highslide.css'
+import '@/assets/highslide/highslide.css'
+import '@/assets/layout.less'
 import 'aos/dist/aos.css'
-import auth from './api/auth'
 import {onElementHeightChange, scrollToComment} from './helpers/util'
+import auth from './api/auth'
 import Filter from './helpers/filter'
 
 Vue.config.productionTip = false
