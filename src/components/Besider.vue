@@ -180,6 +180,8 @@
 </script>
 
 <style lang="less">
+  @import '../assets/base.less';
+
   .Besider aside {
     .input-wrapper .el-input__inner {
       height: 35px;
@@ -199,7 +201,7 @@
         border-radius: 50%;
         padding: 2px;
         &:hover {
-          background: #d9534f;
+          background: @bgActiveRed;
         }
       }
     }
@@ -207,6 +209,8 @@
 </style>
 
 <style scoped lang="less">
+  @import '../assets/base.less';
+
   .Besider {
     aside {
       margin-bottom: 10px;
@@ -228,7 +232,7 @@
           background-color: rgba(0, 0, 10, .7);
 
           .searchConfirm {
-            background-color: #d9534f;
+            background-color: @bgActiveRed;
             border: none;
             color: #fff;
             padding: 8px 13px;
@@ -239,7 +243,7 @@
 
       .floatPanel {
         border-radius: 4px;
-        background-color: rgba(230, 238, 232, .5);
+        background-color: @paneColor;
         box-shadow: 0 0 5px #c2c2c2;
         overflow: hidden;
         transition: all .5s ease-in-out;
@@ -264,7 +268,7 @@
 
         .panelHeading {
           color: #fff;
-          background-color: rgba(10, 10, 0, .7);
+          background-color: @bgDark;
           border-color: #000;
           border-bottom: none;
           font-size: 14px;
@@ -299,7 +303,7 @@
                 background-color: rgba(255, 255, 255, .7);
                 box-shadow: 0 0 50px #000;
                 .text {
-                  color: #d9534f;
+                  color: @bgActiveRed;
                 }
               }
 
@@ -346,7 +350,7 @@
               }
 
               .tag {
-                background-color: #d9534f;
+                background-color: @bgActiveRed;
                 display: inline-block;
                 float: right;
                 white-space: nowrap;
@@ -398,14 +402,14 @@
 
             .el-button {
               flex-grow: 1;
-              background: rgba(10, 10, 0, .7);
+              background: @bgDark;
               font-size: 10px;
               color: #fff;
               border: none;
               transition: all .3s ease-in-out;
 
               &:hover {
-                background-color: #d9534f;
+                background-color: @bgActiveRed;
               }
             }
           }

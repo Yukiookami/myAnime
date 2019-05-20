@@ -44,7 +44,9 @@ export default {
 
       let timer = setInterval(() => {
         if(this.imageNextArr.length === 0) {
-          this.imageArr.pop()
+          setTimeout(() => {
+            this.imageArr.pop()
+          }, 6000)
           clearInterval(timer)
         }
 
@@ -60,7 +62,9 @@ export default {
 </script>
 
 <style scoped lang="less">
-.SlideShow {
+  @import '../assets/base.less';
+
+  .SlideShow {
   .cb-slideshow,
   .cb-slideshow:after {
     position: fixed;

@@ -81,6 +81,8 @@
 </script>
 
 <style lang="less">
+  @import '../assets/base.less';
+
   .BreadCrumb .el-breadcrumb {
     padding: 8px 15px;
     font-size: 12px;
@@ -98,7 +100,7 @@
 
     .el-breadcrumb__item.current {
       .el-breadcrumb__inner {
-        color: rgb(61, 68, 80);
+        color: @fontBlack;
       }
       cursor: unset;
     }

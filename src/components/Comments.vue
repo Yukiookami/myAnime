@@ -138,24 +138,27 @@
 </script>
 
 <style lang="less">
+  @import '../assets/base.less';
+
   .Comments .commentNav {
     .el-pagination.is-background .el-pager li:not(.disabled).active,
     .el-pagination.is-background .el-pager li:not(.disabled):hover {
       color: #fff;
-      background-color: rgb(217, 83, 79);
+      background-color: @bgActiveRed;
     }
 
     .el-pagination.is-background .el-pager li {
       height: 30px;
       background-color: transparent;
-      color: rgb(217, 83, 79);
+      color: @bgActiveRed;
       font-weight: normal;
-      border: 1px solid rgb(217, 83, 79);
+      border: 1px solid @bgActiveRed;
     }
   }
 </style>
 
 <style scoped lang="less">
+  @import '../assets/base.less';
 
   .Comments {
     color: #fff;
@@ -219,7 +222,7 @@
             border-top-left-radius: 8px;
             border-top-right-radius: 8px;
             font-weight: bold;
-            color: rgb(61, 68, 80);
+            color: @fontBlack;
             transition: all .3s ease-in-out;
 
             .says {
@@ -256,7 +259,7 @@
             border-bottom-left-radius: 8px;
             border-bottom-right-radius: 8px;
             color: #3d4450;
-            background-color: rgba(230, 238, 232, .5);
+            background-color: @paneColor;
             transition: all .3s ease-in-out;
           }
         }
@@ -287,7 +290,7 @@
         .commentMeta {
           height: 40px;
           background: rgb(217, 237, 247);
-          color: rgb(61, 68, 80);
+          color: @fontBlack;
         }
 
         .commentContent {
@@ -298,7 +301,7 @@
             position: absolute;
             padding: 20px 55px 40px 45px;
             line-height: 20px;
-            color: rgb(61, 68, 80);
+            color: @fontBlack;
             width: 100%;
             height: 120px;
             left: 0;

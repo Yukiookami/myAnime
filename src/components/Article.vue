@@ -196,7 +196,7 @@
     position: relative;
     padding: 20px;
     margin-bottom: 30px;
-    background-color: rgba(230, 238, 232, .5);
+    background-color: @paneColor;
     box-shadow: 0px 0px 8px #000;
 
     transition-timing-function: cubic-bezier(.175, .885, .32, .1 .275);
@@ -244,7 +244,7 @@
         width: 100%;
         height: 100%;
         border-radius: 100px;
-        border: 5px solid rgba(10, 10, 0, .7);
+        border: 5px solid @bgDark;
         box-shadow: 0 0 50px 5px #fff, inset 0 0 50px 5px #fff;
       }
 
@@ -325,7 +325,7 @@
         color: #fff;
         font-size: 13px;
         font-weight: bold;
-        background-color: rgba(10, 10, 0, .7);
+        background-color: @bgDark;
 
         i {
           margin-right: .15em;
@@ -405,7 +405,7 @@
       .panel {
         margin: 1.5em 0em;
         border-right: 4px;
-        background-color: rgba(230, 238, 232, .5);
+        background-color: @paneColor;
         border-radius: 4px;
         overflow: hidden;
 
@@ -431,7 +431,7 @@
           padding: 15px;
 
           a {
-            background-color: #d9534f;
+            background-color: @bgActiveRed;
             border: none;
             transition: all .25s ease-in-out;
             color: #fff;

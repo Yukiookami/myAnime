@@ -100,7 +100,7 @@ export default {
   .Header {
     display: flex;
     padding: 0 110px;
-    background-color: @themeColor;
+    background-color: @bgDark;
     color: #fff;
     user-select: none;
 
@@ -124,8 +124,9 @@ export default {
         width: 100vw;
         position: absolute;
         height: 1px;
-        background-color: #101010;
+        background-color: rgba(0, 0, 0, .8);
         top: 56px;
+        transition-delay: .3s;
         transition: all .3s ease-in-out;
         transform: translateX(-100%);
       }
@@ -214,7 +215,7 @@ export default {
           }
 
           &:hover {
-            background-color: @headerHoverColor;
+            background-color: rgba(100, 90, 200, .7);
           }
         }
         li.willExpend {
@@ -268,7 +269,7 @@ export default {
               color: #333;
               white-space: nowrap;
               &:hover {
-                background-color: #d9534f;
+                background-color: @bgActiveRed;
                 color: #fff;
               }
             }

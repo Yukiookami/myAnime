@@ -103,12 +103,14 @@
 </script>
 
 <style lang="less">
+  @import '../assets/base.less';
+
   .Posts .pagination-wrapper {
     .el-pagination.is-background .el-pager li:not(.disabled).active,
     .el-pagination.is-background .el-pager li:not(.disabled):hover {
       color: #fff;
-      border: 2px solid rgb(107,105,214);
-	    background-color: rgb(107,105,214);
+      border: 2px solid @bgActivePurple;
+	    background-color: @bgActivePurple;
 	    cursor: url('../assets/cursor/mouse2.png'), url('../assets/cursor/mouse2.png'), auto;
     }
 
@@ -117,19 +119,21 @@
       background-color: transparent;
       color: #fff;
       font-weight: normal;
-      border: 2px solid rgb(107,105,214);
+      border: 2px solid @bgActivePurple;
     }
   }
 </style>
 
 <style scoped lang="less">
+  @import '../assets/base.less';
+
   .Posts {
     li {
       .post-item {
         position: relative;
         padding: 20px;
         margin-bottom: 30px;
-        background-color: rgba(230, 238, 232, .5);
+        background-color: @paneColor;
         box-shadow: 0px 0px 8px #000;
         text-align: center;
         transition-timing-function: cubic-bezier(.175, .885, .32, .1 .275);
@@ -197,7 +201,7 @@
             color: #fff;
             font-size: 13px;
             font-weight: bold;
-            background-color: rgba(10, 10, 0, .7);
+            background-color: @bgDark;
 
             i {
               margin-right: .15em;
@@ -309,7 +313,7 @@
           width: 70px;
           height: 70px;
           border-radius: 50%;
-          background-color: rgb(107, 105, 214);
+          background-color: @bgActivePurple;
           left: -20px;
           top: -20px;
           color: #fff;
@@ -322,7 +326,7 @@
           @media screen and (max-width: 1280px) {
             position: relative;
             display: block;
-            color: rgba(10, 10, 0, 0.7);
+            color: @bgDark;
             background-color: transparent;
             font-size: 12px;
             border-radius: 0;
