@@ -169,7 +169,7 @@ export default {
         position: absolute;
         padding: 15px 0;
         right: 1em;
-        font-size: 20px !important;
+        font-size: 20px;
       }
     }
 

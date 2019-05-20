@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import slides from '@/api/slides.js'
+import randomDb from '@/api/randomDb.js'
 import p1 from '@/assets/image/1.jpg'
 import p2 from '@/assets/image/2.jpg'
 import p3 from '@/assets/image/3.jpg'
@@ -35,7 +35,9 @@ export default {
     }
   },
   created() {
-    slides.fetchImage().then(urlArr => {
+    randomDb.fetchRandomSlides().then(res => {
+      let urlArr = res.results.map(r => r.get('url'))
+
       this.imageNextArr = urlArr || []
 
       let idx = -1

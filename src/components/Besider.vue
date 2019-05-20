@@ -61,7 +61,7 @@
       <div class="floatPanel articleList" :class="{fold: this.isFoldArticleList, close: this.isCloseArticleList}">
         <div class="panelHeading">
           <i class="el-icon-menu"></i>
-          <span>最新文章</span>
+          <span>随机文章</span>
           <i :class="isFoldArticleList? 'el-icon-arrow-down':'el-icon-arrow-up'" @click="foldPane('articleList')"></i>
           <i class="el-icon-close" @click="closePane('articleList')"></i>
         </div>
@@ -86,6 +86,7 @@
   import posts from '@/api/posts.js'
   import {onElementHeightChange} from '@/helpers/util'
   import Avatar from '@/components/Avatar'
+  import randomDb from '@/api/randomDb.js'
 
   const DEFAULT_AVATAR = 'https://i.bmp.ovh/imgs/2019/05/2660bf1d3c6530f7.jpg'
 
@@ -126,7 +127,7 @@
           return {id, articleId, avatar, content}
         })
       })
-      posts.getNewestArticles().then(res => {
+      randomDb.fetchRandomArticles().then(res => {
         this.posts = res.results.map(r => {
           return {id: r.id, ...r.attributes}
         })
