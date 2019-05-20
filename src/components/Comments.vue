@@ -113,6 +113,7 @@
         comments.addComment({articleId: this.id, authorId, content}).then(res => {
           this.comments.push({
             author: AV.User.current(),
+            avatar: AV.User.current().get('avatar').get('url'),
             content,
             createdAt: new Date()
           })

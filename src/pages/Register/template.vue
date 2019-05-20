@@ -2,7 +2,10 @@
   <div class="Register">
     <div class="form-wrapper" data-aos="flip-left">
       <el-form ref="form" :model="form" label-width="80px">
-        <el-form-item label="用户名">
+        <el-form-item label="邮箱">
+          <el-input v-model="form.email"></el-input>
+        </el-form-item>
+        <el-form-item label="昵称">
           <el-input v-model="form.username"></el-input>
         </el-form-item>
         <el-form-item label="密码">
@@ -26,7 +29,8 @@
       return {
         form: {
           username: '',
-          password: ''
+          password: '',
+          email: ''
         }
       }
     },
@@ -62,15 +66,15 @@
       max-width: 500px;
       margin: 20vh auto;
       border-radius: 4px;
-      padding: 50px 35px 35px 0;
+      padding: 50px 35px 15px 0;
       display: flex;
       justify-content: center;
       position: relative;
-      background-color: rgba(230, 238, 232, .5);
+      /*background-color: rgba(230, 238, 232, .5);*/
+      background-color: rgba(255, 255, 255, .9);
       box-shadow: 0 0 5px #c2c2c2;
       &:hover {
-        transition: all .7s ease-in-out;
-        background: rgba(255, 255, 255, .9);
+        /*transition: all .7s ease-in-out;*/
       }
       .hint {
         position: absolute;
