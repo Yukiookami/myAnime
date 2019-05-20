@@ -1,7 +1,8 @@
 import AV from '@/helpers/av.js'
 import {Message} from 'element-ui'
 
-const ERRINFO = {
+const INITIAL_AVATAR = '5ce23d4c17b54d006838294a'
+const ERR_INFO = {
   '200': '未提供用户名或用户名为空',
   '201': '未提供密码或密码为空',
   '202': '用户名已经被占用',
@@ -32,13 +33,16 @@ export default {
 
       user.setUsername(username)
       user.setPassword(password)
+
+      let avatar = AV.Object.createWithoutData('_File', INITIAL_AVATAR)
+      user.set('avatar', avatar)
       email && user.setEmail(email)
 
       user.signUp().then(res => {
         Message.success('注册成功')
         resolve(res)
       }, err => {
-        let msg = ERRINFO[err.code] || '未知错误'
+        let msg = ERR_INFO[err.code] || '未知错误'
         Message.error(msg)
         reject(err)
       })
@@ -51,7 +55,7 @@ export default {
         Message.success('登录成功')
         resolve(res)
       }, err => {
-        let msg = ERRINFO[err.code] || '未知错误'
+        let msg = ERR_INFO[err.code] || '未知错误'
         Message.error(msg)
         reject(err)
       })
@@ -69,5 +73,22 @@ export default {
     } else {
       return {user: currentUser.get('username'), id: currentUser.id, isLogin: true}
     }
+  },
+
+  setUserAvatar(file) {
+    return new Promise((resolve, reject) => {
+      let currentUser = AV.User.current()
+      if(currentUser) {
+        let user = AV.Object.createWithoutData('_User', currentUser.id)
+        user.set('avatar', file)
+        user.save().then(res => {
+          resolve(res)
+        }).catch(err => {
+          reject(err)
+        })
+      } else {
+        reject()
+      }
+    })
   }
 }

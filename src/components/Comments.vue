@@ -8,7 +8,7 @@
         <article class="commentBody">
           <footer class="commentMeta">
             <div class="commentAuthor">
-              <img :src="comment.author.attributes.xx || defaultAvatar" class="avatar">
+              <img :src="comment.avatar" class="avatar">
               <b class="fn">{{comment.author.attributes.username}}</b><span class="says">说道：</span></div>
             <!-- .comment-author -->
             <div class="comment-metadata"><a
@@ -61,8 +61,7 @@
         page: 1,
         total: 0,
         comments: [],
-        loading: true,
-        defaultAvatar
+        loading: true
       }
     },
     watch: {
@@ -90,7 +89,10 @@
         this.loading = false
         comments.getComments({articleId: this.id, page: this.page}).then(res => {
           this.comments = res.results.map(r => {
-            return {id: r.id, createdAt: r.createdAt, ...r.attributes}
+            let avatar = r.get('author').get('avatar')
+            avatar = (avatar && avatar.url()) || defaultAvatar
+
+            return {id: r.id, createdAt: r.createdAt, avatar, ...r.attributes}
           })
           this.loading = true
         })
@@ -181,6 +183,7 @@
                 transition: all .4s ease-out;
                 transform: rotate(720deg);
                 border-radius: 0;
+                object-fit: cover;
               }
             }
 
@@ -222,6 +225,7 @@
                 top: 10px;
                 width: 54px;
                 height: 54px;
+                object-fit: cover;
               }
             }
           }

@@ -25,9 +25,12 @@
             </div>
           </template>
           <template v-else>
+            <div v-if="isShowAvatar" class="avatar-wrapper">
+              <Avatar></Avatar>
+            </div>
             <h3>你好, {{user}}</h3>
             <div class="btnGroup">
-              <router-link tag="el-button" to="/my">个人</router-link>
+              <el-button>个人</el-button>
               <el-button @click="logout">登出</el-button>
             </div>
           </template>
@@ -46,7 +49,7 @@
           <ul class="listGroup">
             <template v-for="comment in comments">
               <router-link tag="li" :to="`/detail/${comment.articleId}#${comment.id}`" class="listGroupItem">
-                <img :src="comment.author.attributes.xx || defaultAvatar">
+                <img :src="comment.avatar">
                 <span class="text commentLog"> {{comment.content}} </span>
               </router-link>
             </template>
@@ -82,6 +85,7 @@
   import comments from '@/api/comments.js'
   import posts from '@/api/posts.js'
   import {onElementHeightChange} from '@/helpers/util'
+  import Avatar from '@/components/Avatar'
 
   const defaultAvatar = '../../static/avatar.jpg'
 
@@ -92,15 +96,16 @@
         searchText: '',
         comments: [],
         posts: [],
+        isShowAvatar: true,
         isFoldUserInfo: false,
         isCloseUserInfo: false,
         isFoldCommentList: false,
         isCloseCommentList: false,
         isFoldArticleList: false,
         isCloseArticleList: false,
-        defaultAvatar
       }
     },
+    components: {Avatar},
     computed: {
       ...mapGetters(['isLogin', 'user'])
     },
@@ -108,7 +113,13 @@
       this.checkLogin()
       comments.getNewestComments().then(res => {
         this.comments = res.results.map(r => {
-          return {id: r.id, articleId: r.attributes.owner.id, ...r.attributes}
+          let id = r.id
+          let articleId = r.get('owner').id
+          let avatar = r.get('author').get('avatar')
+          avatar = defaultAvatar
+          let content = r.get('content')
+
+          return {id, articleId, avatar, content}
         })
       })
       posts.getNewestArticles().then(res => {
@@ -280,6 +291,7 @@
                 border: 1px solid #fff;
                 vertical-align: top;
                 transition: all .3s ease-in-out;
+                object-fit: cover;
 
                 &:hover {
                   transform: scale(1.25);
@@ -340,11 +352,20 @@
         }
 
         .panelContent {
+          padding-top: 1.5em;
+
+          .avatar-wrapper {
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+
           h3 {
             text-align: center;
             font-weight: normal;
             font-size: 16px;
-            padding: 1.5em 1.5em 1em;
+            padding: .5em 1.5em 1em;
           }
 
           .btnGroup {

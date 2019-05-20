@@ -68,6 +68,9 @@ const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
+  // 注释这行解除 My 页面限制
+  if(to.name === 'My') return
+
   if(to.matched.some(record => record.meta.requiresAuth)) {
     store.dispatch('checkLogin').then(isLogin => {
       if (!isLogin) {
