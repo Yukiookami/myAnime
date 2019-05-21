@@ -3,8 +3,8 @@
     <aside class="search-wrapper">
       <div class="input-wrapper" data-aos="flip-up" data-aos-mirror="true" data-aos-delay="100">
         <div class="input">
-          <el-input class="searchInput" v-model="searchText" placeholder="输入关键词搜索"></el-input>
-          <router-link :disabled="searchText===''" tag="el-button" :to="`/search/${encodeURIComponent(searchText.trim())}`" class="searchConfirm"><i class="el-icon-search"></i></router-link>
+          <el-input class="searchInput" v-model="searchText" placeholder="输入关键词搜索" @keyup.enter.native="search"></el-input>
+          <router-link :disabled="searchText.trim()===''" tag="el-button" :to="`/search/${encodeURIComponent(searchText.trim())}`" class="searchConfirm"><i class="el-icon-search"></i></router-link>
         </div>
       </div>
     </aside>
@@ -138,6 +138,12 @@
         'checkLogin',
         'logout'
       ]),
+      search() {
+        if(this.searchText.trim() === '') {
+          return
+        }
+        this.$router.push(`/search/${encodeURIComponent(this.searchText.trim())}`)
+      },
       foldPane(panel) {
         switch(panel) {
           case "userInfo":
