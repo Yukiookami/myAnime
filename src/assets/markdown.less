@@ -1,3 +1,5 @@
+@import './base.less';
+
 /deep/ .markdown-wrapper {
   h2 {
     border-color: rgb(0, 191, 255);
@@ -12,9 +14,10 @@
   }
 
   .highslide {
-    display: inline-block;
+    display: block;
+    width: 650px;
     min-height: 366px;
-    box-shadow: inset 0 0 5px #000;
+    box-shadow: inset 0 0 5px @themeColor;
   }
 
   img {
@@ -25,6 +28,7 @@
       transition: all .3s ease-in-out;
       transform: scale(1.5);
       cursor: url("./cursor/zoomin.png"), url("./cursor/zoomin.png"), auto;
+      z-index: 100;
     }
   }
 
