@@ -47,6 +47,8 @@
             this.$message.success('头像上传成功!')
             this.avatarPath = window.URL.createObjectURL(localFile)
             this.uploading = false
+            
+            AV.User.current().get('avatar').attributes.url = res.get('avatar').get('url')
           })
         }).catch(err => {
           console.error(err)
@@ -79,16 +81,16 @@
       font-size: 12px;
       transition: all .3s ease-in-out;
 
+      &.uploaded {
+        transform: scale(80/60);
+      }
+
       &.uploading {
         transform: rotate(360deg);
         border-radius: 0;
         .mask {
           display: flex;
         }
-      }
-
-      &.uploaded {
-        transform: scale(80/60);
       }
 
       &:hover {

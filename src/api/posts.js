@@ -3,7 +3,7 @@ import request from '@/helpers/request.js'
 const CQL = {
   GET_ARTICLE: `select title, views, cover, intro, tags, comments from ArticleDb 
   where tags like '{{tag}}' and category like '%{{category}}%' and title like '%{{search}}%' 
-  limit {{page}}, 8 order by createdAt`,
+  limit {{page}}, 8 order by createdAt desc`,
   GET_ARTICLE_NEWEST: "select title, views from ArticleDb limit 8 order by updatedAt desc",
   GET_ARTICLE_TOTAL: `select count(*) from ArticleDb 
   where tags like '{{tag}}' and category like '%{{category}}%' and title like '%{{search}}%'`

@@ -16,7 +16,7 @@
           <ul class="tags">
             <li class="tag"><i class="el-icon-collection-tag"></i>{{post.tags.toString()}}</li>
             <li class="tag"><i class="el-icon-view"></i>{{post.views}}</li>
-            <li class="tag"><i class="el-icon-s-comment"></i>{{post.comments}}</li>
+            <li class="tag"><i class="el-icon-chat-line-square"></i>{{post.comments}}</li>
           </ul>
           <div class="poster-wrapper">
             <router-link tag="figure" :to="`/detail/${post.id}`" class="poster">
@@ -102,15 +102,17 @@
     .el-pagination.is-background .el-pager li:not(.disabled).active,
     .el-pagination.is-background .el-pager li:not(.disabled):hover {
       color: #fff;
-      background-color: rgb(217, 83, 79);
+      border: 2px solid rgb(107,105,214);
+	    background-color: rgb(107,105,214);
+	    cursor: url('../assets/cursor/mouse2.png'), url('../assets/cursor/mouse2.png'), auto;
     }
 
     .el-pagination.is-background .el-pager li {
       height: 30px;
       background-color: transparent;
-      color: rgb(217, 83, 79);
+      color: #fff;
       font-weight: normal;
-      border: 1px solid rgb(217, 83, 79);
+      border: 2px solid rgb(107,105,214);
     }
   }
 </style>

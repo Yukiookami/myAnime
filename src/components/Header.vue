@@ -63,7 +63,7 @@
             </ul>
           </div>
         </li>
-        <li @click="navi('http://js.jirengu.com/vohim/quiet')"><i class="el-icon-s-promotion">动漫导航</i></li>
+        <li @click="navi('')"><i class="el-icon-s-promotion">动漫导航</i></li>
         <router-link tag='li' to="/guide"><i class="el-icon-document">新人导读</i></router-link>
         <router-link tag='li' to="/unzip"><i class="el-icon-document">解压必读</i></router-link>
         <router-link tag='li' to="/message"><i class="el-icon-chat-line-square">留言板</i></router-link>
@@ -77,7 +77,9 @@ export default {
   name: 'Header',
   methods: {
     navi(url) {
-      window.open(url)
+    	if(url) {
+    		window.open(url)
+    	}
     }
   }
 }

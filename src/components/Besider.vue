@@ -312,6 +312,7 @@
                 width: 80%;
                 color: #666;
                 font-size: 12px;
+                cursor: url('../assets/cursor/mouse2.png'), url('../assets/cursor/mouse2.png'), auto;
               }
 
               .title {
@@ -391,6 +392,7 @@
       .floatPanel.articleList {
         .listGroupItem {
           background-color: rgba(230, 238, 232, .3);
+          cursor: url('../assets/cursor/mouse2.png'), url('../assets/cursor/mouse2.png'), auto;
         }
       }
     }

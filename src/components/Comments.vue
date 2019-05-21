@@ -168,20 +168,18 @@
         font-size: 12px;
         box-shadow: 0 0 8px #000;
         margin: 10px 0;
+        transition: all .3s ease-in-out;
 
         &:hover {
-          transition: all .3s ease-in-out;
           box-shadow: 0 0 50px #000;
 
           .commentBody {
             .commentMeta {
-              transition: all .3s ease-in-out;
               background: #e8f4fa;
             }
 
             .commentAuthor {
               img.avatar {
-                transition: all .4s ease-out;
                 transform: rotate(720deg);
                 border-radius: 0;
                 object-fit: cover;
@@ -189,7 +187,6 @@
             }
 
             .commentContent {
-              transition: all .3s ease-in-out;
               background-color: #fff;
             }
           }
@@ -210,6 +207,7 @@
             border-top-right-radius: 8px;
             font-weight: bold;
             color: rgb(61, 68, 80);
+            transition: all .3s ease-in-out;
 
             .says {
               font-weight: normal;
@@ -227,6 +225,7 @@
                 width: 54px;
                 height: 54px;
                 object-fit: cover;
+                transition: all .4s ease-out;
               }
             }
           }
@@ -238,6 +237,7 @@
             border-bottom-right-radius: 8px;
             color: #3d4450;
             background-color: rgba(230, 238, 232, .5);
+            transition: all .3s ease-in-out;
           }
         }
       }
