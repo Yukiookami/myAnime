@@ -13,7 +13,35 @@
         <li class="tag"><i class="el-icon-date"></i>{{ymd}}</li>
         <li class="tag"><i class="el-icon-view"></i>{{views}}℃</li>
       </section>
-      <section class="markdown-wrapper" v-html="markdown"></section>
+      <section class="detail-wrapper">
+        <div class="screenshots">
+          <h2>游戏截图</h2>
+          <template v-for="screenshot in screenshots">
+            <a :style="{'min-height': `${screenshot.height || 365}px`}" :href="screenshot.src" class="highslide"
+               onclick="return hs.expand(this, hs.galleryOptions)">
+              <img :src="screenshot.src">
+            </a><br>
+          </template>
+        </div>
+        <div class="intro">
+          <h2>游戏简介</h2>
+          <div class="article lightgreen" v-html="intro"></div>
+        </div>
+        <div class="staff" v-if="staff">
+          <h2>STAFF</h2>
+          <div class="article lightgreen"></div>
+        </div>
+        <div class="panel">
+          <header>百度网盘链接</header>
+          <main><a target="blank" :href="shareLink">链接</a></main>
+          <footer>
+            <div v-for="append in appends">
+              <b>{{append.title}}</b>{{append.content}}
+            </div>
+          </footer>
+        </div>
+        <div class="article lightblue" v-html="md5"></div>
+      </section>
       <section class="blogTags-wrapper">
         <i class="el-icon-price-tag"></i>
         <template v-for="tag in tags">
@@ -26,9 +54,7 @@
 
 <script>
   import article from '@/api/article'
-  import marked from 'marked'
   import hs from '@/assets/highslide/highslide.js'
-  import {postProcessing} from "@/helpers/util"
 
   window.hs = hs
   const specialArticle = {
@@ -45,9 +71,14 @@
         createdAt: '',
         views: '',
         category: '',
-        rawContent: '',
         tags: [],
         markdown: '',
+        screenshots: [],
+        intro: '',
+        staff: '',
+        shareLink: '',
+        appends: [],
+        md5: '',
         loading: true
       }
     },
@@ -57,7 +88,7 @@
         handler: function (newRoute, oldRoute) {
           let newId = this.getId(newRoute)
           let oldId = this.getId(oldRoute)
-          if(newId !== oldId) {
+          if (newId !== oldId) {
             this.getDetail()
           }
         },
@@ -80,9 +111,9 @@
     },
     methods: {
       getId(route) {
-        if(!route) {
+        if (!route) {
           return ''
-        } else if(specialArticle[route.name]) {
+        } else if (specialArticle[route.name]) {
           return specialArticle[route.name]
         } else {
           return route.params.blogId
@@ -90,27 +121,43 @@
       },
       getDetail() {
         this.loading = true
+
         article.getArticleDetail({id: this.id}).then(res => {
+          // 获取正文之外的数据
           this.title = res.title
           this.createdAt = res.createdAt
           this.views = res.views
           this.category = res.category
-          this.rawContent = res.rawContent
           this.tags = res.tags
-          this.updateMarkdown()
+
+          // 正文数据
+          this.screenshots = res.screenshots
+          this.intro = res.intro
+          this.staff = res.staff
+          this.shareLink = res.shareLink
+          this.appends = this.process(res.appends)
+          this.md5 = res.md5
+
+          console.log(res)
+
           this.loading = false
         })
       },
-      // todo: 改写 marked.js 的语法规则以自适应调整 html
-      updateMarkdown() {
-        this.markdown = postProcessing(marked(this.rawContent, {breaks: true}))
+      process(appends) {
+        return appends.map(append => {
+          var group = append.match(/(提取密码.|备注.)*(.*?)$/)
+          var title = (group[1] || '').trim()
+          var content = (group[2] || '').trim()
+
+          return {title, content}
+        })
       }
     }
   }
 </script>
 
 <style scoped lang="less">
-  @import '../assets/markdown.less';
+  @import '../assets/base.less';
 
   .Article {
     position: relative;
@@ -237,6 +284,109 @@
 
         i {
           margin-right: .15em;
+        }
+      }
+    }
+
+    .detail-wrapper {
+      h2 {
+        border-color: rgb(0, 191, 255);
+        background-color: rgba(255, 255, 255, .51);
+        padding: 10px 20px;
+        border-left: 5px solid rgb(0, 191, 255);
+        text-align: left;
+        font-size: 12pt;
+        font-weight: 800;
+        color: #6699FF;
+        margin: 2em 0 .5em 0;
+      }
+
+      .screenshots {
+        .highslide {
+          display: block;
+          img {
+            width: 650px;
+            display: block;
+
+            &:hover {
+              transition: all .3s ease-in-out;
+              transform: scale(1.5);
+              cursor: url("../assets/cursor/zoomin.png"), url("../assets/cursor/zoomin.png"), auto;
+              z-index: 100;
+            }
+          }
+        }
+      }
+
+      .article {
+        background-color: #dff0d8;
+        color: #468847;
+        font-size: 12px;
+        padding: 1em 1.5em;
+        border-radius: 4px;
+        margin: .5em 0em 1.5em 0;
+        white-space: pre-wrap;
+
+        &.lightgreen {
+          background-color: #dff0d8;
+          color: #468847;
+        }
+
+        &.lightblue {
+          color: #3a87ad;
+          background-color: rgba(217, 237, 247, .8);
+        }
+      }
+
+      .panel {
+        margin: 1.5em 0em;
+        border-right: 4px;
+        background-color: rgba(230, 238, 232, .5);
+        border-radius: 4px;
+        overflow: hidden;
+
+        &:hover {
+          box-shadow: 0 0 50px rgb(0, 0, 0);
+        }
+
+        header {
+          background-color: #428bca;
+          color: #fff;
+          font-size: 14px;
+          line-height: 14px;
+          padding: 10px 15px;
+        }
+
+        main {
+          padding: 15px;
+
+          a {
+            background-color: #d9534f;
+            border: none;
+            transition: all .25s ease-in-out;
+            color: #fff;
+            font-size: 12px;
+            padding: 6px 12px;
+            line-height: 1.5;
+            border-radius: 4px;
+
+            &:hover {
+              background-color: #d2322d;
+            }
+          }
+        }
+
+        footer {
+          background-color: #fff;
+          padding: 10px 15px;
+          font-size: 10pt;
+          font-weight: bold;
+          white-space: pre-line;
+          color: #f00;
+
+          b {
+            color: #3d4450;
+          }
         }
       }
     }
