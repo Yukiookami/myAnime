@@ -2669,11 +2669,12 @@ hs.addSlideshow({
     offsetY: -10,
     hideOnMouseOut: true
   },
-  thumbstrip: {
-    mode: 'horizontal',
-    position: 'bottom center',
-    relativeTo: 'viewport'
-  }
+  // 是否开启缩略图
+  // thumbstrip: {
+  //   mode: 'horizontal',
+  //   position: 'bottom center',
+  //   relativeTo: 'viewport'
+  // }
 });
 
 export default hs

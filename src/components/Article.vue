@@ -17,9 +17,10 @@
         <div class="screenshots">
           <h2>游戏截图</h2>
           <template v-for="screenshot in screenshots">
-            <a :style="{'min-height': `${screenshot.height || 365}px`}" :href="screenshot.src" class="highslide"
+            <!-- min-height 占位，+ 2 防高度变动 -->
+            <a :style="{'min-height': `${screenshot.height + 2 || 366}px`}" :href="screenshot.src" class="highslide"
                onclick="return hs.expand(this, hs.galleryOptions)">
-              <img :src="screenshot.src">
+              <img :src="screenshot.src" width="650" :height="`${screenshot.height || 364}px`">
             </a><br>
           </template>
         </div>
@@ -57,11 +58,6 @@
   import hs from '@/assets/highslide/highslide.js'
 
   window.hs = hs
-  const specialArticle = {
-    Guide: '5cdd5c106e9ba10068ea7b90',
-    Unzip: '5cdd5d537b968a0073db86d8',
-    Message: '5cdd5fa830863b0069889f2a'
-  }
 
   export default {
     name: "Article",
@@ -111,13 +107,7 @@
     },
     methods: {
       getId(route) {
-        if (!route) {
-          return ''
-        } else if (specialArticle[route.name]) {
-          return specialArticle[route.name]
-        } else {
-          return route.params.blogId
-        }
+        return route? route.params.blogId: ''
       },
       getDetail() {
         this.loading = true
@@ -137,8 +127,6 @@
           this.shareLink = res.shareLink
           this.appends = this.process(res.appends)
           this.md5 = res.md5
-
-          console.log(res)
 
           this.loading = false
         })
@@ -304,9 +292,10 @@
       .screenshots {
         .highslide {
           display: block;
+          width: 650px;
           img {
-            width: 650px;
             display: block;
+            object-fit: cover;
 
             &:hover {
               transition: all .3s ease-in-out;

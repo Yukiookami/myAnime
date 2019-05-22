@@ -56,8 +56,13 @@
       }
     },
     watch: {
-      '$route'(to, from) {
-        this.getPosts()
+      '$route': {
+        handler: function (to, from) {
+          this.page = parseInt(this.$route.query.page) || 1
+          this.getPosts()   
+        },
+        deep: true,
+        immediate: true
       }
     },
     created() {

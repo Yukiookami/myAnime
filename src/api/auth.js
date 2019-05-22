@@ -83,6 +83,7 @@ export default {
         user.set('avatar', file)
         user.save().then(res => {
           resolve(res)
+          console.log(res)
         }).catch(err => {
           reject(err)
         })
