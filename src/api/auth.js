@@ -81,9 +81,12 @@ export default {
       if(currentUser) {
         let user = AV.Object.createWithoutData('_User', currentUser.id)
         user.set('avatar', file)
+        user.set('c', 1)
         user.save().then(res => {
+          let token = AV.User.current().getSessionToken()
+          AV.User.become(token)
+
           resolve(res)
-          console.log(res)
         }).catch(err => {
           reject(err)
         })

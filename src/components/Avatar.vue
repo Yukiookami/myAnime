@@ -47,6 +47,7 @@
             this.$message.success('头像上传成功!')
             this.avatarPath = window.URL.createObjectURL(localFile)
             this.uploading = false
+
           })
         }).catch(err => {
           console.error(err)
