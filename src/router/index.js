@@ -87,7 +87,7 @@ router.beforeEach((to, from, next) => {
   }
 
   // 捕获登录注册之间的跳转
-  if((from.name === 'Login' && to.name === 'Register') || (from.name === 'Register' && to.name === 'Login')) {
+  if((from.name === 'Login' && to.name === 'Register')) {
     next({
       path: to.path,
       query: from.query

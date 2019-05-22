@@ -100,6 +100,8 @@
       setTotal() {
         comments.getCommentsTotal({articleId: this.id}).then(res => {
           this.total = res.count
+          // 同时更新 ArticleDb 的 comments 数据
+          comments.setCommentsNum({articleId: this.id, num: this.total})
         })
       },
       onSubmit(e) {
@@ -117,7 +119,6 @@
             content,
             createdAt: new Date()
           })
-          comments.setCommentsNum({articleId: this.id})
         })
       },
       onPageChange(cpage) {

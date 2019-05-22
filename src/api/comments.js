@@ -4,7 +4,7 @@ import request from '@/helpers/request.js'
 
 const CQL = {
   GET_COMMENTS: "select content, include author from CommentsDb where owner=pointer('ArticleDb','{{articleId}}') limit {{page}}, 8 order by createdAt desc",
-  SET_COMMENTS_NUM: "update ArticleDb set comments = op('Increment', {'amount': 1}) where objectId = '{{articleId}}'",
+  SET_COMMENTS_NUM: "update ArticleDb set comments = {{num}} where objectId = '{{articleId}}'",
   ADD_COMMENT: "insert into CommentsDb(owner, author, content) values(pointer('ArticleDb', '{{articleId}}'), pointer('_User', '{{authorId}}'), '{{content}}')",
   GET_COMMENT_NEWEST: "select content, include author, include owner from CommentsDb limit 8 order by createdAt desc",
   GET_COMMENTS_TOTAL: "select count(*) from CommentsDb where owner=pointer('ArticleDb','{{articleId}}')"
@@ -15,8 +15,8 @@ export default {
     page = (page - 1) * 8
     return request(CQL.GET_COMMENTS, {articleId, page}, '获取评论列表失败')
   },
-  setCommentsNum({articleId}) {
-    return request(CQL.SET_COMMENTS_NUM, {articleId}, '更新评论数失败')
+  setCommentsNum({articleId, num}) {
+    return request(CQL.SET_COMMENTS_NUM, {articleId, num}, '更新评论数失败')
   },
   addComment({articleId, authorId, content}) {
     return request(CQL.ADD_COMMENT, {articleId, authorId, content}, '添加评论失败')
