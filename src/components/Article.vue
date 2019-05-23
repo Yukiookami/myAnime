@@ -38,11 +38,13 @@
             <main><a target="blank" :href="shareLink">链接</a></main>
             <footer>
               <div v-for="append in appends">
-                <b>{{append.title}}</b>{{append.content}}
+                <template v-if="append.content">
+                  <b>{{append.title}}</b>{{append.content}}
+                </template>
               </div>
             </footer>
           </div>
-          <div class="article lightblue" v-html="md5"></div>
+          <div class="article lightblue" v-html="md5" v-if="md5"></div>
         </template>
         <template v-if="isSpecialArticle">
           <div v-html="rawContentParser(rawContent)"></div>
@@ -157,8 +159,9 @@
         })
       },
       process(appends) {
+        console.log(appends)
         return appends.map(append => {
-          var group = append.match(/(提取密码.|备注.)*(.*?)$/)
+          var group = append.trim().match(/(提取密码.|备注.)*(.*?)$/)
           var title = (group[1] || '').trim()
           var content = (group[2] || '').trim()
 
@@ -167,6 +170,7 @@
       },
       rawContentParser(text) {
         text = text.replace(/^## ([\s\S]+?)$([\s\S]+?)(?=(^##|$(?![\r\n])))/gm, '<h2>$1</h2>\n<div class="article">$2\n</div>\n')
+        text = text.replace(/\r\n/g, '\n')
         text = text.replace(/^[\s]*\n/gm, '')
         var groups = text.match(/<div class="article">[\s\S]+?<\/div>/g) || []
         var lines = groups.map(t => t.split('\n').length - 2)
