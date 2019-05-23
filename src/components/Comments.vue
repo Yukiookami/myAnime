@@ -34,7 +34,7 @@
       <div class="commentBody">
         <div class="commentMeta"></div>
         <form class="commentContent" @submit.prevent="onSubmit">
-          <textarea class="commentText" name="comment">说点什么吧！</textarea>
+          <textarea class="commentText" name="comment" @keydown.enter.prevent="onSubmit">说点什么吧！</textarea>
           <input class="commentConfirm" type="submit" value="发表">
         </form>
       </div>
@@ -259,9 +259,9 @@
       opacity: .8;
       overflow: hidden;
       margin-top: 70px;
+      transition: all .3s ease-in-out;
 
-      &:hover {
-        transition: all .3s ease-in-out;
+      &:hover,&:focus {
         opacity: 1;
         box-shadow: 0 0 50px #000;
       }
