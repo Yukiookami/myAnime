@@ -46,18 +46,15 @@
   import comments from '@/api/comments.js'
   import {mapGetters} from 'vuex'
   import {Message} from 'element-ui'
+  import specialArticle from '@/assets/specialArticle'
 
-  const defaultAvatar = '../../static/avatar.jpg'
-  const specialArticle = {
-    Guide: '5cdd5c106e9ba10068ea7b90',
-    Unzip: '5cdd5d537b968a0073db86d8',
-    Message: '5cdd5fa830863b0069889f2a'
-  }
+  const DEFAULT_AVATAR = '../../static/avatar.jpg'
 
   export default {
     name: "Comments",
     data() {
       return {
+        id: '',
         page: 1,
         total: 0,
         comments: [],
@@ -66,7 +63,8 @@
     },
     watch: {
       '$route': {
-        handler: function() {
+        handler: function (to, from) {
+          this.id = this.getId(to)
           this.getComments()
           this.setTotal()
         },
@@ -75,25 +73,32 @@
       }
     },
     computed: {
-      ...mapGetters(['isLogin', 'userId']),
-      id() {
-        if (this.$route.params.blogId) {
-          return this.$route.params.blogId
-        } else {
-          return specialArticle[this.$route.name]
-        }
-      }
+      ...mapGetters(['isLogin', 'userId'])
     },
     methods: {
+      getId(route) {
+        if(!route) {
+          return ''
+        }
+
+        var isSpecialRoute = ["Guide", "Unzip", "Message"].includes(route.name)
+        if(isSpecialRoute) {
+          return specialArticle[route.name]
+        } else {
+          return  route.params.blogId
+        }
+      },
       getComments() {
         this.loading = false
+
         comments.getComments({articleId: this.id, page: this.page}).then(res => {
           this.comments = res.results.map(r => {
             let avatar = r.get('author').get('avatar')
-            avatar = (avatar && avatar.url()) || defaultAvatar
+            avatar = (avatar && avatar.url()) || DEFAULT_AVATAR
 
             return {id: r.id, createdAt: r.createdAt, avatar, ...r.attributes}
           })
+
           this.loading = true
         })
       },
@@ -105,7 +110,7 @@
         })
       },
       onSubmit(e) {
-        if(!this.isLogin) {
+        if (!this.isLogin) {
           Message.error('请登录后再发表评论')
           return
         }

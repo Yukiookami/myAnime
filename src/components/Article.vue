@@ -14,34 +14,39 @@
         <li class="tag"><i class="el-icon-view"></i>{{views}}℃</li>
       </section>
       <section class="detail-wrapper">
-        <div class="screenshots">
-          <h2>游戏截图</h2>
-          <template v-for="screenshot in screenshots">
-            <!-- min-height 占位，+ 2 防高度变动 -->
-            <a :style="{'min-height': `${screenshot.height + 2 || 366}px`}" :href="screenshot.src" class="highslide"
-               onclick="return hs.expand(this, hs.galleryOptions)">
-              <img :src="screenshot.src" width="650" :height="`${screenshot.height || 364}px`">
-            </a><br>
-          </template>
-        </div>
-        <div class="intro">
-          <h2>游戏简介</h2>
-          <div class="article lightgreen" v-html="intro"></div>
-        </div>
-        <div class="staff" v-if="staff">
-          <h2>STAFF</h2>
-          <div class="article lightgreen"></div>
-        </div>
-        <div class="panel">
-          <header>百度网盘链接</header>
-          <main><a target="blank" :href="shareLink">链接</a></main>
-          <footer>
-            <div v-for="append in appends">
-              <b>{{append.title}}</b>{{append.content}}
-            </div>
-          </footer>
-        </div>
-        <div class="article lightblue" v-html="md5"></div>
+        <template v-if="!isSpecialArticle">
+          <div class="screenshots">
+            <h2>游戏截图</h2>
+            <template v-for="screenshot in screenshots">
+              <!-- min-height 占位，+ 2 防高度变动 -->
+              <a :style="{'min-height': `${screenshot.height + 2 || 366}px`}" :href="screenshot.src" class="highslide"
+                 onclick="return hs.expand(this, hs.galleryOptions)">
+                <img :src="screenshot.src" width="650" :height="`${screenshot.height || 364}px`">
+              </a><br>
+            </template>
+          </div>
+          <div class="intro">
+            <h2>游戏简介</h2>
+            <div class="article lightgreen" v-html="intro"></div>
+          </div>
+          <div class="staff" v-if="staff">
+            <h2>STAFF</h2>
+            <div class="article lightgreen"></div>
+          </div>
+          <div class="panel">
+            <header>百度网盘链接</header>
+            <main><a target="blank" :href="shareLink">链接</a></main>
+            <footer>
+              <div v-for="append in appends">
+                <b>{{append.title}}</b>{{append.content}}
+              </div>
+            </footer>
+          </div>
+          <div class="article lightblue" v-html="md5"></div>
+        </template>
+        <template v-if="isSpecialArticle">
+          {{rawContnet}}
+        </template>
       </section>
       <section class="blogTags-wrapper">
         <i class="el-icon-price-tag"></i>
@@ -55,6 +60,7 @@
 
 <script>
   import article from '@/api/article'
+  import specialArticle from '@/assets/specialArticle'
   import hs from '@/assets/highslide/highslide.js'
 
   window.hs = hs
@@ -63,6 +69,7 @@
     name: "Article",
     data() {
       return {
+        id: '',
         title: '',
         createdAt: '',
         views: '',
@@ -75,16 +82,19 @@
         shareLink: '',
         appends: [],
         md5: '',
+        rawContnet: '',
         loading: true
       }
     },
     watch: {
       // 按需加载，如果文章 id 相同不重新加载
       '$route': {
-        handler: function (newRoute, oldRoute) {
-          let newId = this.getId(newRoute)
-          let oldId = this.getId(oldRoute)
+        handler: function (to, from) {
+          let oldId = this.getId(from)
+          let newId = this.getId(to)
+
           if (newId !== oldId) {
+            this.id = newId
             this.getDetail()
           }
         },
@@ -93,13 +103,18 @@
       }
     },
     computed: {
-      id() {
-        return this.getId(this.$route)
-      },
       ymd() {
         let d = this.createdAt
         if (!d) return '2019-05-12'
         return `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`
+      },
+      isSpecialArticle() {
+        for(var key in specialArticle) {
+          if(specialArticle[key] === this.id) {
+            return true
+          }
+        }
+        return false
       }
     },
     created() {
@@ -107,7 +122,16 @@
     },
     methods: {
       getId(route) {
-        return route? route.params.blogId: ''
+        if(!route) {
+          return ''
+        }
+
+        var isSpecialRoute = ["Guide", "Unzip", "Message"].includes(route.name)
+        if(isSpecialRoute) {
+          return specialArticle[route.name]
+        } else {
+          return  route.params.blogId
+        }
       },
       getDetail() {
         this.loading = true
@@ -125,8 +149,9 @@
           this.intro = res.intro
           this.staff = res.staff
           this.shareLink = res.shareLink
-          this.appends = this.process(res.appends)
+          this.appends = this.process(res.appends || [])
           this.md5 = res.md5
+          this.rawContent = res.rawContent
 
           this.loading = false
         })

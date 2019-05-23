@@ -87,7 +87,7 @@
   import {onElementHeightChange} from '@/helpers/util'
   import Avatar from '@/components/Avatar'
 
-  const defaultAvatar = '../../static/avatar.jpg'
+  const DEFAULT_AVATAR = '../../static/avatar.jpg'
 
   export default {
     name: "Besider",
@@ -116,7 +116,7 @@
           let id = r.id
           let articleId = r.get('owner').id
           let avatar = r.get('author').get('avatar')
-          avatar = defaultAvatar
+          avatar = DEFAULT_AVATAR
           let content = r.get('content')
 
           return {id, articleId, avatar, content}
