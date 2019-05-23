@@ -45,7 +45,7 @@
           <div class="article lightblue" v-html="md5"></div>
         </template>
         <template v-if="isSpecialArticle">
-          {{rawContnet}}
+          <div v-html="rawContentParser(rawContent)"></div>
         </template>
       </section>
       <section class="blogTags-wrapper">
@@ -109,8 +109,8 @@
         return `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`
       },
       isSpecialArticle() {
-        for(var key in specialArticle) {
-          if(specialArticle[key] === this.id) {
+        for (var key in specialArticle) {
+          if (specialArticle[key] === this.id) {
             return true
           }
         }
@@ -122,15 +122,15 @@
     },
     methods: {
       getId(route) {
-        if(!route) {
+        if (!route) {
           return ''
         }
 
         var isSpecialRoute = ["Guide", "Unzip", "Message"].includes(route.name)
-        if(isSpecialRoute) {
+        if (isSpecialRoute) {
           return specialArticle[route.name]
         } else {
-          return  route.params.blogId
+          return route.params.blogId
         }
       },
       getDetail() {
@@ -164,6 +164,19 @@
 
           return {title, content}
         })
+      },
+      rawContentParser(text) {
+        text = text.replace(/^## ([\s\S]+?)$([\s\S]+?)(?=(^##|$(?![\r\n])))/gm, '<h2>$1</h2>\n<div class="article">$2\n</div>\n')
+        text = text.replace(/^[\s]*\n/gm, '')
+        var groups = text.match(/<div class="article">[\s\S]+?<\/div>/g) || []
+        var lines = groups.map(t => t.split('\n').length - 2)
+        for (var i = 0; i < lines.length; i++) {
+          var isMultiple = lines[i] >= 3
+          var replacement = isMultiple ? 'class="article lightgreen"' : 'class="article lightblue"'
+          text = text.replace(/class="article"/, replacement)
+        }
+        text = text.replace(/>\n/gm, '>')
+        return text
       }
     }
   }
@@ -301,7 +314,7 @@
       }
     }
 
-    .detail-wrapper {
+    /deep/ .detail-wrapper {
       h2 {
         border-color: rgb(0, 191, 255);
         background-color: rgba(255, 255, 255, .51);
@@ -318,6 +331,7 @@
         .highslide {
           display: block;
           width: 650px;
+
           img {
             display: block;
             object-fit: cover;
