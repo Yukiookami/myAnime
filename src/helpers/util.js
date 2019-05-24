@@ -21,7 +21,7 @@ export function onElementHeightChange (elm, callback) {
 }
 
 export function scrollToComment() {
-  let hasArticle = ['detail', 'guide', 'unzip', 'message'].some(path => window.location.pathname.indexOf(path) > -1)
+  let hasArticle = ['Detail', 'Guide', 'Unzip', 'Message'].some(path => window.location.pathname.indexOf(path) > -1)
   let hasComment = window.location.hash
   if(hasArticle && hasComment) {
     let hash = window.location.hash.substr(1)
