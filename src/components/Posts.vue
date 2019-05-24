@@ -14,7 +14,7 @@
             <router-link :to="`/detail/${post.id}`"><h1 class="title">{{post.title}}</h1></router-link>
           </div>
           <ul class="tags">
-            <li class="tag"><i class="el-icon-collection-tag"></i>{{post.tags.toString()}}</li>
+            <li class="tag" v-if="post.tags && post.tags.length"><i class="el-icon-collection-tag"></i>{{post.tags.toString()}}</li>
             <li class="tag"><i class="el-icon-view"></i>{{post.views}}</li>
             <li class="tag"><i class="el-icon-chat-line-square"></i>{{post.comments}}</li>
           </ul>
@@ -59,7 +59,7 @@
       '$route': {
         handler: function (to, from) {
           this.page = parseInt(this.$route.query.page) || 1
-          this.getPosts()   
+          this.getPosts()
         },
         deep: true,
         immediate: true

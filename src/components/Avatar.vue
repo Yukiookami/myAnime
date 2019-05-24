@@ -12,19 +12,19 @@
 <script>
   import auth from '@/api/auth.js'
 
-  const defaultAvatar = '../../static/avatar.jpg'
+  const DEFAULT_AVATAR = '../../static/avatar.jpg'
 
   export default {
     name: "Avatar",
     data() {
       return {
-        avatarPath: defaultAvatar,
+        avatarPath: DEFAULT_AVATAR,
         uploading: false
       }
     },
     computed: {
       uploaded() {
-        return this.avatarPath !== defaultAvatar
+        return this.avatarPath !== DEFAULT_AVATAR
       }
     },
     created() {
@@ -32,7 +32,7 @@
       if(user) {
         let avatar = user.get('avatar')
         if(avatar) {
-          this.avatarPath = avatar.get('url')
+          this.avatarPath = avatar.get('url') || DEFAULT_AVATAR
         }
       }
     },
@@ -119,10 +119,10 @@
 
       .upload {
         position: absolute;
-        left: -100%;
-        top: -100%;
-        width: 200%;
-        height: 200%;
+        left: -10%;
+        top: -10%;
+        width: 120%;
+        height: 120%;
         cursor: url("../assets/cursor/mouse2.png"), url("../assets/cursor/mouse2.png"), auto;
         opacity: 0;
       }

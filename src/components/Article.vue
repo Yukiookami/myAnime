@@ -164,7 +164,6 @@
         })
       },
       process(appends) {
-        console.log(appends)
         return appends.map(append => {
           var group = append.trim().match(/(提取密码.|备注.)*(.*?)$/)
           var title = (group[1] || '').trim()

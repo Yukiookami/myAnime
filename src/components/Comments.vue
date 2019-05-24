@@ -44,7 +44,7 @@
 
 <script>
   import comments from '@/api/comments.js'
-  import article from '@/api/aritcle.js'
+  import article from '@/api/article.js'
   import {mapGetters} from 'vuex'
   import {Message} from 'element-ui'
   import specialArticle from '@/assets/specialArticle'
@@ -122,7 +122,7 @@
         comments.addComment({articleId: this.id, authorId, content}).then(res => {
           this.comments.push({
             author: AV.User.current(),
-            avatar: AV.User.current().get('avatar').get('url'),
+            avatar: AV.User.current().get('avatar').get('url') || DEFAULT_AVATAR,
             content,
             createdAt: new Date()
           })
