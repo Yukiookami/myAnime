@@ -53,7 +53,12 @@
             break
           case 'Detail':
             article.getArticleDetail({id: this.params.blogId}).then(res => {
-              this.crumbs = res.category.split('_')
+              res = res.results.map(r => {return {id: r.id, createdAt: r.createdAt, ...r.attributes}})
+
+              let post = res[0]
+              if(!post) return
+
+              this.crumbs = post.category.split('_')
             })
             break
           default:

@@ -44,6 +44,7 @@
 
 <script>
   import comments from '@/api/comments.js'
+  import article from '@/api/aritcle.js'
   import {mapGetters} from 'vuex'
   import {Message} from 'element-ui'
   import specialArticle from '@/assets/specialArticle'
@@ -105,8 +106,9 @@
       setTotal() {
         comments.getCommentsTotal({articleId: this.id}).then(res => {
           this.total = res.count
-          // 同时更新 ArticleDb 的 comments 数据
-          comments.setCommentsNum({articleId: this.id, num: this.total})
+          // 同时更新 ArticleDb 的 comments 数据和 views 数据
+          article.setArticleComments({id: this.id, num: this.total})
+          article.setArticleViews({id: this.id})
         })
       },
       onSubmit(e) {

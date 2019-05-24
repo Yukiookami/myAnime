@@ -1,26 +1,19 @@
-import AV from '@/helpers/av.js'
-import {Message} from 'element-ui'
+import request from '@/helpers/request.js'
+
+const CQL = {
+  GET_ARTICLE_DETAIL: "select * from ArticleDb where objectId = '{{id}}'",
+  SET_ARTICLE_VIEWS: "update ArticleDb set views = op('Increment', {'amount': 1}) where objectId = '{{id}}'",
+  SET_ARTICLE_COMMENTS: "update ArticleDb set comments = {{num}} where objectId = '{{id}}'",
+}
 
 export default {
   getArticleDetail({id}) {
-    return new Promise((resolve, reject) => {
-      let cql = `select * from ArticleDb where objectId = '${id}'`
-
-      AV.Query.doCloudQuery(cql)
-        .then(res => {
-          let posts = res.results.map(r => {
-            return {id: r.id, createdAt: r.createdAt, ...r.attributes}
-          })
-          if(posts.length === 0) {
-            Message.error('获取文章内容失败')
-            reject()
-          }
-          resolve(posts[0])
-        })
-        .catch(err => {
-          Message.error('获取文章内容失败')
-          reject(err)
-        })
-    })
+    return request(CQL.GET_ARTICLE_DETAIL, {id}, '获取文章内容失败')
+  },
+  setArticleViews({id}) {
+    return request(CQL.SET_ARTICLE_VIEWS, {id}, '更新浏览数失败')
+  },
+  setArticleComments({id, num}) {
+    return request(CQL.SET_COMMENTS_NUM, {id, num}, '更新评论数失败')
   }
 }

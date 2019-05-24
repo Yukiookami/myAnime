@@ -139,21 +139,26 @@
         this.loading = true
 
         article.getArticleDetail({id: this.id}).then(res => {
+          res = res.results.map(r => {return {id: r.id, createdAt: r.createdAt, ...r.attributes}})
+
+          let post = res[0]
+          if(!post) return
+
           // 获取正文之外的数据
-          this.title = res.title
-          this.createdAt = res.createdAt
-          this.views = res.views
-          this.category = res.category
-          this.tags = res.tags
+          this.title = post.title
+          this.createdAt = post.createdAt
+          this.views = post.views
+          this.category = post.category
+          this.tags = post.tags
 
           // 正文数据
-          this.screenshots = res.screenshots
-          this.intro = res.intro
-          this.staff = res.staff
-          this.shareLink = res.shareLink
-          this.appends = this.process(res.appends || [])
-          this.md5 = res.md5
-          this.rawContent = res.rawContent
+          this.screenshots = post.screenshots
+          this.intro = post.intro
+          this.staff = post.staff
+          this.shareLink = post.shareLink
+          this.appends = this.process(post.appends || [])
+          this.md5 = post.md5
+          this.rawContent = post.rawContent
 
           this.loading = false
         })
@@ -172,6 +177,7 @@
         text = text.replace(/^## ([\s\S]+?)$([\s\S]+?)(?=(^##|$(?![\r\n])))/gm, '<h2>$1</h2>\n<div class="article">$2\n</div>\n')
         text = text.replace(/\r\n/g, '\n')
         text = text.replace(/^[\s]*\n/gm, '')
+
         var groups = text.match(/<div class="article">[\s\S]+?<\/div>/g) || []
         var lines = groups.map(t => t.split('\n').length - 2)
         for (var i = 0; i < lines.length; i++) {
