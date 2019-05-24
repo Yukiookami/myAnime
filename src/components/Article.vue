@@ -31,7 +31,7 @@
           </div>
           <div class="staff" v-if="staff">
             <h2>STAFF</h2>
-            <div class="article lightgreen"></div>
+            <div class="article lightgreen" v-html="staff"></div>
           </div>
           <div class="panel">
             <header>百度网盘链接</header>

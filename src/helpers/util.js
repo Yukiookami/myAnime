@@ -21,10 +21,9 @@ export function onElementHeightChange (elm, callback) {
 }
 
 export function scrollToComment() {
-  let hasArticle = ['Detail', 'Guide', 'Unzip', 'Message'].some(path => window.location.pathname.indexOf(path) > -1)
-  let hasComment = window.location.hash
-  if(hasArticle && hasComment) {
-    let hash = window.location.hash.substr(1)
+  let hasAC = window.location.href.match(/\/[0-9a-f]{24}#([0-9a-f]{24})/)
+  if(hasAC) {
+    let hash = hasAC[1]
     let el = document.getElementById(hash)
 
     if(el) {
