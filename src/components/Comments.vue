@@ -1,8 +1,8 @@
 <template>
   <div class="Comments">
     <h3 class="commentTitle"><i class="el-icon-s-comment"></i> {{total}} 条评论</h3>
-    <div class="commentsLoading" v-if="false"><i class="el-icon-loading"></i></div>
-    <ul class="commentList">
+    <div class="commentsLoading" v-if="loading"><i class="el-icon-loading"></i></div>
+    <ul class="commentList" v-if="!loading">
       <li v-for="comment in comments"
           :id="comment.id" class="comment-item" data-aos="zoom-out-right">
         <article class="commentBody">
@@ -90,7 +90,7 @@
         }
       },
       getComments() {
-        this.loading = false
+        this.loading = true
 
         comments.getComments({articleId: this.id, page: this.page}).then(res => {
           this.comments = res.results.map(r => {
@@ -100,7 +100,7 @@
             return {id: r.id, createdAt: r.createdAt, avatar, ...r.attributes}
           })
 
-          this.loading = true
+          this.loading = false
         })
       },
       setTotal() {
@@ -169,6 +169,11 @@
       font-size: 14px;
       font-weight: normal;
       border-radius: 4px;
+    }
+
+    .commentsLoading {
+      text-align: center;
+      font-size: 40px;
     }
 
     .commentList {

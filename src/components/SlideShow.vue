@@ -7,6 +7,9 @@
         >{{idx}}</span>
       </li>
     </ul>
+    <div class="cb-next" v-show="false">
+      <template v-for="image in imageNextArr"><img :src="image" alt=""></template>
+    </div>
   </div>
 </template>
 
@@ -23,16 +26,17 @@
     name: "SlideShow",
     data() {
       return {
-        imageArr: [p1, p2, p3, p4, p5, p6]
+        imageArr: [p1, p2, p3, p4, p5, p6],
+        imageNextArr: []
       }
     },
     created() {
       let then = +new Date
       slides.fetchImage().then(urlArr => {
         let now = +new Date
-        // let timeout = (60000 - (now - then)) % 6000
+        let timeout = (60000 - (now - then)) % 6000 + 6000 * Math.floor(6 * Math.random())
 
-        let timeout = 36000
+        this.imageNextArr = urlArr
 
         setTimeout(() => {
           console.log('网络壁纸加载完毕')
