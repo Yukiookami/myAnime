@@ -1,11 +1,11 @@
 <template>
   <div class="SlideShow">
     <ul class="cb-slideshow">
-      <li v-for="(image,idx) in imageArr">
-        <span
-          :style="{'background-image': `url(${image})`, 'animation-delay': `${6*idx}s`}"
-        >{{idx}}</span>
-      </li>
+      <template v-for="(image,idx) in imageArr">
+        <li v-if="image">
+          <span :style="{'background-image': `url(${image})`, 'animation-delay': `${6*idx}s`}">{{idx}}</span>
+        </li>
+      </template>
     </ul>
     <div class="cb-next" v-show="false">
       <template v-for="image in imageNextArr"><img :src="image" alt=""></template>
@@ -21,27 +21,34 @@
   import p4 from '@/assets/image/4.jpg'
   import p5 from '@/assets/image/5.jpg'
   import p6 from '@/assets/image/6.jpg'
+  import p7 from '@/assets/image/7.jpg'
 
   export default {
     name: "SlideShow",
     data() {
       return {
-        imageArr: [p1, p2, p3, p4, p5, p6],
+        imageArr: [p1, p2, p3, p4, p5, p6, p7],
         imageNextArr: []
       }
     },
     created() {
-      let then = +new Date
       slides.fetchImage().then(urlArr => {
-        let now = +new Date
-        let timeout = (60000 - (now - then)) % 6000 + 6000 * Math.floor(6 * Math.random())
-
         this.imageNextArr = urlArr
 
-        setTimeout(() => {
-          console.log('网络壁纸加载完毕')
-          this.imageArr = urlArr
-        }, timeout)
+        let idx = -1
+
+        let timer = setInterval(() => {
+          if(this.imageNextArr.length === 0) {
+            this.imageArr.pop()
+            clearInterval(timer)
+          }
+
+          if(idx >= 0) {
+            this.imageArr[idx] = this.imageNextArr.splice(0, 1)[0] || this.imageArr[idx]
+          }
+
+          idx += 1
+        }, 6000)
       })
     }
   }
