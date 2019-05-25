@@ -30,7 +30,9 @@
       let then = +new Date
       slides.fetchImage().then(urlArr => {
         let now = +new Date
-        let timeout = (60000 - (now - then)) % 6000
+        // let timeout = (60000 - (now - then)) % 6000
+
+        let timeout = 36000
 
         setTimeout(() => {
           console.log('网络壁纸加载完毕')
