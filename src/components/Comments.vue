@@ -273,7 +273,6 @@
       opacity: .8;
       overflow: hidden;
       margin-top: 70px;
-      margin-bottom: 40px;
       transition: all .3s ease-in-out;
 
       &:hover,&:focus {

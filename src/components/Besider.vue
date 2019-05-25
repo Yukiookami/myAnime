@@ -207,6 +207,10 @@
       margin-bottom: 10px;
       &:first-child {
         margin-bottom: 50px;
+
+        @media screen and (max-width: 1280px) {
+          margin-bottom: 25px;
+        }
       }
 
       .input-wrapper {
@@ -235,6 +239,10 @@
         overflow: hidden;
         transition: all .5s ease-in-out;
         margin-bottom: 50px;
+
+        @media screen and (max-width: 1280px) {
+          margin-bottom: 25px;
+        }
 
         &:hover {
           box-shadow: 0 0 50px #000;
