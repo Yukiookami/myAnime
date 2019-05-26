@@ -210,6 +210,7 @@
           border: 1px solid transparent;
           border-radius: 10px;
           box-shadow: 0 0 8px #000;
+
           @media screen and (max-width: 1280px) {
             display: flex;
             justify-content: center;
@@ -281,7 +282,9 @@
             .content {
               display: -webkit-box;
               -webkit-line-clamp: 10;
+              /*! autoprefixer: off */
               -webkit-box-orient: vertical;
+              /* autoprefixer: on */
               overflow: hidden;
             }
           }
