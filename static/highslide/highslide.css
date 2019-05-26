@@ -16,7 +16,7 @@
 }
 
 .highslide-image {
-  cursor: url(./static/highslide/graphics/zoomin.png), pointer;
+  cursor: url(./graphics/zoomin.png), pointer;
   outline: none;
 }
 
@@ -49,7 +49,7 @@
   border: 1px solid black;
   background-color: white;
   padding-left: 22px;
-  background-image: url(./static/highslide/graphics/loader.white.gif);
+  background-image: url(./graphics/loader.white.gif);
   background-repeat: no-repeat;
   background-position: 3px 1px;
 }
@@ -105,7 +105,7 @@ a.highslide-full-expand {
   border: 1px solid black;
   background-color: white;
   padding-left: 22px;
-  background-image: url(./static/highslide/graphics/loader.white.gif);
+  background-image: url(./graphics/loader.white.gif);
   background-repeat: no-repeat;
   background-position: 3px 1px;
 }
@@ -224,7 +224,7 @@ a.highslide-credits:hover, a.highslide-credits:hover i {
 }
 
 .highslide-image {
-  cursor: url(./static/highslide/graphics/zoomin.png), pointer;
+  cursor: url(./graphics/zoomin.png), pointer;
   outline: none;
 }
 
@@ -250,7 +250,7 @@ a.highslide-credits:hover, a.highslide-credits:hover i {
   text-decoration: none;
   border: 1px solid #000;
   background-color: #FFF;
-  background-image: url(./static/highslide/graphics/loader.white.gif);
+  background-image: url(./graphics/loader.white.gif);
   background-repeat: no-repeat;
   background-position: 3px 1px;
   padding: 2px 2px 2px 22px;
@@ -342,7 +342,7 @@ a.highslide-full-expand {
 .highslide-controls {
   width: 195px;
   height: 40px;
-  background: url(./static/highslide/graphics/controlbar-white.gif) 0 -90px no-repeat;
+  background: url(./graphics/controlbar-white.gif) 0 -90px no-repeat;
   margin: 20px 15px 10px 0;
 }
 
@@ -353,7 +353,7 @@ a.highslide-full-expand {
   list-style: none;
   margin: 0;
   padding: 0;
-  background: url(./static/highslide/graphics/controlbar-white.gif) right -90px no-repeat;
+  background: url(./graphics/controlbar-white.gif) right -90px no-repeat;
 }
 
 .highslide-controls li {
@@ -364,7 +364,7 @@ a.highslide-full-expand {
 }
 
 .highslide-controls a {
-  background-image: url(./static/highslide/graphics/controlbar-white.gif);
+  background-image: url(./graphics/controlbar-white.gif);
   display: block;
   float: left;
   height: 30px;
@@ -565,7 +565,7 @@ html>/**/body .highslide-gallery ul img {
 .highslide-thumbstrip-horizontal .highslide-scroll-up div {
   margin-bottom: 10px;
   cursor: pointer;
-  background: url(./static/highslide/graphics/scrollarrows.png) left center no-repeat;
+  background: url(./graphics/scrollarrows.png) left center no-repeat;
   height: 42px;
 }
 .highslide-thumbstrip-horizontal .highslide-scroll-down {
@@ -579,7 +579,7 @@ html>/**/body .highslide-gallery ul img {
 .highslide-thumbstrip-horizontal .highslide-scroll-down div {
   margin-bottom: 10px;
   cursor: pointer;
-  background: url(./static/highslide/graphics/scrollarrows.png) center right no-repeat;
+  background: url(./graphics/scrollarrows.png) center right no-repeat;
   height: 42px;
 }
 .highslide-thumbstrip-horizontal table {
@@ -625,7 +625,7 @@ html>/**/body .highslide-gallery ul img {
 .highslide-thumbstrip-vertical .highslide-scroll-up div {
   margin-left: 10px;
   cursor: pointer;
-  background: url(./static/highslide/graphics/scrollarrows.png) top center no-repeat;
+  background: url(./graphics/scrollarrows.png) top center no-repeat;
   height: 25px;
 }
 .highslide-thumbstrip-vertical .highslide-scroll-down {
@@ -639,7 +639,7 @@ html>/**/body .highslide-gallery ul img {
 .highslide-thumbstrip-vertical .highslide-scroll-down div {
   margin-left: 10px;
   cursor: pointer;
-  background: url(./static/highslide/graphics/scrollarrows.png) bottom center no-repeat;
+  background: url(./graphics/scrollarrows.png) bottom center no-repeat;
   height: 25px;
 }
 .highslide-thumbstrip-vertical table {
