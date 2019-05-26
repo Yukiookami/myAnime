@@ -394,7 +394,7 @@
             .el-button {
               flex-grow: 1;
               background: rgba(10, 10, 0, .7);
-              font-size: 2px;
+              font-size: 10px;
               color: #fff;
               border: none;
               transition: all .3s ease-in-out;

@@ -199,10 +199,6 @@
             font-weight: bold;
             background-color: rgba(10, 10, 0, .7);
 
-            @media screen and (max-width: 1280px) {
-              font-size: 6.5px;
-            }
-
             i {
               margin-right: .15em;
             }

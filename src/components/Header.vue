@@ -259,7 +259,7 @@ export default {
             box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
 
             @media screen and (max-width: 1280px) {
-              display: none;
+              display: none !important;
             }
 
               li {
