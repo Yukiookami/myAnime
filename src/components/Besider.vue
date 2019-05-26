@@ -87,7 +87,7 @@
   import {onElementHeightChange} from '@/helpers/util'
   import Avatar from '@/components/Avatar'
 
-  const DEFAULT_AVATAR = 'http://wx4.sinaimg.cn/large/0073bI3vly1g3euot0r2tj301i01i0sh.jpg'
+  const DEFAULT_AVATAR = 'https://i.bmp.ovh/imgs/2019/05/2660bf1d3c6530f7.jpg'
 
   export default {
     name: "Besider",
