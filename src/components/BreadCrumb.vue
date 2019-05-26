@@ -88,7 +88,7 @@
     }
 
     @media screen and (max-width: 1280px) {
-      font-size: 6px;
+      font-size: 10px;
       line-height: 1.2;
     }
 

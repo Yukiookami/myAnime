@@ -1,9 +1,12 @@
 <template>
-  <div class="Header">
-    <router-link tag="div" to="/" class="logo">
-      <h2>MyAnime</h2>
-      <p>By dantecsm</p>
-    </router-link>
+  <div class="Header" :class="{unfold: !isFold}">
+    <div class="topNav">
+      <router-link tag="div" to="/" class="logo">
+        <h2>MyAnime</h2>
+        <p>By dantecsm</p>
+      </router-link>
+      <div class="nav-trigger" @click="isFold = !isFold"><i class="el-icon-s-unfold"></i></div>
+    </div>
     <div class="nav-wrapper">
       <ul class="nav">
         <router-link to="/" tag='li'><i class="el-icon-document">首页</i></router-link>
@@ -63,7 +66,7 @@
             </ul>
           </div>
         </li>
-        <li @click="navi('')"><i class="el-icon-s-promotion">动漫导航</i></li>
+        <li @click="redirectTo('')"><i class="el-icon-s-promotion">动漫导航</i></li>
         <router-link tag='li' to="/guide"><i class="el-icon-document">新人导读</i></router-link>
         <router-link tag='li' to="/unzip"><i class="el-icon-document">解压必读</i></router-link>
         <router-link tag='li' to="/message"><i class="el-icon-chat-line-square">留言板</i></router-link>
@@ -75,8 +78,13 @@
 <script>
 export default {
   name: 'Header',
+  data() {
+    return {
+      isFold: true
+    }
+  },
   methods: {
-    navi(url) {
+    redirectTo(url) {
     	if(url) {
     		window.open(url)
     	}
@@ -96,7 +104,40 @@ export default {
     user-select: none;
 
     @media screen and (max-width: 1280px) {
+      position: relative;
       width: 100vw;
+      height: 56px;
+      justify-content: center;
+      transition: all .3s ease-in-out;
+
+      &.unfold {
+        height: 380px;
+
+        .nav-wrapper {
+          opacity: 1;
+        }
+      }
+
+      &::before {
+        content: '';
+        width: 100vw;
+        position: absolute;
+        height: 1px;
+        background-color: #101010;
+        top: 56px;
+        transition: all .3s ease-in-out;
+        transform: translateX(-100%);
+      }
+
+      &.unfold::before {
+        transform: none;
+      }
+
+      .topNav {
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+      }
     }
 
     .logo {
@@ -104,7 +145,12 @@ export default {
       padding: 0 15px;
       align-self: center;
       text-align: center;
-      cursor: url("../assets/cursor/mouse2.png"), url("../assets/cursor/mouse2.png"), auto;;
+      cursor: url("../assets/cursor/mouse2.png"), url("../assets/cursor/mouse2.png"), auto;
+
+      @media screen and (max-width: 1280px) {
+        align-self: unset;
+      }
+
       h2 {
         font-weight: 100;
         text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #fff, 0 0 4px #228DFF, 0 0 5px #228DFF, 0 0 6px #228DFF, 0 0 7px #228DFF;
@@ -113,14 +159,44 @@ export default {
         font-size: 12px;
       }
     }
+
+    .nav-trigger {
+      display: none;
+
+      @media screen and (max-width: 1280px) {
+        display: block;
+        position: absolute;
+        padding: 18px 0;
+        right: 1em;
+        font-size: 20px;
+      }
+    }
+
     .nav-wrapper {
       flex: 1;
       padding-left: 20px;
       font-size: 14px;
+
+      @media screen and (max-width: 1280px) {
+        transition: all .2s ease-in-out;
+        opacity: 0;
+        position: absolute;
+        overflow: auto;
+        padding-left: 0;
+        width: 100vw;
+        height: 50vh;
+        top: 4em;
+        left: 0;
+      }
+
       .nav {
         display: flex;
         height: 100%;
         align-items: center;
+
+        @media screen and (max-width: 1280px) {
+          flex-direction: column;
+        }
         >li {
           min-height: 54px;
         }
@@ -130,7 +206,12 @@ export default {
           align-items: center;
           padding: 0 1.2em;
           transition: all .2s ease-in-out;
-          cursor: url("../assets/cursor/mouse2.png"), url("../assets/cursor/mouse2.png"), auto;;
+          cursor: url("../assets/cursor/mouse2.png"), url("../assets/cursor/mouse2.png"), auto;
+
+          @media screen and (max-width: 1280px) {
+            width: 100%;
+          }
+
           &:hover {
             background-color: @headerHoverColor;
           }
@@ -144,7 +225,7 @@ export default {
         .hasChildren {
           position: relative;
           z-index: 100;
-          cursor: url("../assets/cursor/mouse2.png"), url("../assets/cursor/mouse2.png"), auto;;
+          cursor: url("../assets/cursor/mouse2.png"), url("../assets/cursor/mouse2.png"), auto;
           display: flex;
           align-items: center;
           min-height: 54px;
@@ -177,7 +258,11 @@ export default {
             border: 1px solid rgba(0, 0, 0, .15);
             box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
 
-            li {
+            @media screen and (max-width: 1280px) {
+              display: none;
+            }
+
+              li {
               padding: 10px 20px;
               color: #333;
               white-space: nowrap;
@@ -193,10 +278,6 @@ export default {
             left: 100%;
           }
         }
-      }
-
-      @media screen and (max-width: 1280px) {
-        display: none;
       }
     }
   }

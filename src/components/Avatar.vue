@@ -12,7 +12,7 @@
 <script>
   import auth from '@/api/auth.js'
 
-  const DEFAULT_AVATAR = 'https://i.loli.net/2019/05/25/5ce853819026d92257.jpg'
+  const DEFAULT_AVATAR = 'http://wx4.sinaimg.cn/large/0073bI3vly1g3euot0r2tj301i01i0sh.jpg'
 
   export default {
     name: "Avatar",

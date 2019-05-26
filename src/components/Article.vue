@@ -20,7 +20,7 @@
             <template v-for="screenshot in screenshots">
               <!-- min-height 占位，+ 2 防高度变动 -->
               <a :style="{'min-height': `${deviceWidth < 1280? '50vw': ((screenshot.height || 366 + 2) + 'px')}`}" :href="screenshot.src" class="highslide"
-                 onclick="return hs.expand(this, hs.galleryOptions)">
+                 onclick="return window.innerWidth < 1280? false: hs.expand(this, hs.galleryOptions)" @click.prevent>
                 <img :src="screenshot.src" width="650" :height="`${screenshot.height || 364}px`">
               </a><br>
             </template>
@@ -63,9 +63,6 @@
 <script>
   import article from '@/api/article'
   import specialArticle from '@/assets/specialArticle'
-  import hs from '@/assets/highslide/highslide.js'
-
-  window.hs = hs
 
   export default {
     name: "Article",
@@ -121,7 +118,6 @@
       }
     },
     created() {
-      window.hs.graphicsDir = '/static/graphics/'
       this.deviceWidth = window.innerWidth
     },
     methods: {
@@ -157,7 +153,7 @@
           this.screenshots = post.screenshots
           this.intro = post.intro
           this.staff = post.staff
-          this.shareLink = post.shareLink
+          this.shareLink = post.href
           this.appends = this.process(post.appends || [])
           this.md5 = post.md5
           this.rawContent = post.rawContent
@@ -481,7 +477,7 @@
     .blogTags-wrapper {
       .tag {
         opacity: .7;
-        cursor: url("../assets/cursor/mouse2.png"), url("../assets/cursor/mouse2.png"), auto;;
+        cursor: url("../assets/cursor/mouse2.png"), url("../assets/cursor/mouse2.png"), auto;
         color: #fff;
         font-size: 14px;
         padding: 2px 6px;

@@ -2677,8 +2677,4 @@ hs.addSlideshow({
   // }
 });
 
-hs.show = function(el) {
-  hs.expand(el, hs.galleryOptions)
-}
-
-export default hs
+window.hs = hs

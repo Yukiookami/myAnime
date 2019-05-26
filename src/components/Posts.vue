@@ -13,6 +13,7 @@
           <div class="title-wrapper">
             <router-link :to="`/detail/${post.id}`"><h1 class="title">{{post.title}}</h1></router-link>
           </div>
+          <div class="date">{{post.createdAt.getMonth()+1}}月<b>{{post.createdAt.getDate()}}</b></div>
           <ul class="tags">
             <li class="tag" v-if="post.tags && post.tags.length"><i class="el-icon-collection-tag"></i>{{post.tags.toString()}}</li>
             <li class="tag"><i class="el-icon-view"></i>{{post.views}}</li>
@@ -26,7 +27,6 @@
               </figcaption>
             </router-link>
           </div>
-          <div class="date">{{post.createdAt.getMonth()+1}}月<b>{{post.createdAt.getDate()}}</b></div>
         </div>
       </li>
     </template>
@@ -217,7 +217,9 @@
           @media screen and (max-width: 1280px) {
             display: flex;
             justify-content: center;
+            align-items: center;
             padding: 5vw;
+            max-height: 130vw;
           }
 
           &:hover {
@@ -234,13 +236,17 @@
 
           @media screen and (max-width: 1280px) {
             width: 75vw;
-            height: 50vw;
+            height: 120vw;
           }
 
           img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+
+            @media screen and (max-width: 1280px) {
+              height: 50%;
+            }
           }
 
           figcaption {
@@ -261,7 +267,19 @@
             transform: scale(4);
 
             @media screen and (max-width: 1280px) {
-              display: none;
+              position: relative;
+              opacity: 1;
+              transform: scale(1);
+              background-color: rgba(217, 237, 247, .8);
+              color: #3a87ad;
+              font-size: 10px;
+              font-style: normal;
+              max-height: 45vw;
+              margin-top: 5vw;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              border-radius: 4px;
             }
 
             .content {
@@ -299,11 +317,21 @@
           font-size: 13px;
 
           @media screen and (max-width: 1280px) {
-            width: 35px;
-            height: 35px;
-            left: -10px;
-            top: -10px;
-            font-size: 6.5px;
+            position: relative;
+            display: block;
+            color: rgba(10, 10, 0, 0.7);
+            background-color: transparent;
+            font-size: 12px;
+            border-radius: 0;
+            margin: 10px auto;
+            height: unset;
+            left: unset;
+            top: unset;
+
+            &::after {
+              content: '日';
+              position: absolute;
+            }
           }
 
           b {
@@ -311,7 +339,9 @@
             font-size: 30px;
 
             @media screen and (max-width: 1280px) {
-              font-size: 15px;
+              display: unset;
+              font-size: unset;
+              font-weight: unset;
             }
           }
         }

@@ -11,8 +11,6 @@ export default {
         var randArr = generateRandArr(count, 6)
         var urlArr = await fetchRandomRecord(randArr)
 
-        console.log(urlArr)
-
         resolve(urlArr)
       } catch(e) {
         Message.error('背景图似乎出了点问题')
