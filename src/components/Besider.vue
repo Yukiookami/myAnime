@@ -57,7 +57,7 @@
         </div>
       </div>
     </aside>
-    <aside class="articleList-wrapper" data-aos="fade-up" data-aos-mirror="true" data-aos-duration="1000">
+    <aside class="articleList-wrapper" data-aos="fade-up" data-aos-mirror="true" data-aos-duration="1000" data-aos-delay="300">
       <div class="floatPanel articleList" :class="{fold: this.isFoldArticleList, close: this.isCloseArticleList}">
         <div class="panelHeading">
           <i class="el-icon-menu"></i>

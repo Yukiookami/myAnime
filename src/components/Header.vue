@@ -10,7 +10,7 @@
     <div class="nav-wrapper">
       <ul class="nav">
         <router-link to="/" tag='li'><i class="el-icon-document">首页</i></router-link>
-        <li class='willExpend'>
+        <li class='willExpend minvisible'>
           <div class="hasChildren deep1">
             <i class="el-icon-star-on">动漫目录</i>
             <ul class="subMenu deep1">
@@ -66,7 +66,7 @@
             </ul>
           </div>
         </li>
-        <li @click="redirectTo('')"><i class="el-icon-s-promotion">动漫导航</i></li>
+        <li @click="redirectTo('')" class="minvisible"><i class="el-icon-s-promotion">动漫导航</i></li>
         <router-link tag='li' to="/guide"><i class="el-icon-document">新人导读</i></router-link>
         <router-link tag='li' to="/unzip"><i class="el-icon-document">解压必读</i></router-link>
         <router-link tag='li' to="/message"><i class="el-icon-chat-line-square">留言板</i></router-link>
@@ -112,7 +112,7 @@ export default {
       transition: all .3s ease-in-out;
 
       &.unfold {
-        height: 380px;
+        height: 272px;
 
         .nav-wrapper {
           opacity: 1;
@@ -212,6 +212,10 @@ export default {
 
           @media screen and (max-width: 1280px) {
             width: 100%;
+
+            &.minvisible {
+              display: none;
+            }
           }
 
           &:hover {
