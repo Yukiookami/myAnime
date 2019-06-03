@@ -31,32 +31,39 @@ export default {
   data() {
     return {
       imageArr: [p1, p2, p3, p4, p5, p6, p7],
-      imageNextArr: []
+      imageNextArr: [],
+      deviceWidth: 1366
     }
   },
+  computed: {
+  	isMobile() {
+  		return this.deviceWidth < 1280
+  	}
+  },
   created() {
-    randomDb.fetchRandomSlides().then(res => {
-      let urlArr = res.results.map(r => r.get('url'))
+  	this.deviceWidth = window.innerWidth
+    // randomDb.fetchRandomSlides().then(res => {
+    //   let urlArr = res.results.map(r => r.get('url'))
 
-      this.imageNextArr = urlArr || []
+    //   this.imageNextArr = urlArr || []
 
-      let idx = -1
+    //   let idx = -1
 
-      let timer = setInterval(() => {
-        if(this.imageNextArr.length === 0) {
-          setTimeout(() => {
-            this.imageArr.pop()
-          }, 6000)
-          clearInterval(timer)
-        }
+    //   let timer = setInterval(() => {
+    //     if(this.imageNextArr.length === 0) {
+    //       setTimeout(() => {
+    //         this.imageArr.pop()
+    //       }, 6000)
+    //       clearInterval(timer)
+    //     }
 
-        if(idx >= 0) {
-          this.imageArr[idx] = this.imageNextArr.splice(0, 1)[0] || this.imageArr[idx]
-        }
+    //     if(idx >= 0) {
+    //       this.imageArr[idx] = this.imageNextArr.splice(0, 1)[0] || this.imageArr[idx]
+    //     }
 
-        idx += 1
-      }, 6000)
-    })
+    //     idx += 1
+    //   }, 6000)
+    // })
   }
 }
 </script>
